@@ -27,7 +27,6 @@ app.add_middleware(
 class PredictionInput(BaseModel):
     is_new: bool
     is_house: bool
-    price: float
     orientation: str
     house_m2: int
     land_m2: int
@@ -37,35 +36,33 @@ class PredictionInput(BaseModel):
     nearest_station_minutes: int
     building_ratio: str
     floor_ratio: str
-    area: str
-    area_plan: str
     land_shape: str
-    next_usage: str
     date: int
     road: int
 
+
 class Land(BaseModel):
-    total: int
-    base: int
-    orientation: int
-    shape: int
-    station: int
-    road: int
+    total: float = 0
+    base: float = 0
+    location: float = 0
+
 
 class Building(BaseModel):
-    total: int
-    base: int
-    type: int
-    age: int
+    total: float = 0
+    base: float = 0
+    age: float = 0
+
 
 class PredictionOutput(BaseModel):
-    total: int;
-    land: Land;
-    building: Building;
+    total: float = 0
+    land: Land
+    building: Building
+
 
 @app.get("/")
 async def root():
     return {"message": "All good."}
+
 
 @app.post("/predict")
 async def predict(input_data: PredictionInput):
@@ -74,8 +71,50 @@ async def predict(input_data: PredictionInput):
     xx = x.merge(coef_, on='coef')
     xx['m'] = xx['value_x'] * xx['value_y']
     xx = xx[xx['m'] != 0]
-    return xx.to_dict(orient='records')
+    print(xx)
+    land = Land()
+    building = Building()
+    data = xx.to_dict(orient='records')
+    for item in data:
+        key = item['coef']
+        value = item['m']
+        if (key == 'is_house'):
+            building.base += value
+        elif (key == 'is_new'):
+            building.base += value
+        elif ('date:house_m2' in key):
+            building.base += value
+        elif (('building_type' in key) and ('age' in key)):
+            building.age += value
+        elif ('building_type' in key):
+            building.base += value
 
+        elif ('date:land_m2' in key):
+            land.base += value
+        elif ('nearest_station_name' in key):
+            land.location += value
+        elif ('nearest_station_minutes' in key):
+            land.location += value
+        elif ('road' in key):
+            land.base += value
+        elif ('building_ratio' in key):
+            land.base += value
+        elif ('floor_ratio' in key):
+            land.base += value
+        elif ('orientation' in key):
+            land.base += value
+        elif ('land_shape' in key):
+            land.base += value
+        land.total = land.base + land.location
+        building.total = building.base + building.age
+
+    res = PredictionOutput(
+        total = land.total + building.total,
+        land=land,
+        building=building
+    )
+    print(res)
+    return res
 
 if __name__ == "__main__":
     import uvicorn

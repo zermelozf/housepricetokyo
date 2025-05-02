@@ -1,14 +1,27 @@
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 import pandas as pd
 from pydantic import BaseModel
 
 from utils import PropertyDataTransformer
 import joblib
 
-app = FastAPI(title="Tokyo Housing Price Prediction API")
-
 coef_ = pd.read_csv('coef_.csv')
 pt = joblib.load('proptrans.pkl')
+
+
+origins = [
+    "http://localhost",
+    "http://localhost:8080",
+]
+app = FastAPI(title="Tokyo Housing Price Prediction API")
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 
 class PredictionInput(BaseModel):

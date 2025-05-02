@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+import pandas as pd
 from pydantic import BaseModel
 
 from utils import PropertyDataTransformer
@@ -6,7 +7,7 @@ import joblib
 
 app = FastAPI(title="Tokyo Housing Price Prediction API")
 
-model = joblib.load('model.pkl')
+coef_ = pd.read_csv('coef_.csv')
 pt = joblib.load('proptrans.pkl')
 
 
@@ -30,19 +31,38 @@ class PredictionInput(BaseModel):
     date: int
     road: int
 
+class Land(BaseModel):
+    total: int
+    base: int
+    orientation: int
+    shape: int
+    station: int
+    road: int
+
+class Building(BaseModel):
+    total: int
+    base: int
+    type: int
+    age: int
+
 class PredictionOutput(BaseModel):
-    prediction: float
+    total: int;
+    land: Land;
+    building: Building;
 
 @app.get("/")
 async def root():
     return {"message": "All good."}
 
-@app.post("/predict", response_model=PredictionOutput)
+@app.post("/predict")
 async def predict(input_data: PredictionInput):
-    print(input_data)
-    features = pt.model_spec.get_model_matrix(input_data.dict())
-    prediction = model.predict(features)[0]
-    return {"prediction": float(prediction)}
+    x = pt.model_spec.get_model_matrix(input_data.dict()).T.reset_index()
+    x.columns = ['coef', 'value']
+    xx = x.merge(coef_, on='coef')
+    xx['m'] = xx['value_x'] * xx['value_y']
+    xx = xx[xx['m'] != 0]
+    return xx.to_dict(orient='records')
+
 
 if __name__ == "__main__":
     import uvicorn

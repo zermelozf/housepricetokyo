@@ -6,7 +6,7 @@ RUN pip install --no-cache-dir -r  requirements.txt
 
 RUN mkdir /app
 COPY proptrans.pkl /app
-COPY model.pkl /app
+COPY coef_.csv /app
 COPY api.py /app
 COPY utils.py /app
 WORKDIR /app

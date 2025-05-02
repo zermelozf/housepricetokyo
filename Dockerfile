@@ -1,13 +1,15 @@
 FROM python:3.11.3
-ENV PYTHONUNBUFFERED True
 
 RUN pip install --upgrade pip
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r  requirements.txt
 
-ENV APP_HOME /root
-WORKDIR $APP_HOME
-COPY /app $APP_HOME/app
+RUN mkdir /app
+COPY proptrans.pkl /app
+COPY model.pkl /app
+COPY api.py /app
+COPY utils.py /app
+WORKDIR /app
 
 EXPOSE 8080
-CMD ["uvicorn", "api.main:app", "--host", "0.0.0.0", "--port", "8080"]
+CMD ["uvicorn", "api:app", "--host", "0.0.0.0", "--port", "8080"]

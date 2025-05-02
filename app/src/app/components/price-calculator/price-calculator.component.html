@@ -1,0 +1,197 @@
+<div class="calculator-container">
+  <div class="intro-text">
+    <h1>Tokyo House Price Calculator</h1>
+    <p class="description">
+      Just afree time project using data from the
+      <a href="https://www.reinfolib.mlit.go.jp/realEstatePrices/" target="_blank" rel="noopener noreferrer">Ministry of
+        Land, Infrastructure, Transport and Tourism</a>.
+    </p>
+
+    <p class="ml-note" style="font-size: 0.8em; font-style: italic; color: #666;">
+      No LLMs were harmed during this project ☮️ - just good old-fashioned ML... Learn more <a class="genesis-link" (click)="openModal('Writing in progress, give me some time.')">here</a>.
+    </p>
+  </div>
+
+  <div class="property-form">
+    <form [formGroup]="propertyForm">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="propertyType">Property Type</label>
+          <select id="propertyType" formControlName="propertyType">
+            <option *ngFor="let type of propertyTypes" [value]="type">{{type}}</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="ward">Ward</label>
+          <select id="ward" formControlName="ward">
+            <option *ngFor="let ward of wards" [value]="ward">{{ward}}</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="city">Nearest Station</label>
+          <select id="city" formControlName="city">
+            <option *ngFor="let city of cities" [value]="city">{{city}}</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="landArea">Land Area (m²)</label>
+          <input type="number" id="landArea" formControlName="landArea">
+        </div>
+
+        <div class="form-group">
+          <label for="buildingArea">Building Area (m²)</label>
+          <input type="number" id="buildingArea" formControlName="buildingArea">
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="yearBuilt">Year Built</label>
+          <input type="number" id="yearBuilt" formControlName="yearBuilt">
+        </div>
+
+        <div class="form-group">
+          <label for="buildingType">Building Type</label>
+          <select id="buildingType" formControlName="buildingType">
+            <option *ngFor="let type of buildingTypes" [value]="type">{{type}}</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="nearest">Distance to Station (mn)</label>
+          <input type="number" id="nearest" formControlName="nearest">
+        </div>
+
+        <div class="form-group">
+          <label for="houseRatio">Building to Land Ratio (%)</label>
+          <select id="houseRatio" formControlName="houseRatio">
+            <option *ngFor="let ratio of buildingRatios" [value]="ratio">{{ratio}}%</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="landRatio">Floor to Land Ratio (%)</label>
+          <select id="landRatio" formControlName="landRatio">
+            <option *ngFor="let ratio of floorRatios" [value]="ratio">{{ratio}}%</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="road">Road Width (m)</label>
+          <input type="number" id="road" formControlName="road">
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="orientation">Orientation</label>
+          <select id="orientation" formControlName="orientation">
+            <option *ngFor="let orientation of orientations" [value]="orientation">{{orientation}}</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="shape">Land Shape</label>
+          <select id="shape" formControlName="shape">
+            <option *ngFor="let shape of shapes" [value]="shape">{{shape}}</option>
+          </select>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div class="results-container">
+    <h2>Price Breakdown</h2>
+
+    <div class="price-summary">
+      <div class="price-item total">
+        <span>Total Price</span>
+        <span>{{ formatCurrency(priceBreakdown?.total || 0) }}</span>
+      </div>
+    </div>
+
+    <div class="waterfall-chart">
+      <div class="waterfall-section land">
+        <h3>Land Price Breakdown</h3>
+        <div class="waterfall-bars">
+          <div class="waterfall-bar base">
+            <div class="bar-label">Base Price</div>
+            <div class="bar-container">
+              <div class="bar positive"
+                [style.width.%]="getPercentage(priceBreakdown?.land?.base || 0, priceBreakdown?.total || 1)">
+              </div>
+              <div class="bar-value">{{ formatCurrency(priceBreakdown?.land?.base || 0) }}</div>
+            </div>
+          </div>
+          <div class="waterfall-bar location">
+            <div class="bar-label">Location</div>
+            <div class="bar-container">
+              <div class="bar" [class]="getBarClass(priceBreakdown?.land?.location || 0)"
+                [style.width.%]="getBarWidth(priceBreakdown?.land?.location || 0, priceBreakdown?.total || 1)">
+              </div>
+              <div class="bar-value">{{ formatCurrency(priceBreakdown?.land?.location || 0) }}</div>
+            </div>
+          </div>
+          <div class="waterfall-bar total">
+            <div class="bar-label">Land Total</div>
+            <div class="bar-container">
+              <div class="bar total"
+                [style.width.%]="getPercentage(priceBreakdown?.land?.total || 0, priceBreakdown?.total || 1)">
+              </div>
+              <div class="bar-value">{{ formatCurrency(priceBreakdown?.land?.total || 0) }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="waterfall-section building" *ngIf="propertyForm.get('propertyType')?.value === 'House & Land'">
+        <h3>Building Price Breakdown</h3>
+        <div class="waterfall-bars">
+          <div class="waterfall-bar base">
+            <div class="bar-label">Base Price</div>
+            <div class="bar-container">
+              <div class="bar positive"
+                [style.width.%]="getPercentage(priceBreakdown?.building?.base || 0, priceBreakdown?.total || 1)">
+              </div>
+              <div class="bar-value">{{ formatCurrency(priceBreakdown?.building?.base || 0) }}</div>
+            </div>
+          </div>
+          <div class="waterfall-bar age">
+            <div class="bar-label">Depreciation</div>
+            <div class="bar-container">
+              <div class="bar" [class]="getBarClass(priceBreakdown?.building?.age || 0)"
+                [style.width.%]="getBarWidth(priceBreakdown?.building?.age || 0, priceBreakdown?.total || 1)">
+              </div>
+              <div class="bar-value">{{ formatCurrency(priceBreakdown?.building?.age || 0) }}</div>
+            </div>
+          </div>
+          <div class="waterfall-bar total">
+            <div class="bar-label">Building Total</div>
+            <div class="bar-container">
+              <div class="bar total"
+                [style.width.%]="getPercentage(priceBreakdown?.building?.total || 0, priceBreakdown?.total || 1)">
+              </div>
+              <div class="bar-value">{{ formatCurrency(priceBreakdown?.building?.total || 0) }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <span class="cursor-note" style="font-size: 0.8em; font-style: italic; color: #666;">
+      Actually, it's a lie, this UI was vibe-coded with <a href="https://cursor.sh">Cursor</a>... Learn more <a class="genesis-link" (click)="openModal('Writing in progress, give me some time.')">here</a>.
+    </span>
+  </div>
+</div>

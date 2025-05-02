@@ -19,12 +19,14 @@
 
 .genesis-link {
   cursor: pointer;
-  text-decoration: underline;
-  color: #666;
+  text-decoration: none;
+  color: #1a73e8;
+  border-bottom: 1px solid #1a73e8;
 }
 
 .genesis-link:hover {
-  color: #333;
+  color: #1557b0;
+  border-bottom-color: #1557b0;
 }
 
 .calculator-container {
@@ -55,14 +57,14 @@
 }
 
 .description a {
-  color: #666;
+  color: #1a73e8;
   text-decoration: none;
-  border-bottom: 1px solid #666;
+  border-bottom: 1px solid #1a73e8;
 }
 
 .description a:hover {
-  color: #333;
-  border-bottom-color: #333;
+  color: #1557b0;
+  border-bottom-color: #1557b0;
 }
 
 .property-form {

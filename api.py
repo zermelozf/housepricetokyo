@@ -13,7 +13,7 @@ pt = joblib.load('proptrans.pkl')
 origins = [
     "http://localhost",
     "http://localhost:4200",
-    "https://linalgo-infra.web.app"
+    "https://tokyohouseprice.web.app"
 ]
 app = FastAPI(title="Tokyo Housing Price Prediction API")
 app.add_middleware(

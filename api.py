@@ -12,7 +12,7 @@ pt = joblib.load('proptrans.pkl')
 
 origins = [
     "http://localhost",
-    "http://localhost:8080",
+    "http://localhost:4200",
 ]
 app = FastAPI(title="Tokyo Housing Price Prediction API")
 app.add_middleware(

@@ -7,17 +7,36 @@ from sklearn.base import BaseEstimator, TransformerMixin
 def load_data():
     kita = pd.read_csv('data/kita2.csv')
     ita = pd.read_csv('data/ita2.csv')
-    hachi = pd.read_csv('data/hachi2.csv')
+    # hachi = pd.read_csv('data/hachi2.csv')
     meguro = pd.read_csv('data/meguro2.csv')
     arakawa = pd.read_csv('data/ara2.csv')
-    minato = pd.read_csv('data/minato.csv')
+    minato = pd.read_csv('data/minato2.csv')
     shibuya = pd.read_csv('data/shibu2.csv')
     shinjuku = pd.read_csv('data/shin2.csv')
     bunkyo = pd.read_csv('data/bun2.csv')
     shinagawa = pd.read_csv('data/shina2.csv')
     nakano = pd.read_csv('data/naka2.csv')
     nerima = pd.read_csv('data/neri2.csv')
-    df = pd.concat([nerima, kita, ita, hachi, meguro, shibuya, arakawa, minato, shinjuku, bunkyo, shinagawa, nakano]).reset_index()
+    suginami = pd.read_csv('data/sugi2.csv')
+    setagaya = pd.read_csv('data/seta2.csv')
+    mitaka = pd.read_csv('data/mitaka2.csv')
+    toshima = pd.read_csv('data/toshima2.csv')
+    chiyoda = pd.read_csv('data/chiyoda2.csv')
+    koto = pd.read_csv('data/koto2.csv')
+    sumida = pd.read_csv('data/sumida2.csv')
+    adachi = pd.read_csv('data/adachi2.csv')
+    taito = pd.read_csv('data/taito2.csv')
+    chuo = pd.read_csv('data/chuo2.csv')
+    edogawa = pd.read_csv('data/edogawa2.csv')
+    katsushika = pd.read_csv('data/katsushika2.csv')
+    ota = pd.read_csv('data/ota2.csv')
+    df = pd.concat([
+        nerima, kita, ita, meguro, shibuya,
+        arakawa, minato, shinjuku, bunkyo, shinagawa,
+        nakano, suginami, setagaya, mitaka, toshima,
+        chiyoda, koto, sumida, adachi, taito, chuo,
+        edogawa, katsushika, ota
+    ]).reset_index()
     df['is_house'] = True
     df.loc[df['延床面積（㎡）'].isnull(), 'is_house'] = False
     df.loc[~df['is_house'], '延床面積（㎡）'] = 0
@@ -37,14 +56,15 @@ def load_data():
     data = data[data['延床面積（㎡）'] != '2,000㎡以上']
     data = data[data['面積（㎡）'] != '2,000㎡以上']
     data = data[~data['最寄駅：距離（分）'].isin(['30分～60分', '1H～1H30', '1H30～2H', '2H～'])]
-    data = data[data['延床面積（㎡）'].astype(int) < 200]
-    data = data[data['面積（㎡）'].astype(int) < 200]
-    data = data[data['建ぺい率（％）'].isin([60.0, 70.0, 80.0])]
-    data = data[data['容積率（％）'].isin([150.0, 200.0, 300.0])]
-    data = data[data['建物の構造'].isin(['木造', '軽量鉄骨造', '鉄骨造', 'NA'])]
-    data = data[data['取引価格（総額）'] < 200000000]
-    data = data[data['今後の利用目的'] == '住宅']
     data = data[~data['間口'].isin(['50.0m以上'])]
+    # data = data[data['延床面積（㎡）'].astype(int) < 200]
+    # data = data[data['面積（㎡）'].astype(int) < 200]
+    # data = data[data['建ぺい率（％）'].isin([60.0, 70.0, 80.0])]
+    # data = data[data['容積率（％）'].isin([150.0, 200.0, 300.0])]
+    # data = data[data['建物の構造'].isin(['木造', '軽量鉄骨造', '鉄骨造', 'NA'])]
+    # data = data[data['取引価格（総額）'] < 200000000]
+    # data = data[data['今後の利用目的'] == '住宅']
+    # data = data[~data['間口'].isin(['50.0m以上'])]
 
     data['date'] = data['取引時期'].map(lambda x: int(x[:4]))
     data['age'] = data['建築年'].map(lambda x: int(x[:-1]))
@@ -55,7 +75,7 @@ def load_data():
     data['building_ratio'] = data['建ぺい率（％）'].astype(str)
     data['floor_ratio'] = data['容積率（％）'].astype(str)
     data['area_plan'] = data['都市計画']
-    data['area'] = data['地区名']
+    data['area_name'] = data['地区名']
     data['land_m2'] = data['面積（㎡）'].astype(int)
     data['house_m2'] = data['延床面積（㎡）'].astype(int)
     data['building_type'] = data['建物の構造']

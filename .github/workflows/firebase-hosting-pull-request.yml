@@ -9,14 +9,12 @@ permissions:
   pull-requests: write
 jobs:
   build_and_preview:
-    defaults:
-      run:
-        working-directory: app
     if: ${{ github.event.pull_request.head.repo.full_name == github.repository }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - run: npm run build
+        working-directory: app
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: ${{ secrets.GITHUB_TOKEN }}

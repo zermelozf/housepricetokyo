@@ -7,6 +7,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { DialogComponent } from '../dialog/dialog.component';
+import { AnalyticsService } from '../../services/analytics.service';
 
 interface PriceResponse {
   total: number;
@@ -53,7 +54,8 @@ export class PriceCalculatorComponent implements OnInit {
     private fb: FormBuilder,
     private priceCalculatorService: PriceCalculatorService,
     private areaService: AreaService,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private analyticsService: AnalyticsService
   ) {
     this.propertyForm = this.fb.group({
       propertyType: ['House & Land', Validators.required],
@@ -73,6 +75,7 @@ export class PriceCalculatorComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.analyticsService.logPageView('price_calculator');
     // Initialize wards
     this.wards = this.areaService.getWards();
 
@@ -132,6 +135,13 @@ export class PriceCalculatorComponent implements OnInit {
       next: (response) => {
         this.priceBreakdown = response;
         this.isLoading = false;
+        if (this.priceBreakdown) {
+          this.analyticsService.logPriceCalculation(
+            this.propertyForm.get('propertyType')?.value,
+            this.propertyForm.get('ward')?.value,
+            this.priceBreakdown.total
+          );
+        }
       },
       error: (error) => {
         console.error('Error calculating price:', error);

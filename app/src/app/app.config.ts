@@ -8,6 +8,7 @@ import { getAnalytics, provideAnalytics, ScreenTrackingService } from '@angular/
 
 import { routes } from './app.routes';
 import { environment } from '../environments/environment';
+import { AnalyticsService } from './services/analytics.service';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -17,5 +18,6 @@ export const appConfig: ApplicationConfig = {
     provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
     provideAnalytics(() => getAnalytics()),
     ScreenTrackingService,
+    AnalyticsService
   ]
 };

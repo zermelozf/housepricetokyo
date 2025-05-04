@@ -1,15 +1,12 @@
 <div class="calculator-container">
   <div class="intro-text">
+    <img src="logo.svg" alt="Tokyo House Price Calculator Logo" class="logo">
     <h1>Tokyo House Price Calculator</h1>
     <p class="description">
-      Just afree time project using data from the
-      <a href="https://www.reinfolib.mlit.go.jp/realEstatePrices/" target="_blank" rel="noopener noreferrer">Ministry of
+      Price estimates are base on data from the
+      <a href="https://www.reinfolib.mlit.go.jp/realEstatePrices/" class="genesis-link" target="_blank"
+        rel="noopener noreferrer">Ministry of
         Land, Infrastructure, Transport and Tourism</a>.
-    </p>
-
-    <p class="ml-note" style="font-size: 0.8em; font-style: italic; color: #666;">
-      No LLMs were harmed during this project ☮️ - just good old-fashioned ML... Learn more <a class="genesis-link"
-        (click)="openModal('Writing in progress, give me some time.')">here</a>.
     </p>
   </div>
 
@@ -113,7 +110,6 @@
   </div>
 
   <div class="results-container">
-    <h2>Price Breakdown</h2>
 
     <div class="price-summary">
       <div class="price-item total">
@@ -191,9 +187,29 @@
     </div>
   </div>
   <div class="footer">
-    <p class="ml-note" style="font-size: 0.8em; font-style: italic; color: #666;">
-      Actually, it's a lie, this UI was vibe-coded with <a class="genesis-link" href="https://cursor.sh">Cursor</a>... Learn more <a
-        class="genesis-link" (click)="openModal('Writing in progress, give me some time.')">here</a>.
-    </p>
+    <div class="footer-content">
+      <div class="footer-text">
+        <p class="ml-note">
+          <span class="emoji">👋</span> Hey there! I hope you're finding this calculator useful!
+          <span class="emoji">🏠</span> Just a quick heads-up: these estimates are for fun and shouldn't be taken too seriously.
+          Check out the details of how they are calculated <a class="genesis-link" (click)="openModal('Writing in progress, give me some time.')">here</a>.
+        </p>
+      </div>
+      <p class="ml-note">
+        <span class="emoji">💡</span> Got suggestions? Want to chat about Data Science, Japan, or anything else?
+        I'm all ears! Feel free to reach using the link below. <span class="emoji">📬</span>
+      </p>
+      <div class="footer-links">
+        <a href="https://www.linkedin.com/in/arachez" target="_blank" rel="noopener noreferrer" class="social-link">
+          <i class="fab fa-linkedin"></i> LinkedIn
+        </a>
+        <a href="https://twitter.com/zermelozf" target="_blank" rel="noopener noreferrer" class="social-link">
+          <i class="fab fa-twitter"></i> Twitter
+        </a>
+        <a href="mailto:arnaud@linalgo.com" class="social-link">
+          <i class="fas fa-envelope"></i> Contact
+        </a>
+      </div>
+    </div>
   </div>
 </div>

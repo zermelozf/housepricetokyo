@@ -7,26 +7,93 @@
 }
 
 .footer {
-  margin-top: 2rem;
-  text-align: center;
-  padding: 1rem;
+  margin-top: 3rem;
+  padding: 2rem 0;
   border-top: 1px solid #eee;
+  background-color: #f8f9fa;
   grid-column: 1 / -1;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
+  gap: 1.5rem;
+}
+
+.footer-text {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.footer-text .ml-note {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #666;
+  margin-bottom: 1rem;
+}
+
+.footer-text .ml-note:last-child {
+  margin-bottom: 0;
+}
+
+.footer-text .emoji {
+  font-size: 1.2rem;
+  margin-right: 0.3rem;
+}
+
+.footer-text .signature {
+  font-weight: 500;
+  color: #333;
+  margin-top: 1rem;
+}
+
+.footer-links {
+  display: flex;
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
+.social-link {
+  color: #666;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: color 0.2s ease;
+}
+
+.social-link:hover {
+  color: #1a73e8;
+}
+
+.social-link i {
+  font-size: 1.2rem;
+}
+
+.footer-note {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.footer-note .ml-note {
+  margin: 0;
+  font-style: italic;
 }
 
 .genesis-link {
   cursor: pointer;
   text-decoration: none;
   color: #1a73e8;
-  border-bottom: 1px solid #1a73e8;
 }
 
 .genesis-link:hover {
   color: #1557b0;
-  border-bottom-color: #1557b0;
 }
 
 .calculator-container {
@@ -44,13 +111,26 @@
   text-align: center;
 }
 
+.logo {
+  max-height: 70px;
+  height: auto;
+  margin-right: 1rem;
+  vertical-align: bottom;
+}
+
 .intro-text h1 {
   font-size: 2.5rem;
   color: #333;
-  margin-bottom: 1rem;
+  display: inline-block;
+  vertical-align: bottom;
+  line-height: 1;
+  margin-bottom: 0;
+  margin-right: 1rem;
+  margin-top: -1rem;
 }
 
 .description {
+  margin-top: 1.5rem;
   font-size: 1.1rem;
   color: #666;
   line-height: 1.6;
@@ -59,12 +139,10 @@
 .description a {
   color: #1a73e8;
   text-decoration: none;
-  border-bottom: 1px solid #1a73e8;
 }
 
 .description a:hover {
   color: #1557b0;
-  border-bottom-color: #1557b0;
 }
 
 .property-form {

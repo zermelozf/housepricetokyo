@@ -57,14 +57,13 @@ def load_data():
     data = data[data['面積（㎡）'] != '2,000㎡以上']
     data = data[~data['最寄駅：距離（分）'].isin(['30分～60分', '1H～1H30', '1H30～2H', '2H～'])]
     data = data[~data['間口'].isin(['50.0m以上'])]
-    # data = data[data['延床面積（㎡）'].astype(int) < 200]
-    # data = data[data['面積（㎡）'].astype(int) < 200]
+    data = data[data['延床面積（㎡）'].astype(int) < 200]
+    data = data[data['面積（㎡）'].astype(int) < 200]
     # data = data[data['建ぺい率（％）'].isin([60.0, 70.0, 80.0])]
     # data = data[data['容積率（％）'].isin([150.0, 200.0, 300.0])]
-    # data = data[data['建物の構造'].isin(['木造', '軽量鉄骨造', '鉄骨造', 'NA'])]
-    # data = data[data['取引価格（総額）'] < 200000000]
-    # data = data[data['今後の利用目的'] == '住宅']
-    # data = data[~data['間口'].isin(['50.0m以上'])]
+    data = data[data['建物の構造'].isin(['木造', '軽量鉄骨造', '鉄骨造', 'NA'])]
+    data = data[data['取引価格（総額）'] < 200000000]
+    data = data[data['今後の利用目的'] == '住宅']
 
     data['date'] = data['取引時期'].map(lambda x: int(x[:4]))
     data['age'] = data['建築年'].map(lambda x: int(x[:-1]))
@@ -72,8 +71,8 @@ def load_data():
     data['is_new'] = (data['age'] == 1).astype(int)
     data['date'] = data['date'].astype(int) - 2020
     data['price'] = data['取引価格（総額）']
-    data['building_ratio'] = data['建ぺい率（％）'].astype(str)
-    data['floor_ratio'] = data['容積率（％）'].astype(str)
+    data['building_ratio'] = data['建ぺい率（％）'].astype(int)
+    data['floor_ratio'] = data['容積率（％）'].astype(int)
     data['area_plan'] = data['都市計画']
     data['area_name'] = data['地区名']
     data['land_m2'] = data['面積（㎡）'].astype(int)

@@ -2,11 +2,29 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { TokyoMapComponent } from '../tokyo-map/tokyo-map.component';
+import { DepreciationGraphComponent } from '../depreciation-graph/depreciation-graph.component';
+import { FloorRatioChartComponent } from '../floor-ratio-chart/floor-ratio-chart.component';
+import { BuildingRatioChartComponent } from '../building-ratio-chart/building-ratio-chart.component';
+import { LandShapeChartComponent } from '../land-shape-chart/land-shape-chart.component';
+import { LandOrientationChartComponent } from '../land-orientation-chart/land-orientation-chart.component';
+import { WalkingTimeChartComponent } from '../walking-time-chart/walking-time-chart.component';
+import { LandValueEvolutionChartComponent } from '../land-value-evolution-chart/land-value-evolution-chart.component';
 
 @Component({
   selector: 'app-house-price-article',
   standalone: true,
-  imports: [CommonModule, RouterModule, TokyoMapComponent],
+  imports: [
+    CommonModule,
+    RouterModule,
+    TokyoMapComponent,
+    DepreciationGraphComponent,
+    FloorRatioChartComponent,
+    BuildingRatioChartComponent,
+    LandShapeChartComponent,
+    LandOrientationChartComponent,
+    WalkingTimeChartComponent,
+    LandValueEvolutionChartComponent
+  ],
   templateUrl: './house-price-article.component.html',
   styleUrls: ['./house-price-article.component.scss']
 })

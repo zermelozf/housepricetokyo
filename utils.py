@@ -30,13 +30,14 @@ def load_data():
     edogawa = pd.read_csv('data/edogawa2.csv')
     katsushika = pd.read_csv('data/katsushika2.csv')
     ota = pd.read_csv('data/ota2.csv')
-    df = pd.concat([
-        nerima, kita, ita, meguro, shibuya,
-        arakawa, minato, shinjuku, bunkyo, shinagawa,
-        nakano, suginami, setagaya, mitaka, toshima,
-        chiyoda, koto, sumida, adachi, taito, chuo,
-        edogawa, katsushika, ota
-    ]).reset_index()
+    # df = pd.concat([
+    #     nerima, kita, ita, meguro, shibuya,
+    #     arakawa, minato, shinjuku, bunkyo, shinagawa,
+    #     nakano, suginami, setagaya, mitaka, toshima,
+    #     chiyoda, koto, sumida, adachi, taito, chuo,
+    #     edogawa, katsushika, ota
+    # ]).reset_index()
+    df = pd.concat([nerima, ita]).reset_index()
     df['is_house'] = True
     df.loc[df['延床面積（㎡）'].isnull(), 'is_house'] = False
     df.loc[~df['is_house'], '延床面積（㎡）'] = 0
@@ -57,12 +58,12 @@ def load_data():
     data = data[data['面積（㎡）'] != '2,000㎡以上']
     data = data[~data['最寄駅：距離（分）'].isin(['30分～60分', '1H～1H30', '1H30～2H', '2H～'])]
     data = data[~data['間口'].isin(['50.0m以上'])]
-    # data = data[data['延床面積（㎡）'].astype(int) < 200]
-    # data = data[data['面積（㎡）'].astype(int) < 200]
-    # data = data[data['建ぺい率（％）'].isin([60.0, 70.0, 80.0])]
-    # data = data[data['容積率（％）'].isin([150.0, 200.0, 300.0])]
+    data = data[data['延床面積（㎡）'].astype(int) < 200]
+    data = data[data['面積（㎡）'].astype(int) < 200]
+    data = data[data['建ぺい率（％）'].isin([60.0, 70.0, 80.0])]
+    data = data[data['容積率（％）'].isin([150.0, 200.0, 300.0])]
     data = data[data['建物の構造'].isin(['木造', '軽量鉄骨造', '鉄骨造', 'NA'])]
-    # data = data[data['取引価格（総額）'] < 200000000]
+    data = data[data['取引価格（総額）'] < 200000000]
     data = data[data['今後の利用目的'] == '住宅']
 
     data['date'] = data['取引時期'].map(lambda x: int(x[:4]))

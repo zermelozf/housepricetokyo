@@ -88,6 +88,69 @@
     border-radius: 8px;
     margin-top: 3rem;
   }
+
+  .formula-container {
+    margin: 0;
+    padding: 0;
+    background-color: unset;
+    border-radius: 0;
+    box-shadow: none;
+
+    .formula-title {
+      font-weight: 600;
+      color: #2c3e50;
+      margin-bottom: 1rem;
+    }
+
+    .formula {
+      overflow-x: unset;
+      padding: 0;
+      margin: 0;
+      font-size: 1.1rem;
+      line-height: 1.5;
+      
+      .math-content {
+        width: 100%;
+        min-height: unset;
+        display: block;
+        align-items: unset;
+        justify-content: unset;
+      }
+    }
+
+    .formula-explanation {
+      font-style: italic;
+      color: #666;
+      margin-top: 1rem;
+      font-size: 0.95rem;
+    }
+  }
+
+  .math {
+    display: inline-block;
+    font-family: 'Times New Roman', Times, serif;
+    padding: 0 2px;
+  }
+
+  .assumptions-list {
+    margin: 1.5rem 0;
+    padding-left: 1.8rem;
+    
+    li {
+      position: relative;
+      margin-bottom: 0.8rem;
+      padding-left: 0.5rem;
+      line-height: 1.5;
+      
+      &:last-child {
+        margin-bottom: 0;
+      }
+      
+      &::marker {
+        color: #3498db; // Blue color for bullets
+      }
+    }
+  }
 }
 
 @media (max-width: 768px) {

@@ -1,4 +1,4 @@
-<article class="article">
+<article class="article" #articleContainer>
   <header>
     <h1>Decoding Tokyo Property Prices: What Really Matters?</h1>
     <p class="subtitle">Using Machine Learning to Uncover Key Value Drivers</p>
@@ -36,10 +36,12 @@
 
     <section class="data-source">
       <h2>Modeling Tokyo Real Estate</h2>
+
       <p>
         The MLIT dataset is a treasure trove of information about the Tokyo real estate market. It contains over 100,000
         property records, with features ranging from location to building specifications.
       </p>
+      <h3>Making some assumptions</h3>
       <p>
         Given the variety of features available and my goal of understanding what drives value, I chose to stick with
         Linear Regression (for robustness and interpretability) and spend some time on modeling/feature engineering. So
@@ -47,18 +49,70 @@
       </p>
       <p>
         In terms of modeling, I also kept it simple and made the following assumptions:
-        - The price of a listing in the MLIT dataset is split between land and house value
-        - The price of the house is proportional to the floor area and the building type and year of construction
-        might increase or decrease the price per square meter
-        - Similarily, the land value is proportional to the plot size, and the price per square meter might increase or
-        decrease depending on the land characteristics such as shape, orientation, distance to the station, etc.
       </p>
+      <ul class="assumptions-list">
+        <li>The price of a listing in the MLIT dataset is split between land and house value</li>
+        <li>The price of the house is proportional to the floor area and the building type and year of construction
+          might increase or decrease the price per square meter</li>
+        <li>Similarily, the land value is proportional to the plot size, and the price per square meter might increase
+          or
+          decrease depending on the land characteristics such as shape, orientation, distance to the station, etc.</li>
+      </ul>
+      <p>
+        The formula used for our Lasso regression model is the following:
+      </p>
+      <div class="formula-container">
+        <div class="formula">
+          <div #formulaContainer class="math-content"></div>
+        </div>
+      </div>
+      with
+      <div class="formula-container">
+        <div class="formula">
+          <div #houseFormulaContainer class="math-content"></div>
+        </div>
+      </div>
+      and
+      <div class="formula-container">
+        <div class="formula">
+          <div #landFormulaContainer class="math-content"></div>
+        </div>
+      </div>
+
+      With this modeling, the interpretation should be pretty straightforward as they all have a price per square meter
+      unit, except for the <span class="math">$\alpha_m^2$</span> coefficients which are included to account for the
+      depreciation of the house over time and thus
+      are expressed in price per square meter per year.
+
+      <h3>Predictive power</h3>
+
+      <p>
+        To evaluate the predictive power of our model, I compared the performance of the refined model against a
+        baseline
+        Linear Regression just taking in the same features without any transformation. First, explained variance (r2)
+        for baseline model is ~30% while the refined model achieve ~70%. I also ran a cross validation with 500
+        iterations to get a histogram of the Mean Absolute Percentage Error (MAPE) as shown below.
+      </p>
+
+      <app-model-scores-histogram></app-model-scores-histogram>
+
+      <p>
+        As you can see, the refined model is better than basline with a median of about ~20% on a test set vs ~34% for
+        the baseline. While 20% average error is not bad, there is certainly room for improvement.
+      </p>
+
+      <h3>So?</h3>
+
+      <p>It looks like we have a decent model, although there is still quite a lot of variation in the data the remains
+        unexplained. However, for the purpose of the rest of this analysis, I'mm going to consider the model good enough
+        and move on to the interpretation of the coefficients of the Lasso Regression.
       <p>
         The following chart shows the evolution of land values in Tokyo from 2013 to 2024.
       </p>
     </section>
 
     <app-land-value-evolution-chart></app-land-value-evolution-chart>
+
     <p>
       As shown in the chart, both land and house values in Tokyo have shown significant upward trends,
       but with some interesting differences:

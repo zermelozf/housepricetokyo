@@ -52,7 +52,7 @@ export class LandShapeChartComponent implements AfterViewInit {
       data: {
         labels: this.data.map(d => d.shape),
         datasets: [{
-          label: 'Impact on Land Value per m²',
+          label: '',
           data: this.data.map(d => d.value),
           backgroundColor: this.data.map(d => {
             if (d.shape === '正方形') return 'rgba(255, 99, 132, 0.8)'; // Highlight reference shape
@@ -112,6 +112,9 @@ export class LandShapeChartComponent implements AfterViewInit {
                 }
               }
             }
+          },
+          legend: {
+            display: false
           }
         },
         scales: {

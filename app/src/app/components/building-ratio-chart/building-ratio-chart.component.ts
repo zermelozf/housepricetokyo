@@ -48,7 +48,7 @@ export class BuildingRatioChartComponent implements AfterViewInit {
       data: {
         labels: this.data.map(d => `${d.ratio}%`),
         datasets: [{
-          label: 'Impact on Land Value per m²',
+          label: '',
           data: this.data.map(d => d.value),
           backgroundColor: this.data.map(d => {
             if (d.ratio === 60) return 'rgba(255, 99, 132, 0.8)'; // Highlight reference ratio
@@ -108,6 +108,9 @@ export class BuildingRatioChartComponent implements AfterViewInit {
                 }
               }
             }
+          },
+          legend: {
+            display: false
           }
         },
         scales: {

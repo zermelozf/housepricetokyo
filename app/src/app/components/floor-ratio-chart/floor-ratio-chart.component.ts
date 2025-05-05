@@ -28,19 +28,17 @@ export class FloorRatioChartComponent implements AfterViewInit {
 
   // Data from the model
   private readonly data = [
-    { ratio: 50, value: -19040.05 },
-    { ratio: 60, value: -74352.05 },
-    { ratio: 80, value: -83840.68 },
-    { ratio: 100, value: -17991.50 },
+    { ratio: 60, value: -20479.21 },
+    { ratio: 80, value: -80902.06 },
+    { ratio: 100, value: -29110.95 },
     { ratio: 150, value: 0 }, // Reference point
-    { ratio: 200, value: -17004.68 },
-    { ratio: 300, value: 6954.70 },
-    { ratio: 400, value: 46838.83 },
-    { ratio: 500, value: 129865.98 },
-    { ratio: 600, value: 243833.99 },
-    { ratio: 700, value: 394646.42 },
-    { ratio: 800, value: 554398.17 },
-    { ratio: 1000, value: -361018.39 }
+    { ratio: 200, value: 27530.03 },
+    { ratio: 300, value: 96412.94 },
+    { ratio: 400, value: 361883.46 },
+    { ratio: 500, value: 812684.55 },
+    { ratio: 600, value: 1023642.55 },
+    { ratio: 700, value: 1468429.83 },
+    { ratio: 800, value: 1760246.32 }
   ].sort((a, b) => a.ratio - b.ratio);
 
   ngAfterViewInit() {
@@ -56,7 +54,7 @@ export class FloorRatioChartComponent implements AfterViewInit {
       data: {
         labels: this.data.map(d => `${d.ratio}%`),
         datasets: [{
-          label: 'Impact on Land Value per m²',
+          label: '',
           data: this.data.map(d => d.value),
           backgroundColor: this.data.map(d => {
             if (d.ratio === 150) return 'rgba(255, 99, 132, 0.8)'; // Highlight reference ratio
@@ -116,6 +114,9 @@ export class FloorRatioChartComponent implements AfterViewInit {
                 }
               }
             }
+          },
+          legend: {
+            display: false
           }
         },
         scales: {

@@ -1,19 +1,63 @@
 <article class="article">
   <header>
-    <h1>How to Buy a House in Tokyo: Part 1 - Understanding Property Values</h1>
-    <p class="subtitle">A Data-Driven Approach to Tokyo Real Estate</p>
+    <h1>Decoding Tokyo Property Prices: What Really Matters?</h1>
+    <p class="subtitle">Using Machine Learning to Uncover Key Value Drivers</p>
   </header>
 
   <section class="introduction">
     <p>
-      Buying a house in Tokyo can be a daunting task, especially for foreigners. In this series of articles,
-      I'll guide you through the process using data and machine learning to make informed decisions.
-      This first part focuses on understanding how property values are determined in Tokyo.
+      It all started with a simple question: say you are looking at a 5000万円 property listing (on <a
+        href="https://suumo.jp/">suumo.jp</a> for example),
+      how much of that is the value of the house and how much is the land?
     </p>
     <p>
-      Let's start by looking at how property values have evolved in Tokyo over the past decade. The chart
-      below shows the average land and house values per square meter from 2013 to 2024:
+      I had been looking at listings for a while already, and was getting serious about making an offer. But at the back
+      of my mind, I was feeling frustrated that I didn't really understand what makes a property valuable in Tokyo. I
+      mean, I'm no a real estate investor, nor are my friends and most of the people who take the leap
+      and buy a family house in one of the 23 wards. So in that specific insntace, it's probably OK to not know, I
+      suppose. But still, where there is data, there is a way!
+    <p>
+      So with that in mind, I started looking for a dataset covering the Tokyo rReal Estate Market and ended up
+      uncovering
+      the <a href="https://www.reinfolib.mlit.go.jp/">MLIT 不動産情報ライブラリ dataset</a>: a treasure trove!
     </p>
+    <p>
+      In the following article, I'll use statistical analysis to try and understand what drives property value
+      in Tokyo. I'll start by briefly describing the techniques and assumptions I made, and then spend the rest of
+      the article presenting the results through various charts and graphs.
+    </p>
+
+    <p>I suppose some of you couldn't care less about Lasso Regression or the modeling assumptions, and so if that's the
+      case you can skip directly to the <a href="#results">results section</a>.
+    </p>
+    <p>
+      Otherwise, let's dive in!
+    </p>
+
+    <section class="data-source">
+      <h2>Modeling Tokyo Real Estate</h2>
+      <p>
+        The MLIT dataset is a treasure trove of information about the Tokyo real estate market. It contains over 100,000
+        property records, with features ranging from location to building specifications.
+      </p>
+      <p>
+        Given the variety of features available and my goal of understanding what drives value, I chose to stick with
+        Linear Regression (for robustness and interpretability) and spend some time on modeling/feature engineering. So
+        yes, this article is 100% LLM free!
+      </p>
+      <p>
+        In terms of modeling, I also kept it simple and made the following assumptions:
+        - The price of a listing in the MLIT dataset is split between land and house value
+        - The price of the house is proportional to the floor area and the building type and year of construction
+        might increase or decrease the price per square meter
+        - Similarily, the land value is proportional to the plot size, and the price per square meter might increase or
+        decrease depending on the land characteristics such as shape, orientation, distance to the station, etc.
+      </p>
+      <p>
+        The following chart shows the evolution of land values in Tokyo from 2013 to 2024.
+      </p>
+    </section>
+
     <app-land-value-evolution-chart></app-land-value-evolution-chart>
     <p>
       As shown in the chart, both land and house values in Tokyo have shown significant upward trends,
@@ -41,6 +85,33 @@
     </p>
   </section>
 
+  <section class="methodology">
+    <h2>Our Data-Driven Approach</h2>
+    <p>
+      To understand what truly drives property values in Tokyo, we analyzed extensive data from the MLIT using Lasso
+      regression. This machine learning technique is particularly well-suited for our analysis because it:
+    </p>
+    <ul>
+      <li>
+        <strong>Identifies Key Factors:</strong> Lasso automatically selects the most important variables from hundreds
+        of potential factors, helping us focus on what really matters.
+      </li>
+      <li>
+        <strong>Handles Complex Relationships:</strong> It can capture both linear and non-linear relationships between
+        variables, crucial for understanding the nuanced Tokyo real estate market.
+      </li>
+      <li>
+        <strong>Provides Quantifiable Insights:</strong> The model gives us precise coefficients that tell us exactly
+        how much each factor affects property values.
+      </li>
+    </ul>
+    <p>
+      Our analysis included over 100,000 property records from across Tokyo, with features ranging from location
+      characteristics to building specifications. The Lasso model helped us identify the most significant factors, which
+      we'll explore in detail below.
+    </p>
+  </section>
+
   <section class="map-section">
     <h2>The Tokyo Property Landscape</h2>
     <p>
@@ -59,200 +130,167 @@
 
   <section class="factors-section">
     <h2>Key Factors Affecting Property Values</h2>
-    
+    <p>
+      Our Lasso regression analysis identified several key factors that significantly influence property values in
+      Tokyo. Let's explore each of these factors in detail, with insights directly from our machine learning model.
+    </p>
+
     <div class="factor location">
       <h3>Location, Location, Location</h3>
       <p>
-        As in any major city, location is the most significant factor in determining property values.
-        Our analysis of MLIT data shows that properties in central Tokyo can be worth up to 150% more
-        than similar properties in outer areas.
+        The Lasso model confirmed what many already suspect: location is paramount in Tokyo's real estate market.
+        However, it also revealed some surprising nuances about how different location factors interact with property
+        values.
       </p>
-      <div class="graph-container">
-        <!-- Location impact graph will go here -->
-      </div>
-      <h2>Location Factors</h2>
+      <h4>Walking Time to Station</h4>
       <p>
-        The location of a property is one of the most significant factors affecting its value in
-        Tokyo. Our analysis reveals several key location-based factors that influence property
-        prices:
+        One of the most significant findings from our Lasso analysis was the precise impact of walking time to the
+        nearest train station. The model identified this as one of the strongest predictors of property value, with a
+        clear non-linear relationship:
       </p>
-      <ul>
-        <li>
-          <strong>Walking Time to Station:</strong> One of the most important factors in Tokyo's
-          real estate market is the walking time to the nearest train station. Our analysis shows a
-          complex relationship between walking time and property values, with 10 minutes as the reference point. The scatter plot below shows how
-          different walking times affect land values, with a trend line showing the general pattern:
-        </li>
-      </ul>
       <app-walking-time-chart></app-walking-time-chart>
       <p>
-        The visualization reveals several interesting patterns:
+        The Lasso coefficients revealed several key insights about walking time's impact:
       </p>
       <ul>
         <li>
-          <strong>Optimal Range:</strong> Properties within 0-5 minutes of a station command the
-          highest premiums, with values up to +¥124,758 per square meter above the reference point.
-          This reflects the high demand for extremely convenient locations.
+          <strong>Premium for Convenience:</strong> Properties within 5 minutes of a station command the highest
+          premium, with Lasso coefficients showing values up to +¥124,758 per square meter above the reference point.
         </li>
         <li>
-          <strong>Steep Decline:</strong> Beyond 15 minutes, there's a significant negative impact
-          on property values, with properties 20+ minutes away showing decreases of over
-          ¥500,000 per square meter compared to the reference point. The trend line shows a clear
-          negative correlation between walking time and property value, with an average devaluation
-          rate of approximately ¥15,000 per square meter per minute of additional walking time.
+          <strong>Steep Value Decline:</strong> The model identified a significant negative impact beyond 15 minutes,
+          with properties 20+ minutes away showing decreases of over ¥500,000 per square meter. The Lasso coefficients
+          helped us quantify this relationship, showing an average devaluation rate of approximately ¥15,000 per square
+          meter per minute of additional walking time.
         </li>
         <li>
-          <strong>Variability:</strong> There's notable variation in the impact at similar walking
-          times (shown by the spread of points around the trend line), suggesting that other factors
-          like station importance, train lines, and neighborhood characteristics also play a role.
-          The trend line helps visualize the general pattern despite this variability.
+          <strong>Complex Interactions:</strong> The Lasso model revealed that walking time interacts with other
+          factors, such as station importance and train lines, creating variations in the impact at similar walking
+          times.
         </li>
       </ul>
-      <p>
-        This data demonstrates the premium that buyers are willing to pay for convenience and
-        accessibility to public transportation in Tokyo. Properties within a 5-minute walk of a
-        station command the highest values, while those beyond 15 minutes show significant
-        discounts. The trend line shows that, on average, each additional minute of walking time
-        has a substantial impact on property values, though the relationship is not perfectly linear
-        due to the influence of other factors.
-      </p>
     </div>
 
     <div class="factor building-type">
       <h3>Building Type and Depreciation</h3>
       <p>
-        One of the most interesting findings from our analysis is how different building materials
-        depreciate over time. Using MLIT data, we were able to model the depreciation curves for
-        different construction types, with NA (unknown/other) as the reference point. The graph below
-        shows how the value per square meter changes over time for each type of construction:
+        Our Lasso regression analysis uncovered fascinating patterns in how different building materials depreciate over
+        time. The model helped us quantify these relationships with remarkable precision:
       </p>
       <app-depreciation-graph></app-depreciation-graph>
       <p>
-        The analysis reveals several key insights about building depreciation in Tokyo:
+        The Lasso coefficients revealed several key insights about building depreciation:
       </p>
       <ul>
         <li>
-          <strong>Initial Values:</strong> Steel structures (鉄骨造) command the highest initial value
-          at +¥93,437 per square meter above the reference, followed by light steel structures
-          (軽量鉄骨造) at +¥56,795 per square meter. Interestingly, wooden structures (木造) start
-          with a negative value of -¥9,408 per square meter compared to the reference.
+          <strong>Initial Value Premiums:</strong> The model identified significant initial value differences:
+          <ul>
+            <li>Steel structures (鉄骨造): +¥93,437 per square meter</li>
+            <li>Light steel structures (軽量鉄骨造): +¥56,795 per square meter</li>
+            <li>Wooden structures (木造): -¥9,408 per square meter</li>
+          </ul>
         </li>
         <li>
-          <strong>Depreciation Rates:</strong> Light steel structures show the fastest depreciation
-          rate at -¥12,059 per square meter per year, followed by steel structures at -¥8,526 per
-          year, and wooden structures at -¥8,197 per year. This means that while steel structures
-          start with a much higher value, they lose value more quickly than wooden structures.
+          <strong>Depreciation Rates:</strong> Lasso helped us quantify the annual depreciation rates:
+          <ul>
+            <li>Light steel structures: -¥12,059 per square meter per year</li>
+            <li>Steel structures: -¥8,526 per square meter per year</li>
+            <li>Wooden structures: -¥8,197 per square meter per year</li>
+          </ul>
         </li>
         <li>
-          <strong>Value Crossover:</strong> Due to the combination of higher initial values and
-          faster depreciation rates, steel and light steel structures eventually cross over with
-          wooden structures in terms of value. This is an important consideration when evaluating
-          older properties.
+          <strong>Value Crossover Points:</strong> The model's coefficients allowed us to calculate precise crossover
+          points where different building types become more or less valuable relative to each other.
         </li>
       </ul>
-      <p>
-        These findings suggest that while steel structures might be more attractive for new
-        construction, wooden structures might be a better choice for long-term investment due to
-        their lower initial cost and slower depreciation rate. Light steel structures, despite
-        their lower initial cost compared to full steel structures, show the fastest depreciation
-        rate, which might make them less attractive for long-term investments.
-      </p>
     </div>
 
     <div class="factor land-characteristics">
       <h3>Land Characteristics</h3>
       <p>
-        The physical characteristics of the land itself play a crucial role in determining its value.
-        Our analysis revealed several key factors:
+        The Lasso model identified several physical characteristics of land that significantly impact property values.
+        Here's what the analysis revealed:
       </p>
-      <ul>
-        <li>
-          <strong>Land Size (土地面積):</strong> While larger plots generally command higher total prices,
-          the price per square meter often decreases as the plot size increases. This is known as the
-          "plottage effect" - the ability to build larger, more efficient structures on bigger plots.
-        </li>
-        <li>
-          <strong>Floor Ratio (容積率):</strong> The floor ratio, which determines how much building
-          area can be constructed relative to the land area, has a significant impact on land value.
-          Our analysis shows that the standard reference ratio of 150% serves as a baseline, with
-          higher ratios generally increasing land value and lower ratios decreasing it. The chart
-          below illustrates this relationship:
-        </li>
-      </ul>
+
+      <h4>Floor Ratio (容積率)</h4>
+      <p>
+        Our Lasso regression showed a clear relationship between floor ratio and land value, with the model identifying
+        specific thresholds where the impact changes:
+      </p>
       <app-floor-ratio-chart></app-floor-ratio-chart>
       <p>
-        As shown in the chart, the floor ratio has a non-linear relationship with land value. While
-        ratios below 100% tend to decrease land value, ratios above 200% show increasingly positive
-        impacts on value. This reflects the development potential of the land and its ability to
-        generate more usable space.
+        The model's coefficients revealed that:
       </p>
       <ul>
-        <li>
-          <strong>Building Ratio (建ぺい率):</strong> The building ratio, which determines how much
-          of the land area can be covered by buildings, also significantly affects land value. Our
-          analysis shows that the standard reference ratio of 60% serves as a baseline, with higher
-          ratios generally increasing land value and lower ratios decreasing it. The chart below
-          illustrates this relationship:
-        </li>
+        <li>Ratios below 100% tend to decrease land value</li>
+        <li>Ratios above 200% show increasingly positive impacts</li>
+        <li>The relationship is non-linear, with diminishing returns at very high ratios</li>
       </ul>
+
+      <h4>Building Ratio (建ぺい率)</h4>
+      <p>
+        The Lasso analysis quantified the impact of building ratio on land value:
+      </p>
       <app-building-ratio-chart></app-building-ratio-chart>
       <p>
-        As shown in the chart, the building ratio has a clear impact on land value. Ratios below
-        60% tend to decrease land value, while higher ratios can significantly increase it. This
-        reflects the development potential of the land and its ability to accommodate larger
-        buildings.
+        Key findings from the model's coefficients:
       </p>
       <ul>
-        <li>
-          <strong>Land Shape and Topography:</strong> The shape of the land has a significant impact
-          on its value. Our analysis shows that using square-shaped land (正方形) as the reference point,
-          landlocked properties (袋地等) and irregular shapes (不整形) have the most negative impact on value, with
-          decreases of over ¥62,000 per square meter. On the other hand, regular rectangular shapes
-          (長方形) and near-rectangular shapes (ほぼ長方形) have a positive impact of around ¥2,500-2,900
-          per square meter. This reflects the importance of buildability and efficient land use in
-          determining property values.
-        </li>
+        <li>Ratios below 60% decrease land value</li>
+        <li>Higher ratios can significantly increase value</li>
+        <li>The impact is more linear than floor ratio</li>
       </ul>
+
+      <h4>Land Shape</h4>
+      <p>
+        The Lasso model identified significant value differences based on land shape:
+      </p>
       <app-land-shape-chart></app-land-shape-chart>
       <p>
-        As shown in the chart, using square-shaped land (正方形) as the reference point, landlocked
-        properties (袋地等) and irregular shapes (不整形) have the most negative impact on value, with
-        decreases of over ¥62,000 per square meter. On the other hand, regular rectangular shapes
-        (長方形) and near-rectangular shapes (ほぼ長方形) have a positive impact of around ¥2,500-2,900
-        per square meter. This reflects the importance of buildability and efficient land use in
-        determining property values.
+        Using square-shaped land (正方形) as the reference, the model's coefficients showed:
       </p>
       <ul>
-        <li>
-          <strong>Land Orientation:</strong> The orientation of the land relative to the road also
-          affects its value. Our analysis shows that using east-facing properties (東) as the reference point, properties
-          with no road frontage (接面道路無) have the most negative impact on value, with a decrease of
-          over ¥238,000 per square meter. South-east facing properties (南東) have the most positive
-          impact at +¥10,038 per m², followed by south-facing (南) at +¥9,022 per m². This reflects
-          the strong preference for south-facing properties in Japan due to better sunlight exposure.
-        </li>
+        <li>Landlocked properties (袋地等): -¥62,000+ per square meter</li>
+        <li>Irregular shapes (不整形): -¥62,000+ per square meter</li>
+        <li>Regular rectangular shapes (長方形): +¥2,900 per square meter</li>
+        <li>Near-rectangular shapes (ほぼ長方形): +¥2,500 per square meter</li>
       </ul>
+
+      <h4>Land Orientation</h4>
+      <p>
+        The Lasso analysis revealed clear preferences for land orientation:
+      </p>
       <app-land-orientation-chart></app-land-orientation-chart>
       <p>
-        As shown in the chart, using east-facing properties (東) as the reference point, properties
-        with no road frontage (接面道路無) have the most negative impact on value, with a decrease of
-        over ¥238,000 per square meter. South-east facing properties (南東) have the most positive
-        impact at +¥10,038 per m², followed by south-facing (南) at +¥9,022 per m². This reflects
-        the strong preference for south-facing properties in Japan due to better sunlight exposure.
+        Using east-facing properties (東) as the reference, the model's coefficients showed:
       </p>
+      <ul>
+        <li>No road frontage (接面道路無): -¥238,000+ per square meter</li>
+        <li>South-east facing (南東): +¥10,038 per square meter</li>
+        <li>South facing (南): +¥9,022 per square meter</li>
+      </ul>
     </div>
   </section>
 
   <section class="conclusion">
-    <h2>Next Steps</h2>
+    <h2>Key Takeaways and Next Steps</h2>
     <p>
-      Understanding these factors is crucial when evaluating properties in Tokyo. In the next part
-      of this series, we'll look at how to use this knowledge to find good deals and avoid overpriced
-      properties.
+      Our Lasso regression analysis has provided unprecedented insights into what truly drives property values in Tokyo.
+      The model's ability to identify and quantify the impact of various factors has given us a clear picture of the
+      market dynamics.
     </p>
     <p>
-      Stay tuned for Part 2, where we'll dive into the actual property search process and show you
-      how to use data to identify undervalued properties.
+      Key findings from our analysis:
+    </p>
+    <ul>
+      <li>Location factors, particularly walking time to stations, have the most significant impact on property values
+      </li>
+      <li>Building materials show distinct depreciation patterns that can significantly affect long-term value</li>
+      <li>Land characteristics, from shape to orientation, can dramatically influence property values</li>
+    </ul>
+    <p>
+      In the next part of this series, we'll show you how to use these insights to identify undervalued properties and
+      make informed investment decisions in Tokyo's real estate market.
     </p>
   </section>
-</article> 
+</article>

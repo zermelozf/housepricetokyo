@@ -28,13 +28,18 @@ export class LandOrientationChartComponent implements AfterViewInit {
 
   // Data from the model, sorted by impact
   private readonly data = [
-    { orientation: '北向き', value: -12345.67 },
-    { orientation: '東向き', value: -9876.54 },
-    { orientation: '西向き', value: -5432.10 },
-    { orientation: '南向き', value: 0 },
-    { orientation: '南東向き', value: 1234.56 },
-    { orientation: '南西向き', value: 2345.67 }
+    { orientation: '接面道路無', value: -271131.19 },
+    { orientation: '北西', value: -7407.48 },
+    { orientation: '西', value: -6375.89 },
+    { orientation: '北東', value: -5852.26 },
+    { orientation: '南西', value: -1853.01 },
+    { orientation: '北', value: 2615.61 },
+    { orientation: '南東', value: 4668.67 },
+    { orientation: '南', value: 4694.19 },
+    { orientation: '東', value: 0 }
   ].sort((a, b) => a.value - b.value);
+
+  private readonly referenceOrientation = '東';
 
   ngAfterViewInit() {
     this.createChart();
@@ -49,14 +54,14 @@ export class LandOrientationChartComponent implements AfterViewInit {
       data: {
         labels: this.data.map(d => d.orientation),
         datasets: [{
-          label: 'Impact on Land Value per m²',
+          label: '',
           data: this.data.map(d => d.value),
           backgroundColor: this.data.map(d => {
-            if (d.orientation === '南向き') return 'rgba(255, 99, 132, 0.8)'; // Highlight reference orientation
+            if (d.orientation === this.referenceOrientation) return 'rgba(255, 99, 132, 0.8)'; // Highlight reference orientation
             return d.value >= 0 ? 'rgba(75, 192, 192, 0.6)' : 'rgba(255, 99, 132, 0.6)';
           }),
           borderColor: this.data.map(d => {
-            if (d.orientation === '南向き') return 'rgb(255, 99, 132)';
+            if (d.orientation === this.referenceOrientation) return 'rgb(255, 99, 132)';
             return d.value >= 0 ? 'rgb(75, 192, 192)' : 'rgb(255, 99, 132)';
           }),
           borderWidth: 1
@@ -71,9 +76,12 @@ export class LandOrientationChartComponent implements AfterViewInit {
           mode: 'index'
         },
         plugins: {
+          legend: {
+            display: false
+          },
           title: {
             display: true,
-            text: 'Impact of Land Orientation on Land Value (南向き as Reference)',
+            text: `Impact of Land Orientation on Land Value (${this.referenceOrientation} as Reference)`,
             font: {
               size: 16
             }
@@ -91,13 +99,13 @@ export class LandOrientationChartComponent implements AfterViewInit {
             annotations: {
               referenceLine: {
                 type: 'line',
-                yMin: '南向き',
-                yMax: '南向き',
+                yMin: this.data.findIndex(d => d.orientation === this.referenceOrientation),
+                yMax: this.data.findIndex(d => d.orientation === this.referenceOrientation),
                 borderColor: 'rgba(0, 0, 0, 0.87)',
                 borderWidth: 2,
                 borderDash: [5, 5],
                 label: {
-                  content: 'Reference Orientation (南向き)',
+                  content: `Reference Orientation (${this.referenceOrientation})`,
                   display: true,
                   position: 'start',
                   backgroundColor: 'transparent',

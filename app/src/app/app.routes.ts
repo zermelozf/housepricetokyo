@@ -7,5 +7,6 @@ export const routes: Routes = [
   { path: '', component: PriceCalculatorComponent },
   { path: 'map', component: TokyoMapComponent },
   { path: 'article', component: HousePriceArticleComponent },
+  { path: 'story', component: HousePriceArticleComponent },
   { path: '**', redirectTo: '' }
 ]; 

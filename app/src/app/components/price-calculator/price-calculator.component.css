@@ -68,7 +68,7 @@
 }
 
 .social-link:hover {
-  color: #1a73e8;
+  color: #ec4899;
 }
 
 .social-link i {
@@ -89,11 +89,12 @@
 .genesis-link {
   cursor: pointer;
   text-decoration: none;
-  color: #1a73e8;
+  color: #ec4899;
 }
 
 .genesis-link:hover {
-  color: #1557b0;
+  color: #db2777;
+  text-decoration: underline;
 }
 
 .calculator-container {
@@ -109,6 +110,7 @@
 .intro-text {
   grid-column: 1 / -1;
   text-align: center;
+  margin-bottom: 3rem;
 }
 
 .logo {
@@ -126,7 +128,7 @@
   line-height: 1;
   margin-bottom: 0;
   margin-right: 1rem;
-  margin-top: -1rem;
+  margin-top: 1rem;
 }
 
 .description {
@@ -137,12 +139,13 @@
 }
 
 .description a {
-  color: #1a73e8;
+  color: #ec4899;
   text-decoration: none;
 }
 
 .description a:hover {
-  color: #1557b0;
+  color: #db2777;
+  text-decoration: underline;
 }
 
 .property-form {
@@ -334,18 +337,21 @@
 
 @media (max-width: 1024px) {
   .calculator-container {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
+    display: block;
+    grid-template-columns: none;
+    gap: 0;
   }
 
   .property-form {
     position: static;
+    margin-bottom: 1.5rem;
   }
 }
 
 @media (max-width: 768px) {
   .calculator-container {
     padding: 1rem;
+    display: block;
   }
 
   .form-row {
@@ -377,6 +383,10 @@
     padding: 0.5rem;
     padding-right: 2.25rem;
     font-size: 0.9rem;
+  }
+
+  .intro-text {
+    margin-bottom: 2rem;
   }
 }
 

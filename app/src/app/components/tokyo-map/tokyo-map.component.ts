@@ -19,6 +19,7 @@ export class TokyoMapComponent implements AfterViewInit {
   private maxValue: number = 0;
   private colors: string[] = [];
   private geoJsonLayer: L.GeoJSON | null = null;
+  private leaflet: any;
 
   constructor(private http: HttpClient) {}
 
@@ -29,8 +30,11 @@ export class TokyoMapComponent implements AfterViewInit {
 
   private async initializeMap(): Promise<void> {
     try {
+      // Dynamically import Leaflet
+      this.leaflet = await import('leaflet');
+      
       // Initialize map
-      this.map = L.map('map', {
+      this.map = this.leaflet.map('map', {
         center: this.TOKYO_CENTER,
         zoom: this.DEFAULT_ZOOM,
         zoomControl: true,
@@ -44,10 +48,10 @@ export class TokyoMapComponent implements AfterViewInit {
         wheelPxPerZoomLevel: 30
       });
 
-      // Add base layer - Stadia AlidadeSmooth
-      L.tileLayer('https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png', {
-        attribution: '&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors',
-        maxZoom: 20
+      // Add base layer - OpenStreetMap
+      this.leaflet.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+        maxZoom: 19
       }).addTo(this.map);
 
     } catch (error) {

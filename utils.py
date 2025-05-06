@@ -37,7 +37,6 @@ def load_data():
         chiyoda, koto, sumida, adachi, taito, chuo,
         edogawa, katsushika, ota
     ]).reset_index()
-    # df = pd.concat([nerima, ita]).reset_index()
     df['is_house'] = True
     df.loc[df['延床面積（㎡）'].isnull(), 'is_house'] = False
     df.loc[~df['is_house'], '延床面積（㎡）'] = 0
@@ -70,10 +69,10 @@ def load_data():
     data['age'] = data['建築年'].map(lambda x: int(x[:-1]))
     data['age'] = data['date'] - data['age']
     data['is_new'] = (data['age'] == 1).astype(int)
-    data['date'] = data['date'].astype(str)# - 2020
+    data['date'] = data['date'].astype(int) - 2020
     data['price'] = data['取引価格（総額）']
-    data['building_ratio'] = data['建ぺい率（％）'].astype(str)
-    data['floor_ratio'] = data['容積率（％）'].astype(str)
+    data['building_ratio'] = data['建ぺい率（％）'].astype(int)
+    data['floor_ratio'] = data['容積率（％）'].astype(int)
     data['area_plan'] = data['都市計画']
     data['area_name'] = data['地区名']
     data['land_m2'] = data['面積（㎡）'].astype(int)

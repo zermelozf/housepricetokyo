@@ -29,10 +29,12 @@
   <section class="introduction">
     <h2>The Background Story</h2>
     <p>
-      It all started with a simple question: say you are looking at a 5000万円 property listing (on <a
-        href="https://suumo.jp/">suumo.jp</a> for example),
-      how much of that is the value of the house and how much is the land?
+      It all started with a simple question:
     </p>
+    <blockquote class="intro-quote">
+      Say you are looking at a 5000万円 property listing (on <a href="https://suumo.jp/">suumo.jp</a> for example),
+      how much of that is the value of the house and how much is the land?
+    </blockquote>
     <p>
       I had been looking at listings for a while already, and was getting serious about making an offer. But at the back
       of my mind, I was feeling frustrated that I didn't really understand what makes a property valuable in Tokyo. I
@@ -59,7 +61,12 @@
     <h2>Table of Contents</h2>
     <ul>
       <li><a href="#modeling">Modeling Tokyo Real Estate</a></li>
-      <li><a href="#importance">The Relative Importance of Different Factors</a></li>
+      <li><a href="#importance">The Relative Importance of Different Factors</a>
+        <ul>
+          <li><a href="#relative">Relative Impact of Factors</a></li>
+          <li><a href="#when">When to Buy</a></li>
+        </ul>
+      </li>
       <li><a href="#location">Location, Location, Location</a></li>
       <li><a href="#other-factors">Other Factors</a>
         <ul>
@@ -87,7 +94,8 @@
       </button>
     </div>
 
-    <div class="section-content" [@expandCollapse]="showTechnicalDetails ? 'expanded' : 'collapsed'" [style.display]="showTechnicalDetails ? 'block' : 'none'">
+    <div class="section-content" [@expandCollapse]="showTechnicalDetails ? 'expanded' : 'collapsed'"
+      [style.display]="showTechnicalDetails ? 'block' : 'none'">
       <div class="content-wrapper">
         <p>
           The MLIT dataset is a treasure trove of information about the Tokyo real estate market. It contains over
@@ -168,36 +176,43 @@
   <section class="land-value-evolution" id="importance">
     <h2>The Relative Importance of Different Factors</h2>
 
-    <p>Before diving into the details of each factor, let's first look at the relative importance of each factor in
-      determining property values in Tokyo. The chart below shows the average impact of each factor on the property
-      value.</p>
+    <div class="factor relative" id="relative">
+      <p>Before diving into the details of each factor, let's first look at the relative importance of each factor in
+        determining property values in Tokyo. The chart below shows the average impact of each factor on the property
+        value.</p>
 
-    <app-importance-chart></app-importance-chart>
+      <app-importance-chart></app-importance-chart>
 
-    <p>The chart above shows the relative importance of different factors in determining property values in Tokyo. As we
-      can see:</p>
-    <ul>
-      <li>Unsurprisingly, <strong>Plot Size</strong> and <strong>House Size</strong> have the highest impact on the
-        value of a property. The bigger, the pricier. And each square meter counts.</li>
-      <li>Next is <strong>Neighborhood</strong>. In fact, as we'll see in the <a href="#location">location section</a>,
-        this is just an average effect and the
-        location of the property can have an even stronger impact on price for properties located in good neighborhoods.
-      </li>
-      <li><strong>Construction Type</strong>, <strong>Property Orientation</strong>, and <strong>Land Shape</strong>
-        each contribute modestly to the value of a property.</li>
-      <li><strong>Building Age</strong> has the smallest influence among the factors analyzed, however, bear in mind
-        that this factor is multiplied by age, so each year will add to the depreciation of the property and thus the
-        total impact might be much higher. We will have a more detailed look in the section on <a
-          href="#depreciation">depreciation</a>.</li>
-    </ul>
+      <p>The chart above shows the relative importance of different factors in determining property values in Tokyo. As
+        we
+        can see:</p>
+      <ul>
+        <li>Unsurprisingly, <strong>Plot Size</strong> and <strong>House Size</strong> have the highest impact on the
+          value of a property. The bigger, the pricier. And each square meter counts.</li>
+        <li>Next is <strong>Neighborhood</strong>. In fact, as we'll see in the <a href="#location">location
+            section</a>,
+          this is just an average effect and the
+          location of the property can have an even stronger impact on price for properties located in good
+          neighborhoods.
+        </li>
+        <li><strong>Construction Type</strong>, <strong>Property Orientation</strong>, and <strong>Land Shape</strong>
+          each contribute modestly to the value of a property.</li>
+        <li><strong>Building Age</strong> has the smallest influence among the factors analyzed, however, bear in mind
+          that this factor is multiplied by age, so each year will add to the depreciation of the property and thus the
+          total impact might be much higher. We will have a more detailed look in the section on <a
+            href="#depreciation">depreciation</a>.</li>
+      </ul>
+    </div>
 
-    <h3>When to buy?</h3>
-    <p>One factor not shown in the chart above is the <strong>time of purchase</strong>. The year the property is bought
-      also has an impact on the price and, according to the model, the earlier the better. In fact, the model assesses
-      that the annualized rate of price growth is about <strong>3.5%</strong> per year on average.</p>
+    <div class="factor when" id="when">
+      <h3>When to buy?</h3>
+      <p>One factor not shown in the chart above is the <strong>time of purchase</strong>. The year the property is
+        bought
+        also has an impact on the price and, according to the model, the earlier the better. In fact, the model assesses
+        that the annualized rate of price growth is about <strong>3.5%</strong> per year on average.</p>
 
-    <app-land-value-evolution-chart></app-land-value-evolution-chart>
-
+      <app-land-value-evolution-chart></app-land-value-evolution-chart>
+    </div>
   </section>
 
   <section class="map-section" id="location">
@@ -233,13 +248,10 @@
       </p>
       <app-depreciation-graph></app-depreciation-graph>
       <p>
-        <strong>Steel</strong> and <strong>Light Steel</strong> are unsurprisingly the most durable and thus cost the
-        most. Interestingly however, they depreciate faster than wooden structures and while they retain an advantage
-        overall for durability, the <strong>Wooden</strong> structures are faring surprisingly well in my opinion.
-        Overall, the model probably underestimates the lifetime of construction materials. <span id="insight">In fact,
-          the depreciation
-          period for wood is probably closer to 22 years, 46 years for light steel, at least from an accounting
-          perspective.</span>
+        <strong>Wood</strong> is the cheapest structural material for a house and also the one that completely loses
+        value first. <strong>Steel</strong>, <strong>Light Steel</strong> and the <strong>Concret</strong> are more
+        durable and thus also more expensive. When looking at the rate at which each material depreciates,
+        <strong>Wood</strong> fare surprisingly well however!
       </p>
     </div>
 
@@ -248,8 +260,10 @@
         <i class="fas fa-lightbulb"></i>
       </div>
       <div class="insight-content">
-        <p>I wonder if the short lifetime of materials is an artifact of the model or a real effect. Please let me know
-          if you have any insights on this!</p>
+        <p>The depreciation profiles infered by the Lasso Regression seem somewhat pessimistic.
+          For example, a quick seach give an amortization period of 22 years, or 46 years for light steel
+          I wonder this difference between the accounting value and the value inferred by the Lasso Regression is an
+          artifact of the model or a real effect? Please let me know if you have any insights on this!</p>
       </div>
     </div>
 
@@ -308,6 +322,19 @@
           change in legislation and so the value of the land is dramatically decreased (for good reason).
         </p>
         <app-land-orientation-chart></app-land-orientation-chart>
+
+        <div class="insight-box">
+          <div class="insight-icon">
+            <i class="fas fa-lightbulb"></i>
+          </div>
+          <div class="insight-content">
+            <h4>Landlocked Properties</h4>
+            <p>Landlocked properties (袋地等 and 接面道路無) are properties that have no direct access to a public road.
+              In some instances, the law might prohibit the construction of a new building on the property. In other
+              instances, the property might be buildable but the cost of building a new road might be too high.
+              Always check the property's access rights before making a purchase decision.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>

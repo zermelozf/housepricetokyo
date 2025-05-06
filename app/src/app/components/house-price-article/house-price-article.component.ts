@@ -94,7 +94,17 @@ export class HousePriceArticleComponent implements OnInit, AfterViewInit {
           script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
           script.async = true;
           script.onload = () => {
-            this.renderFormulas();
+            if (window.MathJax) {
+              window.MathJax.tex = {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true
+              };
+              window.MathJax.options = {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+              };
+              this.renderFormulas();
+            }
           };
           document.head.appendChild(script);
         } else {
@@ -106,11 +116,30 @@ export class HousePriceArticleComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
-    // Remove MathJax initialization from here since we'll do it when expanding
+    // Initialize MathJax
+    if (!document.querySelector('script[src*="mathjax"]')) {
+      const script = document.createElement('script');
+      script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.async = true;
+      script.onload = () => {
+        if (window.MathJax) {
+          window.MathJax.tex = {
+            inlineMath: [['$', '$'], ['\\(', '\\)']],
+            displayMath: [['$$', '$$'], ['\\[', '\\]']],
+            processEscapes: true
+          };
+          window.MathJax.options = {
+            skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+          };
+          this.renderFormulas();
+        }
+      };
+      document.head.appendChild(script);
+    }
   }
 
   ngAfterViewInit() {
-    this.positionInsightBox();
+    // No need for positioning logic anymore
   }
 
   private renderFormulas() {
@@ -146,7 +175,7 @@ export class HousePriceArticleComponent implements OnInit, AfterViewInit {
     // Tell MathJax to typeset all formulas
     setTimeout(() => {
       if (window.MathJax?.typeset) {
-        // First process all formula containers
+        // Process all formula containers
         const formulaElements = [
           this.formulaContainer?.nativeElement,
           this.houseFormulaContainer?.nativeElement,
@@ -157,7 +186,7 @@ export class HousePriceArticleComponent implements OnInit, AfterViewInit {
           window.MathJax.typeset(formulaElements);
         }
         
-        // Then process the inline math elements
+        // Process all inline math elements
         const mathElements = document.querySelectorAll('.math');
         if (mathElements.length > 0) {
           window.MathJax.typeset(Array.from(mathElements));
@@ -166,15 +195,24 @@ export class HousePriceArticleComponent implements OnInit, AfterViewInit {
     }, 100);
   }
 
-  private positionInsightBox() {
-    if (this.insightBox) {
-      const insightSpan = document.getElementById('insight');
-      if (insightSpan) {
-        const insightRect = insightSpan.getBoundingClientRect();
-        const articleRect = this.articleContainer.nativeElement.getBoundingClientRect();
-        const topOffset = insightRect.top - articleRect.top;
+  @HostListener('click', ['$event'])
+  onAnchorClick(event: MouseEvent) {
+    const target = event.target as HTMLElement;
+    const anchor = target.closest('a');
+    
+    if (anchor) {
+      const href = anchor.getAttribute('href');
+      if (href?.startsWith('#')) {
+        event.preventDefault();
+        const targetId = href.substring(1);
+        const targetElement = document.getElementById(targetId);
         
-        this.insightBox.nativeElement.style.top = `${topOffset}px`;
+        if (targetElement) {
+          targetElement.scrollIntoView({ 
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
       }
     }
   }
@@ -228,26 +266,4 @@ export class HousePriceArticleComponent implements OnInit, AfterViewInit {
       west: 95
     }
   };
-
-  @HostListener('click', ['$event'])
-  onAnchorClick(event: MouseEvent) {
-    const target = event.target as HTMLElement;
-    const anchor = target.closest('a');
-    
-    if (anchor) {
-      const href = anchor.getAttribute('href');
-      if (href?.startsWith('#')) {
-        event.preventDefault();
-        const targetId = href.substring(1);
-        const targetElement = document.getElementById(targetId);
-        
-        if (targetElement) {
-          targetElement.scrollIntoView({ 
-            behavior: 'smooth',
-            block: 'start'
-          });
-        }
-      }
-    }
-  }
 } 

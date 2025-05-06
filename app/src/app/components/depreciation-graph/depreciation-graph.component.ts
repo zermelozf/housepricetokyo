@@ -25,17 +25,25 @@ export class DepreciationGraphComponent implements AfterViewInit {
 
   // Updated data from the model based on the latest coefficients
   private readonly data = {
-    steel: {
-      baseValue: 297518.74,          // C(building_type, contr.treatment('NA'))[鉄骨造]:house_m2
-      depreciationRate: -11882.42    // C(building_type, contr.treatment('NA'))[鉄骨造]:age:house_m2
-    },
-    wooden: {
-      baseValue: 128824.28,          // C(building_type, contr.treatment('NA'))[木造]:house_m2
-      depreciationRate: -8447.49     // C(building_type, contr.treatment('NA'))[木造]:age:house_m2
+    rc: {
+      baseValue: 409244.65,          // C(building_type, contr.treatment('NA'))[ＲＣ]:house_m2
+      depreciationRate: -13275.21    // C(building_type, contr.treatment('NA'))[ＲＣ]:age:house_m2
     },
     lightSteel: {
-      baseValue: 270227.69,          // C(building_type, contr.treatment('NA'))[軽量鉄骨造]:house_m2
-      depreciationRate: -14629.28    // C(building_type, contr.treatment('NA'))[軽量鉄骨造]:age:house_m2
+      baseValue: 231687.26,          // C(building_type, contr.treatment('NA'))[軽量鉄骨造]:house_m2
+      depreciationRate: -12480.87    // C(building_type, contr.treatment('NA'))[軽量鉄骨造]:age:house_m2
+    },
+    src: {
+      baseValue: 231613.18,          // C(building_type, contr.treatment('NA'))[ＳＲＣ]:house_m2
+      depreciationRate: -10521.48    // C(building_type, contr.treatment('NA'))[ＳＲＣ]:age:house_m2
+    },
+    steel: {
+      baseValue: 268189.09,          // C(building_type, contr.treatment('NA'))[鉄骨造]:house_m2
+      depreciationRate: -9128.38     // C(building_type, contr.treatment('NA'))[鉄骨造]:age:house_m2
+    },
+    wooden: {
+      baseValue: 152503.54,          // C(building_type, contr.treatment('NA'))[木造]:house_m2
+      depreciationRate: -8325.36     // C(building_type, contr.treatment('NA'))[木造]:age:house_m2
     }
   };
 
@@ -52,16 +60,24 @@ export class DepreciationGraphComponent implements AfterViewInit {
     // Generate data points for each building type
     const ages = Array.from({ length: this.maxAge + 1 }, (_, i) => i);
     
+    const rcData = ages.map(age => 
+      Math.max(0, this.data.rc.baseValue + (this.data.rc.depreciationRate * age))
+    );
+    
+    const lightSteelData = ages.map(age => 
+      Math.max(0, this.data.lightSteel.baseValue + (this.data.lightSteel.depreciationRate * age))
+    );
+    
+    const srcData = ages.map(age => 
+      Math.max(0, this.data.src.baseValue + (this.data.src.depreciationRate * age))
+    );
+    
     const steelData = ages.map(age => 
       Math.max(0, this.data.steel.baseValue + (this.data.steel.depreciationRate * age))
     );
     
     const woodenData = ages.map(age => 
       Math.max(0, this.data.wooden.baseValue + (this.data.wooden.depreciationRate * age))
-    );
-    
-    const lightSteelData = ages.map(age => 
-      Math.max(0, this.data.lightSteel.baseValue + (this.data.lightSteel.depreciationRate * age))
     );
 
     this.chart = new Chart(ctx, {
@@ -70,18 +86,10 @@ export class DepreciationGraphComponent implements AfterViewInit {
         labels: ages.map(age => `${age}年`),
         datasets: [
           {
-            label: '鉄骨造',
-            data: steelData,
+            label: 'ＲＣ',
+            data: rcData,
             borderColor: 'rgb(75, 192, 192)',
             backgroundColor: 'rgba(75, 192, 192, 0.1)',
-            fill: true,
-            tension: 0.4
-          },
-          {
-            label: '木造',
-            data: woodenData,
-            borderColor: 'rgb(255, 99, 132)',
-            backgroundColor: 'rgba(255, 99, 132, 0.1)',
             fill: true,
             tension: 0.4
           },
@@ -90,6 +98,30 @@ export class DepreciationGraphComponent implements AfterViewInit {
             data: lightSteelData,
             borderColor: 'rgb(153, 102, 255)',
             backgroundColor: 'rgba(153, 102, 255, 0.1)',
+            fill: true,
+            tension: 0.4
+          },
+          {
+            label: 'ＳＲＣ',
+            data: srcData,
+            borderColor: 'rgb(255, 159, 64)',
+            backgroundColor: 'rgba(255, 159, 64, 0.1)',
+            fill: true,
+            tension: 0.4
+          },
+          {
+            label: '鉄骨造',
+            data: steelData,
+            borderColor: 'rgb(54, 162, 235)',
+            backgroundColor: 'rgba(54, 162, 235, 0.1)',
+            fill: true,
+            tension: 0.4
+          },
+          {
+            label: '木造',
+            data: woodenData,
+            borderColor: 'rgb(255, 99, 132)',
+            backgroundColor: 'rgba(255, 99, 132, 0.1)',
             fill: true,
             tension: 0.4
           }

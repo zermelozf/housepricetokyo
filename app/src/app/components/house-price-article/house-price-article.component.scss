@@ -6,13 +6,18 @@
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   line-height: 1.6;
   color: #333;
+  overflow-x: hidden;
+  font-size: 1.1rem;
 
   header {
     text-align: center;
     margin-bottom: 3rem;
+    width: 100%;
 
     .header-image {
-      margin: -2rem -2rem 2rem -2rem;
+      width: 100vw;
+      max-width: 100vw;
+      margin: -2rem calc(-50vw + 50%) 2rem;
       max-height: 300px;
       overflow: hidden;
       
@@ -25,21 +30,21 @@
     }
 
     h1 {
-      font-size: 2.5rem;
+      font-size: 2.75rem;
       margin-bottom: 1rem;
       color: #2c3e50;
     }
 
     .article-meta {
       .subtitle {
-        font-size: 1.2rem;
+        font-size: 1.3rem;
         color: #7f8c8d;
         margin-bottom: 0.5rem;
       }
 
       .author-date {
         color: #7f8c8d;
-        font-size: 1rem;
+        font-size: 1.1rem;
         margin-bottom: 1.5rem;
         
         a {
@@ -101,7 +106,7 @@
     margin-bottom: 3rem;
 
     h2 {
-      font-size: 2rem;
+      font-size: 2.2rem;
       color: #2c3e50;
       margin-bottom: 1.5rem;
       border-bottom: 2px solid #eee;
@@ -109,7 +114,7 @@
     }
 
     h3 {
-      font-size: 1.5rem;
+      font-size: 1.65rem;
       color: #34495e;
       margin: 2rem 0 1rem;
     }
@@ -299,34 +304,197 @@
   }
 
   .insight-box {
-    position: absolute;
-    right: -320px;
-    width: 300px;
-    margin: 0;
-    padding: 1.5rem;
     background-color: #f8f9fa;
-    border-left: 4px solid #3498db;
-    border-radius: 4px;
+    border-left: 4px solid #ec4899;
+    padding: 1.5rem;
+    border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     display: flex;
     gap: 1rem;
     align-items: flex-start;
-    z-index: 1;
-    transition: top 0.3s ease;
-    transform: translateY(-50%);
+    margin: 2rem auto;
+    max-width: 800px;
 
     .insight-icon {
-      color: #3498db;
+      color: #ec4899;
       font-size: 1.5rem;
       flex-shrink: 0;
     }
 
     .insight-content {
-      p {
-        margin: 0;
-        font-size: 0.95rem;
-        line-height: 1.5;
+      flex: 1;
+
+      h4 {
         color: #2c3e50;
+        margin: 0 0 0.5rem 0;
+        font-size: 1.2rem;
+      }
+
+      p {
+        color: #666;
+        margin: 0;
+        font-size: 1.05rem;
+        line-height: 1.5;
+      }
+    }
+  }
+
+  .calculator-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+    .calculator-section {
+      width: 100%;
+      margin-bottom: 2rem;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    @media (min-width: 601px) {
+      display: flex;
+      gap: 2rem;
+
+      .calculator-section {
+        flex: 1;
+        margin-bottom: 0;
+      }
+    }
+
+    @media (max-width: 600px) {
+      padding: 1rem;
+    }
+  }
+
+  .price-calculator {
+    margin: 3rem 0;
+    padding: 2rem;
+    background: #f8f9fa;
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    width: 100%;
+    box-sizing: border-box;
+    max-width: 100%;
+    overflow: hidden;
+
+    .calculator-header {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+      width: 100%;
+      box-sizing: border-box;
+
+      .calculator-icon {
+        width: 48px;
+        height: 48px;
+        background: #e9ecef;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+
+        i {
+          font-size: 1.5rem;
+          color: #495057;
+        }
+      }
+
+      .calculator-title {
+        flex: 1;
+        min-width: 0; // Prevent flex item from overflowing
+
+        h2 {
+          margin: 0;
+          font-size: 1.5rem;
+          color: #212529;
+          word-wrap: break-word;
+        }
+
+        p {
+          margin: 0.5rem 0 0;
+          color: #6c757d;
+          font-size: 0.95rem;
+          word-wrap: break-word;
+        }
+      }
+    }
+
+    .calculator-form {
+      width: 100%;
+      box-sizing: border-box;
+      overflow: hidden;
+
+      .form-group {
+        margin-bottom: 1.5rem;
+        width: 100%;
+        box-sizing: border-box;
+
+        label {
+          display: block;
+          margin-bottom: 0.5rem;
+          color: #495057;
+          font-weight: 500;
+          word-wrap: break-word;
+        }
+
+        input {
+          width: 100%;
+          padding: 0.75rem;
+          border: 1px solid #ced4da;
+          border-radius: 4px;
+          font-size: 1rem;
+          box-sizing: border-box;
+        }
+      }
+
+      .result {
+        margin-top: 2rem;
+        padding: 1.5rem;
+        background: #e9ecef;
+        border-radius: 8px;
+        width: 100%;
+        box-sizing: border-box;
+        overflow: hidden;
+
+        h3 {
+          margin: 0 0 1rem;
+          color: #212529;
+          font-size: 1.25rem;
+          word-wrap: break-word;
+        }
+
+        .price {
+          font-size: 2rem;
+          font-weight: bold;
+          color: #2c3e50;
+          word-wrap: break-word;
+        }
+      }
+    }
+  }
+
+  @media (min-width: 601px) {
+    .price-calculator {
+      .calculator-form {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+
+        .form-group {
+          flex: 1 1 calc(50% - 0.75rem);
+          margin-bottom: 0;
+          min-width: 0;
+        }
+
+        .result {
+          flex: 1 1 100%;
+          margin-top: 1.5rem;
+        }
       }
     }
   }
@@ -347,25 +515,47 @@
 
   @media (max-width: 900px) {
     padding: 1.5rem;
+    font-size: 1.05rem;
 
     header {
       .header-image {
-        margin: -1.5rem -1.5rem 1.5rem -1.5rem;
+        margin: -1.5rem calc(-50vw + 50%) 1.5rem;
         max-height: 250px;
       }
 
       h1 {
-        font-size: 2rem;
+        font-size: 2.2rem;
+      }
+    }
+
+    .price-calculator {
+      padding: 1.5rem;
+      margin: 2rem 0;
+      width: 100%;
+      max-width: 100%;
+      box-sizing: border-box;
+      overflow: hidden;
+
+      .calculator-header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 1rem;
+
+        .calculator-title {
+          width: 100%;
+          text-align: center;
+        }
       }
     }
 
     section {
       h2 {
-        font-size: 1.75rem;
+        font-size: 1.95rem;
       }
 
       h3 {
-        font-size: 1.25rem;
+        font-size: 1.45rem;
       }
     }
 
@@ -378,20 +568,21 @@
 
   @media (max-width: 600px) {
     padding: 1rem;
+    font-size: 1rem;
 
     header {
       .header-image {
-        margin: -1rem -1rem 1rem -1rem;
+        margin: -1rem calc(-50vw + 50%) 1rem;
         max-height: 200px;
       }
 
       h1 {
-        font-size: 1.75rem;
+        font-size: 1.95rem;
       }
 
       .article-meta {
         .subtitle {
-          font-size: 1.1rem;
+          font-size: 1.2rem;
         }
       }
 
@@ -409,13 +600,54 @@
       }
     }
 
+    .price-calculator {
+      padding: 1.25rem;
+      margin: 1.5rem 0;
+      width: 100%;
+      max-width: 100%;
+      box-sizing: border-box;
+      border-radius: 8px;
+      overflow: hidden;
+
+      .calculator-header {
+        .calculator-icon {
+          width: 40px;
+          height: 40px;
+
+          i {
+            font-size: 1.25rem;
+          }
+        }
+
+        .calculator-title {
+          h2 {
+            font-size: 1.25rem;
+          }
+
+          p {
+            font-size: 0.85rem;
+          }
+        }
+      }
+
+      .calculator-form {
+        .form-group {
+          margin-bottom: 1.25rem;
+        }
+
+        .result {
+          margin-top: 1.5rem;
+        }
+      }
+    }
+
     section {
       h2 {
-        font-size: 1.5rem;
+        font-size: 1.7rem;
       }
 
       h3 {
-        font-size: 1.2rem;
+        font-size: 1.3rem;
       }
     }
 
@@ -584,5 +816,38 @@
         }
       }
     }
+  }
+}
+
+.intro-quote {
+  font-size: 1.15rem;
+  font-style: italic;
+  color: #2c3e50;
+  padding: 1rem 1.5rem;
+  margin: 1.5rem auto;
+  position: relative;
+  max-width: 700px;
+  text-align: center;
+
+  &::before {
+    content: '"';
+    position: absolute;
+    top: -10px;
+    left: 0;
+    font-size: 3rem;
+    color: #ec4899;
+    font-family: 'Times New Roman', Times, serif;
+    font-style: normal;
+  }
+
+  &::after {
+    content: '"';
+    position: absolute;
+    bottom: -20px;
+    right: 0;
+    font-size: 3rem;
+    color: #ec4899;
+    font-family: 'Times New Roman', Times, serif;
+    font-style: normal;
   }
 } 

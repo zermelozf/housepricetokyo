@@ -8,6 +8,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { DialogComponent } from '../dialog/dialog.component';
 import { AnalyticsService } from '../../services/analytics.service';
+import { RouterModule } from '@angular/router';
 
 interface PriceResponse {
   total: number;
@@ -25,10 +26,10 @@ interface PriceResponse {
 
 @Component({
   selector: 'app-price-calculator',
-  templateUrl: './price-calculator.component.html',
-  styleUrls: ['./price-calculator.component.css'],
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, MatDialogModule, MatButtonModule]
+  imports: [CommonModule, RouterModule, ReactiveFormsModule, MatDialogModule, MatButtonModule],
+  templateUrl: './price-calculator.component.html',
+  styleUrls: ['./price-calculator.component.css']
 })
 export class PriceCalculatorComponent implements OnInit {
   propertyForm: FormGroup;

@@ -6,7 +6,8 @@
       Price estimates are base on data from the
       <a href="https://www.reinfolib.mlit.go.jp/realEstatePrices/" class="genesis-link" target="_blank"
         rel="noopener noreferrer">Ministry of
-        Land, Infrastructure, Transport and Tourism</a>.
+        Land, Infrastructure, Transport and Tourism</a>. <br>
+        Check out the details of the calcuation <a class="genesis-link" href="/article">here</a>.
     </p>
   </div>
 
@@ -43,13 +44,13 @@
           <input type="number" id="landArea" formControlName="landArea">
         </div>
 
-        <div class="form-group">
+        <div class="form-group" *ngIf="propertyForm.get('propertyType')?.value === 'House & Land'">
           <label for="buildingArea">Building Area (m²)</label>
           <input type="number" id="buildingArea" formControlName="buildingArea">
         </div>
       </div>
 
-      <div class="form-row">
+      <div class="form-row" *ngIf="propertyForm.get('propertyType')?.value === 'House & Land'">
         <div class="form-group">
           <label for="yearBuilt">Year Built</label>
           <input type="number" id="yearBuilt" formControlName="yearBuilt">
@@ -193,7 +194,7 @@
           <span class="emoji">👋</span> Hey there! I hope you're finding this calculator useful!
           <span class="emoji">🏠</span> Just a quick heads-up: these estimates may sometimes be off,
           so they shouldn't be taken too seriously.
-          Check out the details of how they are calculated <a class="genesis-link" (click)="openModal('Writing in progress, give me some time.')">here</a>.
+          Check out the details of how they are calculated <a class="genesis-link" href="/article">here</a>.
         </p>
       </div>
       <p class="ml-note">
@@ -209,6 +210,9 @@
         </a>
         <a href="mailto:arnaud@linalgo.com" class="social-link">
           <i class="fas fa-envelope"></i> Contact
+        </a>
+        <a routerLink="/map" class="social-link">
+          <i class="fas fa-map-marked-alt"></i> Tokyo Map
         </a>
       </div>
     </div>

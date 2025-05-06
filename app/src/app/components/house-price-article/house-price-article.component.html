@@ -1,0 +1,365 @@
+<article class="article" #articleContainer>
+  <header>
+    <div class="header-image">
+      <img src="photo.jpg" alt="Tokyo cityscape" class="header-photo">
+    </div>
+    <h1>Decoding Tokyo Property Prices: What Really Matters?</h1>
+    <div class="article-meta">
+      <p class="subtitle">Using Machine Learning to Uncover Key Value Drivers</p>
+      <div class="author-date">
+        <p>By <a href="https://www.linkedin.com/in/arnaudrachez/" target="_blank">Arnaud R.</a> • March 2024</p>
+      </div>
+      <div class="share-buttons">
+        <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://tokyohouseprice.web.app/article"
+          target="_blank" class="share-button linkedin" title="Share on LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="https://twitter.com/intent/tweet?url=https://tokyohouseprice.web.app/article&text=Decoding%20Tokyo%20Property%20Prices%3A%20What%20Really%20Matters%3F"
+          target="_blank" class="share-button twitter" title="Share on Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https://tokyohouseprice.web.app/article" target="_blank"
+          class="share-button facebook" title="Share on Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <section class="introduction">
+    <h2>The Background Story</h2>
+    <p>
+      It all started with a simple question: say you are looking at a 5000万円 property listing (on <a
+        href="https://suumo.jp/">suumo.jp</a> for example),
+      how much of that is the value of the house and how much is the land?
+    </p>
+    <p>
+      I had been looking at listings for a while already, and was getting serious about making an offer. But at the back
+      of my mind, I was feeling frustrated that I didn't really understand what makes a property valuable in Tokyo. I
+      mean, I'm not a real estate investor, nor are my friends and most of the people who take the leap
+      and buy a family house in one of the 23 wards. So in that specific instance, it's probably OK to not know, I
+      suppose. But still, where there is data, there is a way!
+    </p>
+    <p>
+      So with that in mind, I started looking for a dataset covering the Tokyo Real Estate Market and ended up
+      uncovering the <a href="https://www.reinfolib.mlit.go.jp/">MLIT 不動産情報ライブラリ dataset</a>: a treasure trove!
+    </p>
+    <p>
+      In the following article, I'll use statistical analysis to try and understand what drives property value
+      in Tokyo. I'll start by briefly describing the techniques and assumptions I made, and then spend the rest of
+      the article presenting the results through various charts and graphs.
+    </p>
+
+    <p>
+      Let's dive in!
+    </p>
+  </section>
+
+  <section class="table-of-contents">
+    <h2>Table of Contents</h2>
+    <ul>
+      <li><a href="#modeling">Modeling Tokyo Real Estate</a></li>
+      <li><a href="#importance">The Relative Importance of Different Factors</a></li>
+      <li><a href="#location">Location, Location, Location</a></li>
+      <li><a href="#other-factors">Other Factors</a>
+        <ul>
+          <li><a href="#depreciation">Building Type and Depreciation</a></li>
+          <li><a href="#convenience">The Price of Convenience</a></li>
+          <li><a href="#ratios">The Construction Ratios</a></li>
+          <li><a href="#shape">Land Shape and Orientation</a></li>
+        </ul>
+      </li>
+      <li><a href="#conclusion">In Conclusion</a></li>
+    </ul>
+  </section>
+
+  <section class="data-source" id="modeling">
+    <div class="section-header">
+      <h2>Modeling Tokyo Real Estate</h2>
+    </div>
+
+    <p>I realize that some of you might not be interested in the technical details, so by default the technical section
+      is hidden. You can click on the button below to show it.</p>
+
+    <div class="toggle-container">
+      <button class="toggle-button" (click)="toggleTechnicalDetails()">
+        {{ showTechnicalDetails ? 'Hide technical details' : 'Show technical details' }}
+      </button>
+    </div>
+
+    <div class="section-content" [@expandCollapse]="showTechnicalDetails ? 'expanded' : 'collapsed'" [style.display]="showTechnicalDetails ? 'block' : 'none'">
+      <div class="content-wrapper">
+        <p>
+          The MLIT dataset is a treasure trove of information about the Tokyo real estate market. It contains over
+          100,000 property records, with features ranging from location to building specifications.
+        </p>
+        <h3>Making some assumptions</h3>
+        <p>
+          Given the variety of features available and my goal of understanding what drives value, I chose to stick with
+          Linear Regression (for robustness and interpretability) and spend some time on modeling/feature engineering.
+          So yes, this article is 100% LLM free!
+        </p>
+        <p>
+          In terms of modeling, I also kept it simple and made the following assumptions:
+        </p>
+        <ul class="assumptions-list">
+          <li>The price of a listing in the MLIT dataset is split between land and house value</li>
+          <li>The price of the house is proportional to the floor area and the building type and year of construction
+            might increase or decrease the price per square meter</li>
+          <li>Similarly, the land value is proportional to the plot size, and the price per square meter might increase
+            or decrease depending on the land characteristics such as shape, orientation, distance to the station, etc.
+          </li>
+        </ul>
+        <p>
+          The formula used for our Lasso regression model is the following:
+        </p>
+        <div class="formula-container">
+          <div class="formula">
+            <div class="math-content" [innerHTML]="'\\[y = \\text{P}(\\text{house}) + \\text{P}(\\text{land})\\]'">
+            </div>
+          </div>
+        </div>
+        with
+        <div class="formula-container">
+          <div class="formula">
+            <div #houseFormulaContainer class="math-content"></div>
+          </div>
+        </div>
+        and
+        <div class="formula-container">
+          <div class="formula">
+            <div #landFormulaContainer class="math-content"></div>
+          </div>
+        </div>
+
+        With this modeling, the interpretation should be pretty straightforward: all coefficients have a price per
+        square
+        meter unit, except for the <span class="math">$\alpha_m^2$</span> coefficients which aim to model the
+        depreciation
+        of the house over time and thus are expressed in price per square meter per year.
+
+        <h3>Predictive power</h3>
+
+        <p>
+          To evaluate the predictive power of our model, I compared the performance of the refined model against a
+          baseline Linear Regression by cross validating Mean Absolute Percentage Error (MAPE) for 500 iterations.
+          The histogram of results is shown below.
+        </p>
+
+        <app-model-scores-histogram></app-model-scores-histogram>
+
+        <p>
+          As you can see, the refined model is better than basline with a median of about ~20% on a test set vs ~34% for
+          the baseline. While 20% average error is not bad, there is certainly room for improvement.
+        </p>
+
+        <h3>So?</h3>
+
+        <p>It looks like we have a decent model. It is far from perfect but, for the purpose of the rest of this
+          analysis,
+          I'mm going to consider the model good enough and move on to the interpretation of the coefficients of the
+          Lasso
+          Regression.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="land-value-evolution" id="importance">
+    <h2>The Relative Importance of Different Factors</h2>
+
+    <p>Before diving into the details of each factor, let's first look at the relative importance of each factor in
+      determining property values in Tokyo. The chart below shows the average impact of each factor on the property
+      value.</p>
+
+    <app-importance-chart></app-importance-chart>
+
+    <p>The chart above shows the relative importance of different factors in determining property values in Tokyo. As we
+      can see:</p>
+    <ul>
+      <li>Unsurprisingly, <strong>Plot Size</strong> and <strong>House Size</strong> have the highest impact on the
+        value of a property. The bigger, the pricier. And each square meter counts.</li>
+      <li>Next is <strong>Neighborhood</strong>. In fact, as we'll see in the <a href="#location">location section</a>,
+        this is just an average effect and the
+        location of the property can have an even stronger impact on price for properties located in good neighborhoods.
+      </li>
+      <li><strong>Construction Type</strong>, <strong>Property Orientation</strong>, and <strong>Land Shape</strong>
+        each contribute modestly to the value of a property.</li>
+      <li><strong>Building Age</strong> has the smallest influence among the factors analyzed, however, bear in mind
+        that this factor is multiplied by age, so each year will add to the depreciation of the property and thus the
+        total impact might be much higher. We will have a more detailed look in the section on <a
+          href="#depreciation">depreciation</a>.</li>
+    </ul>
+
+    <h3>When to buy?</h3>
+    <p>One factor not shown in the chart above is the <strong>time of purchase</strong>. The year the property is bought
+      also has an impact on the price and, according to the model, the earlier the better. In fact, the model assesses
+      that the annualized rate of price growth is about <strong>3.5%</strong> per year on average.</p>
+
+    <app-land-value-evolution-chart></app-land-value-evolution-chart>
+
+  </section>
+
+  <section class="map-section" id="location">
+    <h2>Location, Location, Location</h2>
+    <p>
+      What neighborhood you buy in Tokyo can make a huge difference in the price you pay. Let's look at the impact of
+      the neighborhood on the price of a property.
+    </p>
+    <div class="map-container">
+      <app-tokyo-map></app-tokyo-map>
+    </div>
+    <p class="caption">
+      Interactive map showing land values across Tokyo.
+    </p>
+    <p>
+      The model has clearly picked up on the fact that centrally located properties are more valuable. And great
+      neighborhoods can set you back more than 1 million yen per square meter!
+    </p>
+    <p>
+      But what about the other factors? Let's dive into the details.
+    </p>
+
+  </section>
+
+  <section class="factors-section" id="other-factors">
+    <h2>Other Factors</h2>
+
+    <div class="factor building-type">
+      <h3 id="depreciation">Building Type and Depreciation</h3>
+      <p>
+        The Lasso regression analysis also uncovered interesting patterns in how different building materials depreciate
+        over time. The model helped us quantify these relationships:
+      </p>
+      <app-depreciation-graph></app-depreciation-graph>
+      <p>
+        <strong>Steel</strong> and <strong>Light Steel</strong> are unsurprisingly the most durable and thus cost the
+        most. Interestingly however, they depreciate faster than wooden structures and while they retain an advantage
+        overall for durability, the <strong>Wooden</strong> structures are faring surprisingly well in my opinion.
+        Overall, the model probably underestimates the lifetime of construction materials. <span id="insight">In fact,
+          the depreciation
+          period for wood is probably closer to 22 years, 46 years for light steel, at least from an accounting
+          perspective.</span>
+      </p>
+    </div>
+
+    <div class="insight-box" #insightBox>
+      <div class="insight-icon">
+        <i class="fas fa-lightbulb"></i>
+      </div>
+      <div class="insight-content">
+        <p>I wonder if the short lifetime of materials is an artifact of the model or a real effect. Please let me know
+          if you have any insights on this!</p>
+      </div>
+    </div>
+
+    <div class="factor convenience" id="convenience">
+      <h3>The Price of Convenience</h3>
+      <p>
+        One interesting result from the Lasso model is the precise quantification of the impact of walking time to
+        the nearest train station.
+      </p>
+      <app-walking-time-chart></app-walking-time-chart>
+      <p>
+        In a variant of the model shown above, I allowed the <span class="math">$\beta$</span> coefficients associated
+        with walk time to be dummy coded minute by minute. This would theoretically allow for a non-linear relationship
+        to be
+        picked up. However, as you can see in the chart, the relationship seems pretty stable and linear with each
+        minute closer to the station adding about ¥10,000 per square meter to the price of the property. This means a
+        100 square meter property will be worth about ¥10 million more if it's located right next to the station.
+      </p>
+    </div>
+
+    <div class="factor ratios" id="ratios">
+      <h3>The Construction Ratios</h3>
+
+      <h4>Floor Ratio (容積率)</h4>
+      <p>
+        Let's be quick with this one. The floor ratio is the ratio of the total floor area of a building to the total
+        land area of the property. It is a measure of how much of the land is used for building purposes and is a legal
+        requirement when building. The higher the floor ratio, the bigger the house you can build on the property.
+        Unsurprisingly, higher floor ratios are associated with higher property values.
+      </p>
+      <app-floor-ratio-chart></app-floor-ratio-chart>
+
+      <h4>Building Ratio (建ぺい率)</h4>
+      <p>
+        This ratio is similar to the floor ratio but it is a measure of how much of the land is covered by the building
+        and is also a legal requirement when building. The higher the building ratio, the more of the land is covered
+        by the building and so the more expensive it is.
+      </p>
+      <app-building-ratio-chart></app-building-ratio-chart>
+
+      <div class="factor shape-orientation" id="shape">
+        <h3>Land Shape and Orientation</h3>
+        <h4>Land Shape</h4>
+        <p>
+          The learned coefficients seem consistent with the intuition that square-shaped land is more valuable than
+          irregularly shaped land. Also, the model is flagging landlocked properties (袋地等) as much less valuable.
+          This is an important factor to take into account and sometimes the reason that explains why a listing on
+          <a href="https://suumo.jp/">suumo.jp</a> is so cheap.
+        </p>
+        <app-land-shape-chart></app-land-shape-chart>
+
+        <h4>Land Orientation</h4>
+        <p>
+          Land orientation does not seem to have a big impact on the price of a property. However, you should definitely
+          avoid properties with no access (接面道路無). These types of properties are often not buildable anymore due to a
+          change in legislation and so the value of the land is dramatically decreased (for good reason).
+        </p>
+        <app-land-orientation-chart></app-land-orientation-chart>
+      </div>
+    </div>
+  </section>
+
+  <section class="conclusion" id="conclusion">
+    <h2>In Conclusion</h2>
+    <p>
+      Playing with the MLIT dataset has been a fun exercise and I learned a lot about the factors that drive the price
+      of
+      a property in Tokyo.
+    </p>
+    <p>
+      I hope you enjoyed reading this article as much as I enjoyed writing it. If you have any questions or feedback,
+      please let me know!
+    </p>
+    <p>Also, I spent some time creating a property evaluation app based on the model described in this article. Feel
+      free to try it at <a href="https://tokyohouseprice.web.app/">tokyohouseprice.web.app</a>.</p>
+
+  </section>
+</article>
+
+<footer class="article-footer">
+  <div class="footer-content">
+    <div class="footer-logo">
+      <img src="logo.svg" alt="Tokyo House Price" class="footer-logo-img">
+    </div>
+
+    <div class="footer-links">
+      <a href="https://tokyohouseprice.web.app/" target="_blank">Try the App!</a>
+      <a href="https://github.com/zermelozf/tokyohouseprice" target="_blank">GitHub</a>
+      <a href="mailto:arnaud@linalgo.com">Contact</a>
+    </div>
+
+    <div class="footer-social">
+      <a href="https://twitter.com/zermelozf" target="_blank" class="social-icon">
+        <i class="fab fa-twitter"></i>
+      </a>
+      <a href="https://www.linkedin.com/in/arachez/" target="_blank" class="social-icon">
+        <i class="fab fa-linkedin"></i>
+      </a>
+    </div>
+
+    <div class="footer-disclaimer">
+      <p>
+        I am just a random guy on the internet with no real estate experience. So please take all I write
+        with a massive pinch of salt and don't rely exclusively on this article for real estate investment.
+        This analysis is for educational purposes only and should not be used as financial advice.
+      </p>
+    </div>
+
+    <div class="footer-copyright">
+      <p>© 2024 Tokyo House Price | All Rights Reserved</p>
+    </div>
+  </div>
+</footer>

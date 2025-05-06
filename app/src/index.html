@@ -7,6 +7,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/jpeg" href="logo.jpg">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <!-- MathJax Configuration -->
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+      },
+      startup: {
+        typeset: true,
+        pageReady: function() {
+          return MathJax.startup.defaultPageReady().then(function() {
+            // Force re-typeset after page load to catch any lazy-loaded elements
+            setTimeout(() => {
+              MathJax.typeset();
+            }, 200);
+          });
+        }
+      }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
   <app-root></app-root>

@@ -13,11 +13,19 @@ import { LandValueEvolutionChartComponent } from '../land-value-evolution-chart/
 import { ModelScoresHistogramComponent } from '../model-scores-histogram/model-scores-histogram.component';
 import { ImportanceChartComponent } from '../importance-chart/importance-chart.component';
 
-// Add MathJax type declaration
+// Add MathJax type declarations
 declare global {
   interface Window {
     MathJax?: {
-      typeset: (elements: Array<Element>) => void;
+      tex?: {
+        inlineMath: string[][];
+        displayMath: string[][];
+        processEscapes: boolean;
+      };
+      options?: {
+        skipHtmlTags: string[];
+      };
+      typeset: (elements: Element[]) => void;
     };
   }
 }
@@ -49,11 +57,15 @@ declare const MathJax: any;
         height: '0',
         opacity: '0',
         overflow: 'hidden',
-        padding: '0'
+        padding: '0',
+        margin: '0'
       })),
       state('expanded', style({
         height: '*',
-        opacity: '1'
+        opacity: '1',
+        overflow: 'visible',
+        padding: '1rem 0',
+        margin: '1rem 0'
       })),
       transition('collapsed <=> expanded', [
         animate('300ms ease-in-out')
@@ -71,26 +83,41 @@ export class HousePriceArticleComponent implements OnInit, AfterViewInit {
 
   showTechnicalDetails = false;
 
+  toggleTechnicalDetails() {
+    this.showTechnicalDetails = !this.showTechnicalDetails;
+    if (this.showTechnicalDetails) {
+      // Wait for the animation to complete before initializing MathJax
+      setTimeout(() => {
+        // Load MathJax script if not already loaded
+        if (!document.querySelector('script[src*="mathjax"]')) {
+          const script = document.createElement('script');
+          script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+          script.async = true;
+          script.onload = () => {
+            this.renderFormulas();
+          };
+          document.head.appendChild(script);
+        } else {
+          // If MathJax is already loaded, just render the formulas
+          this.renderFormulas();
+        }
+      }, 300);
+    }
+  }
+
   ngOnInit() {
-    // Load MathJax script
-    const script = document.createElement('script');
-    script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
-    script.async = true;
-    document.head.appendChild(script);
+    // Remove MathJax initialization from here since we'll do it when expanding
   }
 
   ngAfterViewInit() {
-    this.renderFormulas();
-    // Initialize MathJax after content is loaded
-    if (typeof MathJax !== 'undefined') {
-      MathJax.typesetPromise();
-    }
     this.positionInsightBox();
   }
 
   private renderFormulas() {
+    if (!window.MathJax) return;
+
     // Render main formula
-    if (this.formulaContainer && window.MathJax) {
+    if (this.formulaContainer) {
       this.formulaContainer.nativeElement.textContent = `$$
       \\begin{align}
       y =&  \\space \\text{P}(\\text{house}) + \\text{P}(\\text{land})
@@ -99,7 +126,7 @@ export class HousePriceArticleComponent implements OnInit, AfterViewInit {
     }
 
     // Render house price formula
-    if (this.houseFormulaContainer && window.MathJax) {
+    if (this.houseFormulaContainer) {
       this.houseFormulaContainer.nativeElement.textContent = `$$
       \\begin{align}
       \\text{P}(\\text{house}) =& \\Big[\\sum_{m \\in \\text{material}}\\Big(\\alpha^1_m - \\alpha_m^2 \\cdot \\text{age} \\Big) + \\sum_{y \\in \\text{year}}\\alpha_y \\Big] \\cdot m^2_h
@@ -108,7 +135,7 @@ export class HousePriceArticleComponent implements OnInit, AfterViewInit {
     }
 
     // Render land price formula
-    if (this.landFormulaContainer && window.MathJax) {
+    if (this.landFormulaContainer) {
       this.landFormulaContainer.nativeElement.textContent = `$$
       \\begin{align}
       \\text{P}(\\text{land}) =& \\Big[\\sum_{t\\in{\\text{type}}}\\beta_t + \\sum_{c \\in \\text{city}}\\beta_{c} + \\sum_{o \\in \\text{orient}}\\beta_o + \\sum_{s \\in \\text{shape}}\\beta_s + \\sum_{y \\in \\text{year}}\\beta_y \\Big] \\cdot m^2_l.
@@ -118,15 +145,17 @@ export class HousePriceArticleComponent implements OnInit, AfterViewInit {
 
     // Tell MathJax to typeset all formulas
     setTimeout(() => {
-      if (window.MathJax && window.MathJax.typeset) {
+      if (window.MathJax?.typeset) {
         // First process all formula containers
         const formulaElements = [
-          this.formulaContainer.nativeElement,
-          this.houseFormulaContainer.nativeElement,
-          this.landFormulaContainer.nativeElement
+          this.formulaContainer?.nativeElement,
+          this.houseFormulaContainer?.nativeElement,
+          this.landFormulaContainer?.nativeElement
         ].filter(el => el != null);
         
-        window.MathJax.typeset(formulaElements);
+        if (formulaElements.length > 0) {
+          window.MathJax.typeset(formulaElements);
+        }
         
         // Then process the inline math elements
         const mathElements = document.querySelectorAll('.math');
@@ -134,7 +163,7 @@ export class HousePriceArticleComponent implements OnInit, AfterViewInit {
           window.MathJax.typeset(Array.from(mathElements));
         }
       }
-    }, 100); // Slightly longer timeout to ensure the DOM is ready
+    }, 100);
   }
 
   private positionInsightBox() {

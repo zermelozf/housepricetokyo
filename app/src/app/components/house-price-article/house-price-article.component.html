@@ -36,14 +36,13 @@
     <p>
       I had been looking at listings for a while already, and was getting serious about making an offer. But at the back
       of my mind, I was feeling frustrated that I didn't really understand what makes a property valuable in Tokyo. I
-      mean, I'm no a real estate investor, nor are my friends and most of the people who take the leap
-      and buy a family house in one of the 23 wards. So in that specific insntace, it's probably OK to not know, I
+      mean, I'm not a real estate investor, nor are my friends and most of the people who take the leap
+      and buy a family house in one of the 23 wards. So in that specific instance, it's probably OK to not know, I
       suppose. But still, where there is data, there is a way!
     </p>
     <p>
-      So with that in mind, I started looking for a dataset covering the Tokyo rReal Estate Market and ended up
-      uncovering
-      the <a href="https://www.reinfolib.mlit.go.jp/">MLIT 不動産情報ライブラリ dataset</a>: a treasure trove!
+      So with that in mind, I started looking for a dataset covering the Tokyo Real Estate Market and ended up
+      uncovering the <a href="https://www.reinfolib.mlit.go.jp/">MLIT 不動産情報ライブラリ dataset</a>: a treasure trove!
     </p>
     <p>
       In the following article, I'll use statistical analysis to try and understand what drives property value
@@ -83,12 +82,12 @@
       is hidden. You can click on the button below to show it.</p>
 
     <div class="toggle-container">
-      <button class="toggle-button" (click)="showTechnicalDetails = !showTechnicalDetails">
+      <button class="toggle-button" (click)="toggleTechnicalDetails()">
         {{ showTechnicalDetails ? 'Hide technical details' : 'Show technical details' }}
       </button>
     </div>
 
-    <div class="section-content" [class.show]="showTechnicalDetails">
+    <div class="section-content" [@expandCollapse]="showTechnicalDetails ? 'expanded' : 'collapsed'" [style.display]="showTechnicalDetails ? 'block' : 'none'">
       <div class="content-wrapper">
         <p>
           The MLIT dataset is a treasure trove of information about the Tokyo real estate market. It contains over
@@ -107,7 +106,7 @@
           <li>The price of a listing in the MLIT dataset is split between land and house value</li>
           <li>The price of the house is proportional to the floor area and the building type and year of construction
             might increase or decrease the price per square meter</li>
-          <li>Similarily, the land value is proportional to the plot size, and the price per square meter might increase
+          <li>Similarly, the land value is proportional to the plot size, and the price per square meter might increase
             or decrease depending on the land characteristics such as shape, orientation, distance to the station, etc.
           </li>
         </ul>
@@ -167,11 +166,11 @@
   </section>
 
   <section class="land-value-evolution" id="importance">
-    <h2>The relative importance of different factors</h2>
+    <h2>The Relative Importance of Different Factors</h2>
 
-    Before diving into the details of each factor, let's first look at the relative importance of each factor in
-    determining property values in Tokyo. The chart below shows the average impact of each factor on the property value
-    group on the value of a property.
+    <p>Before diving into the details of each factor, let's first look at the relative importance of each factor in
+      determining property values in Tokyo. The chart below shows the average impact of each factor on the property
+      value.</p>
 
     <app-importance-chart></app-importance-chart>
 
@@ -179,34 +178,32 @@
       can see:</p>
     <ul>
       <li>Unsurprisingly, <strong>Plot Size</strong> and <strong>House Size</strong> have the highest impact on the
-        value of a property. The bigger the pricier. And each square meter counts.</li>
-      <li>Next is<strong>Neighborhood</strong>. In fact, as we'll see in the <a href="#location">location section</a>,
+        value of a property. The bigger, the pricier. And each square meter counts.</li>
+      <li>Next is <strong>Neighborhood</strong>. In fact, as we'll see in the <a href="#location">location section</a>,
         this is just an average effect and the
         location of the property can have an even stronger impact on price for properties located in good neighborhoods.
       </li>
       <li><strong>Construction Type</strong>, <strong>Property Orientation</strong>, and <strong>Land Shape</strong>
-        each coneach conrtibute modestly to the value of a property.</li>
+        each contribute modestly to the value of a property.</li>
       <li><strong>Building Age</strong> has the smallest influence among the factors analyzed, however, bear in mind
-        that this factor is multiplied by age, so each year will add to the depreciation of the prperty and thus the
+        that this factor is multiplied by age, so each year will add to the depreciation of the property and thus the
         total impact might be much higher. We will have a more detailed look in the section on <a
           href="#depreciation">depreciation</a>.</li>
     </ul>
 
-
     <h3>When to buy?</h3>
-    One factor not shown in the chart above is the <strong>time of purchase</strong>. The year the property is bought
-    also has an impact on the price and, according to the model, the earlier the better. In fact, the model assesses
-    that the annualized rate of price growth is about <strong>3.5%</strong> per year on average.
+    <p>One factor not shown in the chart above is the <strong>time of purchase</strong>. The year the property is bought
+      also has an impact on the price and, according to the model, the earlier the better. In fact, the model assesses
+      that the annualized rate of price growth is about <strong>3.5%</strong> per year on average.</p>
 
     <app-land-value-evolution-chart></app-land-value-evolution-chart>
-
 
   </section>
 
   <section class="map-section" id="location">
     <h2>Location, Location, Location</h2>
     <p>
-      What neightboarhoud you buy in Tokyo can make a huge difference in the price you pay. Let's look at the impact of
+      What neighborhood you buy in Tokyo can make a huge difference in the price you pay. Let's look at the impact of
       the neighborhood on the price of a property.
     </p>
     <div class="map-container">
@@ -216,9 +213,8 @@
       Interactive map showing land values across Tokyo.
     </p>
     <p>
-      The model has clearly picked up on the fact centrally located properties are more valuable. And great
-      neighborhoods
-      can set you back more than 1 million yen per square meter!!!
+      The model has clearly picked up on the fact that centrally located properties are more valuable. And great
+      neighborhoods can set you back more than 1 million yen per square meter!
     </p>
     <p>
       But what about the other factors? Let's dive into the details.
@@ -227,22 +223,23 @@
   </section>
 
   <section class="factors-section" id="other-factors">
-    <h2>Other factors</h2>
+    <h2>Other Factors</h2>
 
     <div class="factor building-type">
       <h3 id="depreciation">Building Type and Depreciation</h3>
       <p>
         The Lasso regression analysis also uncovered interesting patterns in how different building materials depreciate
-        over
-        time. The model helped us quantify these relationships:
+        over time. The model helped us quantify these relationships:
       </p>
       <app-depreciation-graph></app-depreciation-graph>
       <p>
         <strong>Steel</strong> and <strong>Light Steel</strong> are unsurprisingly the most durable and thus cost the
         most. Interestingly however, they depreciate faster than wooden structures and while they retain an advantage
         overall for durability, the <strong>Wooden</strong> structures are faring surprisingly well in my opinion.
-        Overall, the the model probably underestimates the lifetime construction materials. <span id="insight">In fact, the depreciation
-        period for wood is probably closer to 22 years, 46 years for light, at least from an accounting perspective.</span>
+        Overall, the model probably underestimates the lifetime of construction materials. <span id="insight">In fact,
+          the depreciation
+          period for wood is probably closer to 22 years, 46 years for light steel, at least from an accounting
+          perspective.</span>
       </p>
     </div>
 
@@ -251,24 +248,24 @@
         <i class="fas fa-lightbulb"></i>
       </div>
       <div class="insight-content">
-        <p>I wonder if the short lifetime of materials is an artifact of the model or a real effect. Please let me know if you have any insights on this!</p>
+        <p>I wonder if the short lifetime of materials is an artifact of the model or a real effect. Please let me know
+          if you have any insights on this!</p>
       </div>
     </div>
 
     <div class="factor convenience" id="convenience">
       <h3>The Price of Convenience</h3>
       <p>
-        One interesting result from of the Lasso model is the precise quantification of the impact of walking time to
-        the
-        nearest train station.
+        One interesting result from the Lasso model is the precise quantification of the impact of walking time to
+        the nearest train station.
       </p>
       <app-walking-time-chart></app-walking-time-chart>
       <p>
         In a variant of the model shown above, I allowed the <span class="math">$\beta$</span> coefficients associated
-        to
-        walk time to be dummy coded minute by minute. This would theoretically allow for a non-linear relationship to be
+        with walk time to be dummy coded minute by minute. This would theoretically allow for a non-linear relationship
+        to be
         picked up. However, as you can see in the chart, the relationship seems pretty stable and linear with each
-        minute closer to the station will add about ¥10,000 per square meter to the price of the property. This means a
+        minute closer to the station adding about ¥10,000 per square meter to the price of the property. This means a
         100 square meter property will be worth about ¥10 million more if it's located right next to the station.
       </p>
     </div>
@@ -277,12 +274,11 @@
       <h3>The Construction Ratios</h3>
 
       <h4>Floor Ratio (容積率)</h4>
-
       <p>
         Let's be quick with this one. The floor ratio is the ratio of the total floor area of a building to the total
         land area of the property. It is a measure of how much of the land is used for building purposes and is a legal
         requirement when building. The higher the floor ratio, the bigger the house you can build on the property.
-        Unsuprisingly, higher floor ratios are associated with higher property values.
+        Unsurprisingly, higher floor ratios are associated with higher property values.
       </p>
       <app-floor-ratio-chart></app-floor-ratio-chart>
 
@@ -298,7 +294,7 @@
         <h3>Land Shape and Orientation</h3>
         <h4>Land Shape</h4>
         <p>
-          The learnt coefficients seem consistent with the intuition that square-shaped land is more valuable than
+          The learned coefficients seem consistent with the intuition that square-shaped land is more valuable than
           irregularly shaped land. Also, the model is flagging landlocked properties (袋地等) as much less valuable.
           This is an important factor to take into account and sometimes the reason that explains why a listing on
           <a href="https://suumo.jp/">suumo.jp</a> is so cheap.
@@ -308,8 +304,8 @@
         <h4>Land Orientation</h4>
         <p>
           Land orientation does not seem to have a big impact on the price of a property. However, you should definitely
-          avoid properties with no access (接面道路無). These types of properies are often not buildable anymore due to a
-          change is legislation and so the value of the land is dramatically decreased (for good reason)..
+          avoid properties with no access (接面道路無). These types of properties are often not buildable anymore due to a
+          change in legislation and so the value of the land is dramatically decreased (for good reason).
         </p>
         <app-land-orientation-chart></app-land-orientation-chart>
       </div>
@@ -319,7 +315,8 @@
   <section class="conclusion" id="conclusion">
     <h2>In Conclusion</h2>
     <p>
-      Playing with the MLIT dataset has been a fun exercise and I learnt a lot about the factors that drive the price of
+      Playing with the MLIT dataset has been a fun exercise and I learned a lot about the factors that drive the price
+      of
       a property in Tokyo.
     </p>
     <p>
@@ -355,10 +352,9 @@
 
     <div class="footer-disclaimer">
       <p>
-        This analysis uses data from the MLIT 不動産情報ライブラリ, but this site is not affiliated with the Japanese government.
-        The machine learning model is for educational purposes only and should not be the sole basis for real estate
-        decisions.
-        <a href="#" class="disclaimer-link">Learn more about our methodology</a>
+        I am just a random guy on the internet with no real estate experience. So please take all I write
+        with a massive pinch of salt and don't rely exclusively on this article for real estate investment.
+        This analysis is for educational purposes only and should not be used as financial advice.
       </p>
     </div>
 

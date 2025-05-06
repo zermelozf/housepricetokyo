@@ -1,6 +1,7 @@
-import { Component, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ViewChild, ElementRef, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { trigger, state, style, transition, animate } from '@angular/animations';
 import { TokyoMapComponent } from '../tokyo-map/tokyo-map.component';
 import { DepreciationGraphComponent } from '../depreciation-graph/depreciation-graph.component';
 import { FloorRatioChartComponent } from '../floor-ratio-chart/floor-ratio-chart.component';
@@ -21,6 +22,8 @@ declare global {
   }
 }
 
+declare const MathJax: any;
+
 @Component({
   selector: 'app-house-price-article',
   standalone: true,
@@ -39,16 +42,50 @@ declare global {
     ImportanceChartComponent
   ],
   templateUrl: './house-price-article.component.html',
-  styleUrls: ['./house-price-article.component.scss']
+  styleUrls: ['./house-price-article.component.scss'],
+  animations: [
+    trigger('expandCollapse', [
+      state('collapsed', style({
+        height: '0',
+        opacity: '0',
+        overflow: 'hidden',
+        padding: '0'
+      })),
+      state('expanded', style({
+        height: '*',
+        opacity: '1'
+      })),
+      transition('collapsed <=> expanded', [
+        animate('300ms ease-in-out')
+      ])
+    ])
+  ]
 })
-export class HousePriceArticleComponent implements AfterViewInit {
+export class HousePriceArticleComponent implements OnInit, AfterViewInit {
   @ViewChild('formulaContainer') formulaContainer!: ElementRef;
   @ViewChild('houseFormulaContainer') houseFormulaContainer!: ElementRef;
   @ViewChild('landFormulaContainer') landFormulaContainer!: ElementRef;
   @ViewChild('articleContainer') articleContainer!: ElementRef;
+  @ViewChild('insightBox') insightBox!: ElementRef;
+  @ViewChild('depreciation') depreciationSection!: ElementRef;
+
+  showTechnicalDetails = false;
+
+  ngOnInit() {
+    // Load MathJax script
+    const script = document.createElement('script');
+    script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+    script.async = true;
+    document.head.appendChild(script);
+  }
 
   ngAfterViewInit() {
     this.renderFormulas();
+    // Initialize MathJax after content is loaded
+    if (typeof MathJax !== 'undefined') {
+      MathJax.typesetPromise();
+    }
+    this.positionInsightBox();
   }
 
   private renderFormulas() {
@@ -100,6 +137,19 @@ export class HousePriceArticleComponent implements AfterViewInit {
     }, 100); // Slightly longer timeout to ensure the DOM is ready
   }
 
+  private positionInsightBox() {
+    if (this.insightBox) {
+      const insightSpan = document.getElementById('insight');
+      if (insightSpan) {
+        const insightRect = insightSpan.getBoundingClientRect();
+        const articleRect = this.articleContainer.nativeElement.getBoundingClientRect();
+        const topOffset = insightRect.top - articleRect.top;
+        
+        this.insightBox.nativeElement.style.top = `${topOffset}px`;
+      }
+    }
+  }
+
   // Data for the depreciation graph
   readonly depreciationData = {
     wooden: [
@@ -149,4 +199,26 @@ export class HousePriceArticleComponent implements AfterViewInit {
       west: 95
     }
   };
+
+  @HostListener('click', ['$event'])
+  onAnchorClick(event: MouseEvent) {
+    const target = event.target as HTMLElement;
+    const anchor = target.closest('a');
+    
+    if (anchor) {
+      const href = anchor.getAttribute('href');
+      if (href?.startsWith('#')) {
+        event.preventDefault();
+        const targetId = href.substring(1);
+        const targetElement = document.getElementById(targetId);
+        
+        if (targetElement) {
+          targetElement.scrollIntoView({ 
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      }
+    }
+  }
 } 

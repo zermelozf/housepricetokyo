@@ -62,7 +62,7 @@ def load_data():
     data = data[data['面積（㎡）'].astype(int) < 200]
     data = data[data['建ぺい率（％）'].isin([60.0, 70.0, 80.0])]
     data = data[data['容積率（％）'].isin([150.0, 200.0, 300.0])]
-    data = data[data['建物の構造'].isin(['木造', '軽量鉄骨造', '鉄骨造', 'NA'])]
+    data = data[data['建物の構造'].isin(['木造', '軽量鉄骨造', '鉄骨造', 'ＲＣ', 'ＳＲＣ', 'NA'])]
     data = data[data['取引価格（総額）'] < 200000000]
     data = data[data['今後の利用目的'] == '住宅']
 

@@ -14,7 +14,7 @@ import { HttpClient } from '@angular/common/http';
 export class TokyoMapComponent implements AfterViewInit {
   private map: L.Map | null = null;
   private readonly TOKYO_CENTER: L.LatLngExpression = [35.6762, 139.6503];
-  private readonly DEFAULT_ZOOM = 11;
+  private readonly DEFAULT_ZOOM = 13;
   private minValue: number = 0;
   private maxValue: number = 0;
   private colors: string[] = [];
@@ -36,9 +36,12 @@ export class TokyoMapComponent implements AfterViewInit {
         zoomControl: true,
         maxZoom: 18,
         minZoom: 5,
-        zoomSnap: 0.1,
-        zoomDelta: 0.1,
-        wheelPxPerZoomLevel: 120
+        zoomAnimation: true,
+        zoomAnimationThreshold: 4,
+        fadeAnimation: true,
+        markerZoomAnimation: true,
+        transform3DLimit: 8388608,
+        wheelPxPerZoomLevel: 30
       });
 
       // Add base layer - Stadia AlidadeSmooth
@@ -117,9 +120,9 @@ export class TokyoMapComponent implements AfterViewInit {
         this.zoomToFeature(e);
         layer.bindPopup(`
           <div>
+            <strong>Area:</strong> ${feature.properties.S_NAME || 'Unknown'}<br>
             <strong>Land Value:</strong> ${formattedValue}
             ${feature.properties.trimmed_city ? `<br><strong>City:</strong> ${feature.properties.trimmed_city}` : ''}
-            // ${feature.properties.name ? `<br><strong>Area:</strong> ${feature.properties.name}` : ''}
           </div>
         `).openPopup();
       }
@@ -205,8 +208,10 @@ export class TokyoMapComponent implements AfterViewInit {
         // Center and zoom the map to fit the GeoJSON bounds
         const bounds = this.geoJsonLayer.getBounds();
         this.map.fitBounds(bounds, {
-          padding: [50, 50], // Add some padding around the bounds
-          maxZoom: 12 // Limit the maximum zoom level
+          padding: [10, 10], // Reduced padding to fit more tightly
+          maxZoom: 16, // Increased max zoom to show more detail
+          animate: true,
+          duration: 1 // Quick animation
         });
       },
       error: (error) => {

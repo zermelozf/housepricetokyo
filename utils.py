@@ -7,7 +7,7 @@ from sklearn.base import BaseEstimator, TransformerMixin
 def load_data():
     kita = pd.read_csv('data/kita2.csv')
     ita = pd.read_csv('data/ita2.csv')
-    # hachi = pd.read_csv('data/hachi2.csv')
+    hachi = pd.read_csv('data/hachi2.csv')
     meguro = pd.read_csv('data/meguro2.csv')
     arakawa = pd.read_csv('data/ara2.csv')
     minato = pd.read_csv('data/minato2.csv')
@@ -30,14 +30,14 @@ def load_data():
     edogawa = pd.read_csv('data/edogawa2.csv')
     katsushika = pd.read_csv('data/katsushika2.csv')
     ota = pd.read_csv('data/ota2.csv')
-    # df = pd.concat([
-    #     nerima, kita, ita, meguro, shibuya,
-    #     arakawa, minato, shinjuku, bunkyo, shinagawa,
-    #     nakano, suginami, setagaya, mitaka, toshima,
-    #     chiyoda, koto, sumida, adachi, taito, chuo,
-    #     edogawa, katsushika, ota
-    # ]).reset_index()
-    df = pd.concat([nerima, ita]).reset_index()
+    df = pd.concat([
+        nerima, kita, ita, meguro, shibuya,
+        arakawa, minato, shinjuku, bunkyo, shinagawa,
+        nakano, suginami, setagaya, mitaka, toshima,
+        chiyoda, koto, sumida, adachi, taito, chuo,
+        edogawa, katsushika, ota
+    ]).reset_index()
+    # df = pd.concat([nerima, ita]).reset_index()
     df['is_house'] = True
     df.loc[df['延床面積（㎡）'].isnull(), 'is_house'] = False
     df.loc[~df['is_house'], '延床面積（㎡）'] = 0
@@ -70,7 +70,7 @@ def load_data():
     data['age'] = data['建築年'].map(lambda x: int(x[:-1]))
     data['age'] = data['date'] - data['age']
     data['is_new'] = (data['age'] == 1).astype(int)
-    data['date'] = data['date'].astype(int) - 2020
+    data['date'] = data['date'].astype(str)# - 2020
     data['price'] = data['取引価格（総額）']
     data['building_ratio'] = data['建ぺい率（％）'].astype(str)
     data['floor_ratio'] = data['容積率（％）'].astype(str)

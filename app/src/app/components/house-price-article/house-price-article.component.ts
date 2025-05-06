@@ -10,6 +10,7 @@ import { LandOrientationChartComponent } from '../land-orientation-chart/land-or
 import { WalkingTimeChartComponent } from '../walking-time-chart/walking-time-chart.component';
 import { LandValueEvolutionChartComponent } from '../land-value-evolution-chart/land-value-evolution-chart.component';
 import { ModelScoresHistogramComponent } from '../model-scores-histogram/model-scores-histogram.component';
+import { ImportanceChartComponent } from '../importance-chart/importance-chart.component';
 
 // Add MathJax type declaration
 declare global {
@@ -34,7 +35,8 @@ declare global {
     LandOrientationChartComponent,
     WalkingTimeChartComponent,
     LandValueEvolutionChartComponent,
-    ModelScoresHistogramComponent
+    ModelScoresHistogramComponent,
+    ImportanceChartComponent
   ],
   templateUrl: './house-price-article.component.html',
   styleUrls: ['./house-price-article.component.scss']

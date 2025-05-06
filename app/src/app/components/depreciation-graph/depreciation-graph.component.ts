@@ -23,19 +23,19 @@ export class DepreciationGraphComponent implements AfterViewInit {
   @ViewChild('depreciationChart') chartRef!: ElementRef<HTMLCanvasElement>;
   private chart: Chart | null = null;
 
-  // Data from the model
+  // Updated data from the model based on the latest coefficients
   private readonly data = {
     steel: {
-      baseValue: 264083.78,
-      depreciationRate: -8693.69
+      baseValue: 297518.74,          // C(building_type, contr.treatment('NA'))[鉄骨造]:house_m2
+      depreciationRate: -11882.42    // C(building_type, contr.treatment('NA'))[鉄骨造]:age:house_m2
     },
     wooden: {
-      baseValue: 150948.97,
-      depreciationRate: -8148.20
+      baseValue: 128824.28,          // C(building_type, contr.treatment('NA'))[木造]:house_m2
+      depreciationRate: -8447.49     // C(building_type, contr.treatment('NA'))[木造]:age:house_m2
     },
     lightSteel: {
-      baseValue: 219553.08,
-      depreciationRate: -12126.18
+      baseValue: 270227.69,          // C(building_type, contr.treatment('NA'))[軽量鉄骨造]:house_m2
+      depreciationRate: -14629.28    // C(building_type, contr.treatment('NA'))[軽量鉄骨造]:age:house_m2
     }
   };
 

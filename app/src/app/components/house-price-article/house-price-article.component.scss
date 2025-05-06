@@ -568,7 +568,7 @@
 
   @media (max-width: 600px) {
     padding: 1rem;
-    font-size: 1rem;
+    font-size: 1.2rem;
 
     header {
       .header-image {
@@ -577,12 +577,12 @@
       }
 
       h1 {
-        font-size: 1.95rem;
+        font-size: 2.1rem;
       }
 
       .article-meta {
         .subtitle {
-          font-size: 1.2rem;
+          font-size: 1.3rem;
         }
       }
 
@@ -643,11 +643,11 @@
 
     section {
       h2 {
-        font-size: 1.7rem;
+        font-size: 1.9rem;
       }
 
       h3 {
-        font-size: 1.3rem;
+        font-size: 1.5rem;
       }
     }
 
@@ -656,12 +656,26 @@
       width: 100%;
       max-width: none;
       margin: 1rem 0;
+
+      .insight-content {
+        h4 {
+          font-size: 1.3rem;
+        }
+
+        p {
+          font-size: 1.2rem;
+        }
+      }
     }
 
     .formula-container {
       .formula {
-        font-size: 0.9rem;
+        font-size: 1.1rem;
       }
+    }
+
+    .intro-quote {
+      font-size: 1.3rem;
     }
   }
 

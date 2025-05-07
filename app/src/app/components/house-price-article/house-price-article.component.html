@@ -104,22 +104,25 @@
         <h3>Making some assumptions</h3>
         <p>
           Given the variety of features available and my goal of understanding what drives value, I chose to stick with
-          Linear Regression (for robustness and interpretability) and spend some time on modeling/feature engineering.
-          So yes, this article is 100% LLM free!
+          Linear Regression (for robustness and interpretability). Specifically, I chose Lasso Regression over Ridge
+          Regression as I expect it to be a better fit for Mean Absolute Error (MAE). Plus expect the median estimate to
+          be more robust to outliers that the mean estimate. I then spend some time on feature engineering to try to
+          capture interesting patterns.
         </p>
+        <p>So yes, this article is 100% LLM free!</p>
         <p>
-          In terms of modeling, I also kept it simple and made the following assumptions:
+          Then, I based my modeling on the following assumptions:
         </p>
         <ul class="assumptions-list">
-          <li>The price of a listing in the MLIT dataset is split between land and house value</li>
-          <li>The price of the house is proportional to the floor area and the building type and year of construction
-            might increase or decrease the price per square meter</li>
-          <li>Similarly, the land value is proportional to the plot size, and the price per square meter might increase
+          <li>The price of a listing in the MLIT dataset is split between land and house value.</li>
+          <li>The price of the house is proportional to the floor area. Also, the building type and year of construction
+            might increase or decrease the price per square meter.</li>
+          <li>Similarly, the land value is proportional to the plot size. And the price per square meter might increase
             or decrease depending on the land characteristics such as shape, orientation, distance to the station, etc.
           </li>
         </ul>
         <p>
-          The formula used for our Lasso regression model is the following:
+          The exact formula used for our Lasso regression model is the following:
         </p>
         <div class="formula-container">
           <div class="formula">
@@ -140,25 +143,42 @@
           </div>
         </div>
 
-        With this modeling, the interpretation should be pretty straightforward: all coefficients have a price per
-        square
-        meter unit, except for the <span class="math">$\alpha_m^2$</span> coefficients which aim to model the
-        depreciation
-        of the house over time and thus are expressed in price per square meter per year.
+        <div class="insight-box">
+          <div class="insight-icon">
+            <i class="fas fa-lightbulb"></i>
+          </div>
+          <div class="insight-content">
+            <h4>Find it on GitHub!</h4>
+            <p>BTW, You can find the code I wrote on <a href="https://github.com/zermelozf/tokyohouseprice">github</a>
+              with an MIT license. In particular, the <a
+                href="https://github.com/zermelozf/tokyohouseprice/blob/main/analysis.ipynb">modeling part</a> is
+              using <a href="https://matthewwardrop.github.io/formulaic/latest/">formulaic</a>, a very nice package
+              which provides an easy way to write Patsy like formulas that are fully serializable. This greatly
+              simplified both the modeling and the deployment the model to a python backend for
+              <a href="https://tokyohouseprice.web.app/">tokyohouseprice.web.app</a>.
+            </p>
+          </div>
+        </div>
 
-        <h3>Predictive power</h3>
+        With the above parameterization, the interpretation of the model should be pretty straightforward. All
+        coefficients
+        have a price per square meter unit, except for the <span class="math">$\alpha_m^2$</span>, which are expressed
+        in price per square meter per year to model the depreciation of the house over time.
+
+        <h3>Predictive Power</h3>
 
         <p>
-          To evaluate the predictive power of our model, I compared the performance of the refined model against a
-          baseline Linear Regression by cross validating Mean Absolute Percentage Error (MAPE) for 500 iterations.
+          To assess the predictive power of the model, I compared its performance against a baseline Linear Regression
+          (without any feature engineering) by cross-validating Mean Absolute Percentage Error (MAPE) for 500
+          iterations.
           The histogram of results is shown below.
         </p>
 
         <app-model-scores-histogram></app-model-scores-histogram>
 
         <p>
-          As you can see, the refined model is better than basline with a median of about ~20% on a test set vs ~34% for
-          the baseline. While 20% average error is not bad, there is certainly room for improvement.
+          As you can see, the refined model is better than basline with a median MAPE error of about ~20% on a test set
+          vs ~34% for the baseline. While 20% average error is not bad, there is certainly room for improvement.
         </p>
 
         <h3>So?</h3>
@@ -177,6 +197,8 @@
     <h2>The Relative Importance of Different Factors</h2>
 
     <div class="factor relative" id="relative">
+      <p>As statte in the previous section, it looks like we have a decent model. Next let's look at the results.</p>
+
       <p>Before diving into the details of each factor, let's first look at the relative importance of each factor in
         determining property values in Tokyo. The chart below shows the average impact of each factor on the property
         value.</p>
@@ -197,7 +219,7 @@
         </li>
         <li><strong>Construction Type</strong>, <strong>Property Orientation</strong>, and <strong>Land Shape</strong>
           each contribute modestly to the value of a property.</li>
-        <li><strong>Building Age</strong> has the smallest influence among the factors analyzed, however, bear in mind
+        <li><strong>Building Age</strong> has the smallest influence among the factors analyzed. However, bear in mind
           that this factor is multiplied by age, so each year will add to the depreciation of the property and thus the
           total impact might be much higher. We will have a more detailed look in the section on <a
             href="#depreciation">depreciation</a>.</li>
@@ -206,26 +228,44 @@
 
     <div class="factor when" id="when">
       <h3>When to buy?</h3>
-      <p>One factor not shown in the chart above is the <strong>time of purchase</strong>. The year the property is
-        bought
-        also has an impact on the price and, according to the model, the earlier the better. In fact, the model assesses
-        that the annualized rate of price growth is about <strong>3.5%</strong> per year on average.</p>
+      <p>One factor not shown in the chart above is the influence of the <strong>year</strong> the property was
+        purchased.</p>
 
       <app-land-value-evolution-chart></app-land-value-evolution-chart>
+
+      <p>
+        According to the model, the average appreciation of a property was about <strong>3.5%</strong> per year for the
+        past 10 years.
+        After a small slump in 2019, the uptrend took off again during and after the pandemic.
+      </p>
+
+      <div class="insight-box" #insightBox>
+        <div class="insight-icon">
+          <i class="fas fa-lightbulb"></i>
+        </div>
+        <div class="insight-content">
+          <p>
+            So, the overall message seems clear: buy now! However, I am planning another post to dive
+            deeper into the opportunity cost of buying a property. Stay tuned for more on that topic!
+          </p>
+        </div>
+      </div>
+
+
     </div>
   </section>
 
   <section class="map-section" id="location">
     <h2>Location, Location, Location</h2>
     <p>
-      What neighborhood you buy in Tokyo can make a huge difference in the price you pay. Let's look at the impact of
-      the neighborhood on the price of a property.
+      What neighborhood you buy in Tokyo can make a huge difference. Next, let's look at how the model quantified the
+      impact of the neighborhood on the price of a property.
     </p>
     <div class="map-container">
       <app-tokyo-map></app-tokyo-map>
     </div>
     <p class="caption">
-      Interactive map showing land values across Tokyo.
+      Interactive map showing land values across Tokyo. Green is "cheap" while red is "expensive".
     </p>
     <p>
       The model has clearly picked up on the fact that centrally located properties are more valuable. And great
@@ -248,8 +288,8 @@
       </p>
       <app-depreciation-graph></app-depreciation-graph>
       <p>
-        <strong>Wood (木造)</strong> is the cheapest structural material for a house and also the one that completely loses
-        value first. <strong>Steel (鉄骨)</strong>, <strong>Light Steel (軽量鉄骨)</strong> and the <strong>Concrete
+        <strong>Wood (木造)</strong> is the cheapest structural material for a house and also the one that completely
+        loses value first. <strong>Steel (鉄骨)</strong>, <strong>Light Steel (軽量鉄骨)</strong> and the <strong>Concrete
           (RC)</strong> are more
         durable and thus also more expensive. When looking at the rate at which each material depreciates,
         <strong>Wood</strong> fares surprisingly well however!
@@ -262,7 +302,8 @@
       </div>
       <div class="insight-content">
         <p>The depreciation profiles inferred by the Lasso Regression seem somewhat pessimistic.
-          For example, a quick search gives an amortization period of 22 years, or 46 years for light steel.
+          For example, a quick search gives an amortization period of 22 years for Wood which is not too far off, but
+          between 33 and 46 years for Light Steel and Concrete.
           I wonder if this difference between the accounting value and the value inferred by the Lasso Regression is an
           artifact of the model or a real effect? Please let me know if you have any insights on this!</p>
       </div>
@@ -290,7 +331,7 @@
 
       <h4>Floor Ratio (容積率)</h4>
       <p>
-        Let's be quick with this one. The floor ratio is the ratio of the total floor area of a building to the total
+        The floor ratio is the ratio of the total floor area of a building to the total
         land area of the property. It is a measure of how much of the land is used for building purposes and is a legal
         requirement when building. The higher the floor ratio, the bigger the house you can build on the property.
         Unsurprisingly, higher floor ratios are associated with higher property values.

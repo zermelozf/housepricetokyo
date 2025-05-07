@@ -55,7 +55,7 @@ pip install -r requirements.txt
 1. Start the API server:
 ```bash
 cd api
-uvicorn main:app --reload
+uvicorn api:app --reload
 ```
 
 2. Launch the web application:
@@ -82,6 +82,9 @@ tokyohouseprice/
 - pandas
 - numpy
 - formulaic
+- Angular
+- Chart.js
+- Leaflet
 
 ## Contributing
 Contributions are welcome! Please feel free to submit a Pull Request.

@@ -25,18 +25,18 @@ export class LandValueEvolutionChartComponent implements AfterViewInit {
 
   // Data from the model, sorted chronologically
   private readonly data = [
-    { year: 2013, landValue: 425100.81, houseValue: 60522.78 },
-    { year: 2014, landValue: 398549.73, houseValue: 120179.31 },
-    { year: 2015, landValue: 417360.46, houseValue: 135508.05 },
-    { year: 2016, landValue: 460072.34, houseValue: 123749.16 },
-    { year: 2017, landValue: 472924.30, houseValue: 139000.82 },
-    { year: 2018, landValue: 478180.56, houseValue: 156068.16 },
-    { year: 2019, landValue: 461382.57, houseValue: 169096.50 },
-    { year: 2020, landValue: 492800.38, houseValue: 149933.55 },
-    { year: 2021, landValue: 534398.52, houseValue: 159117.28 },
-    { year: 2022, landValue: 584582.72, houseValue: 171540.59 },
-    { year: 2023, landValue: 609861.81, houseValue: 175655.47 },
-    { year: 2024, landValue: 619905.77, houseValue: 180540.70 }
+    { year: 2013, landValue: 419391.27 },
+    { year: 2014, landValue: 381048.37 },
+    { year: 2015, landValue: 418888.90 },
+    { year: 2016, landValue: 462905.53 },
+    { year: 2017, landValue: 471387.26 },
+    { year: 2018, landValue: 476492.59 },
+    { year: 2019, landValue: 453696.27 },
+    { year: 2020, landValue: 492416.90 },
+    { year: 2021, landValue: 534521.14 },
+    { year: 2022, landValue: 581930.05 },
+    { year: 2023, landValue: 612402.41 },
+    { year: 2024, landValue: 615161.57 }
   ];
 
   ngAfterViewInit() {
@@ -60,19 +60,7 @@ export class LandValueEvolutionChartComponent implements AfterViewInit {
             fill: true,
             tension: 0.4,
             pointRadius: 4,
-            pointHoverRadius: 6,
-            yAxisID: 'y'
-          },
-          {
-            label: 'House Value per m²',
-            data: this.data.map(d => d.houseValue),
-            borderColor: 'rgb(255, 99, 132)',
-            backgroundColor: 'rgba(255, 99, 132, 0.1)',
-            fill: true,
-            tension: 0.4,
-            pointRadius: 4,
-            pointHoverRadius: 6,
-            yAxisID: 'y1'
+            pointHoverRadius: 6
           }
         ]
       },
@@ -86,7 +74,7 @@ export class LandValueEvolutionChartComponent implements AfterViewInit {
         plugins: {
           title: {
             display: true,
-            text: 'Evolution of Land and House Values per Square Meter in Tokyo',
+            text: 'Evolution of Land Values per Square Meter in Tokyo',
             font: {
               size: 16
             }
@@ -95,8 +83,7 @@ export class LandValueEvolutionChartComponent implements AfterViewInit {
             callbacks: {
               label: (context) => {
                 const value = context.raw as number;
-                const datasetLabel = context.dataset.label;
-                return `${datasetLabel}: ¥${value.toLocaleString('ja-JP')} per m²`;
+                return `Land Value: ¥${value.toLocaleString('ja-JP')} per m²`;
               }
             }
           }
@@ -109,30 +96,12 @@ export class LandValueEvolutionChartComponent implements AfterViewInit {
             }
           },
           y: {
-            type: 'linear',
-            display: true,
-            position: 'left',
             title: {
               display: true,
               text: 'Land Value per m² (¥)'
             },
             ticks: {
               callback: (value) => `¥${Number(value).toLocaleString('ja-JP')}`
-            }
-          },
-          y1: {
-            type: 'linear',
-            display: true,
-            position: 'right',
-            title: {
-              display: true,
-              text: 'House Value per m² (¥)'
-            },
-            ticks: {
-              callback: (value) => `¥${Number(value).toLocaleString('ja-JP')}`
-            },
-            grid: {
-              drawOnChartArea: false
             }
           }
         }

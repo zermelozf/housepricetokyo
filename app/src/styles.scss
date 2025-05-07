@@ -16,5 +16,13 @@ body {
 
 main {
   min-height: 100vh;
-  padding: 2rem;
-} 
+  padding: 0 2rem 0 2rem;
+  margin-top: 64px; /* Add margin for fixed navbar */
+}
+
+@media (max-width: 768px) {
+  main {
+    padding: 0;
+    margin-top: 64px; /* Keep margin for fixed navbar */
+  }
+}

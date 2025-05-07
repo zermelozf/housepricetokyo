@@ -1,0 +1,513 @@
+coef,value
+is_house,13475905.858518306
+is_new:house_m2,19288.310229931274
+date:house_m2,7226.978860726262
+"C(building_type, contr.treatment('NA'))[NA]:house_m2",0.0
+"C(building_type, contr.treatment('NA'))[ブロック造]:house_m2",156639.61259049104
+"C(building_type, contr.treatment('NA'))[木造]:house_m2",149596.78822124834
+"C(building_type, contr.treatment('NA'))[木造、ブロック造]:house_m2",279895.8791634875
+"C(building_type, contr.treatment('NA'))[木造、軽量鉄骨造]:house_m2",88821.50666232212
+"C(building_type, contr.treatment('NA'))[軽量鉄骨造]:house_m2",221116.70871215366
+"C(building_type, contr.treatment('NA'))[鉄骨造]:house_m2",255069.14990126487
+"C(building_type, contr.treatment('NA'))[鉄骨造、木造]:house_m2",108003.52753811688
+"C(building_type, contr.treatment('NA'))[鉄骨造、軽量鉄骨造]:house_m2",223017.73711297588
+"C(building_type, contr.treatment('NA'))[ＲＣ]:house_m2",374610.683500402
+"C(building_type, contr.treatment('NA'))[ＲＣ、ブロック造]:house_m2",0.0
+"C(building_type, contr.treatment('NA'))[ＲＣ、木造]:house_m2",255839.42833532058
+"C(building_type, contr.treatment('NA'))[ＲＣ、木造、ブロック造]:house_m2",163611.95058984176
+"C(building_type, contr.treatment('NA'))[ＲＣ、軽量鉄骨造]:house_m2",314202.30863064673
+"C(building_type, contr.treatment('NA'))[ＲＣ、鉄骨造]:house_m2",556391.5294155367
+"C(building_type, contr.treatment('NA'))[ＲＣ、鉄骨造、木造]:house_m2",28749.502998149976
+"C(building_type, contr.treatment('NA'))[ＳＲＣ]:house_m2",98977.11777548159
+date:land_m2,20458.599247505288
+nearest_station_name[お花茶屋]:land_m2,297378.1426872474
+nearest_station_name[つつじケ丘]:land_m2,407631.82414686633
+nearest_station_name[とうきょうスカイツリー]:land_m2,718627.8085636558
+nearest_station_name[ときわ台(東京)]:land_m2,515291.38327759854
+nearest_station_name[一之江]:land_m2,319084.5492813442
+nearest_station_name[三ノ輪]:land_m2,558171.7570145972
+nearest_station_name[三ノ輪橋]:land_m2,163562.53755391703
+nearest_station_name[三河島]:land_m2,448564.25778168475
+nearest_station_name[三田(東京)]:land_m2,1161889.3319728777
+nearest_station_name[三軒茶屋]:land_m2,824478.8909444712
+nearest_station_name[三鷹]:land_m2,586121.1379792939
+nearest_station_name[三鷹台]:land_m2,490757.24091557227
+nearest_station_name[上中里]:land_m2,485360.6749489355
+nearest_station_name[上井草]:land_m2,437077.9526677672
+nearest_station_name[上北沢]:land_m2,521889.8799971034
+nearest_station_name[上板橋]:land_m2,398139.04718469444
+nearest_station_name[上町]:land_m2,654305.248895998
+nearest_station_name[上石神井]:land_m2,422169.8949754988
+nearest_station_name[上野]:land_m2,863685.0772086711
+nearest_station_name[上野毛]:land_m2,718558.2021444798
+nearest_station_name[下丸子]:land_m2,467720.70907669025
+nearest_station_name[下井草]:land_m2,462955.0507860754
+nearest_station_name[下北沢]:land_m2,795785.6597883528
+nearest_station_name[下板橋]:land_m2,550709.3069795244
+nearest_station_name[下神明]:land_m2,676156.1970065559
+nearest_station_name[下落合(東京)]:land_m2,658820.4725840656
+nearest_station_name[下赤塚]:land_m2,385057.7619186821
+nearest_station_name[下高井戸]:land_m2,583139.5182287062
+nearest_station_name[不動前]:land_m2,809322.049045961
+nearest_station_name[世田谷]:land_m2,687722.9203919157
+nearest_station_name[世田谷代田]:land_m2,749645.282526041
+nearest_station_name[両国]:land_m2,792119.3111132887
+nearest_station_name[中井]:land_m2,572486.4511484834
+nearest_station_name[中延]:land_m2,716687.0330324627
+nearest_station_name[中村橋]:land_m2,453460.51775330125
+nearest_station_name[中板橋]:land_m2,431773.5936138611
+nearest_station_name[中目黒]:land_m2,995227.5951437156
+nearest_station_name[中野(東京)]:land_m2,696448.0745299022
+nearest_station_name[中野坂上]:land_m2,696638.1137068196
+nearest_station_name[中野富士見町]:land_m2,623971.3425952876
+nearest_station_name[中野新橋]:land_m2,658172.7866682062
+nearest_station_name[乃木坂]:land_m2,1335680.804346802
+nearest_station_name[久が原]:land_m2,576599.9401332034
+nearest_station_name[久我山]:land_m2,549186.214110895
+nearest_station_name[九品仏]:land_m2,782071.131627498
+nearest_station_name[亀戸]:land_m2,540131.3816607478
+nearest_station_name[亀戸水神]:land_m2,409593.7198798615
+nearest_station_name[亀有]:land_m2,331944.8673386078
+nearest_station_name[二子玉川]:land_m2,690575.6580425313
+nearest_station_name[五反田]:land_m2,1003274.7198795708
+nearest_station_name[五反野]:land_m2,268323.583924
+nearest_station_name[井の頭公園]:land_m2,594251.4408358413
+nearest_station_name[井荻]:land_m2,478839.353035749
+nearest_station_name[京急蒲田]:land_m2,490231.70776748384
+nearest_station_name[京成小岩]:land_m2,284219.090444863
+nearest_station_name[京成曳舟]:land_m2,417577.9216816946
+nearest_station_name[京成立石]:land_m2,308966.1958567151
+nearest_station_name[京成金町]:land_m2,110956.74976662153
+nearest_station_name[京成関屋]:land_m2,304566.9298973852
+nearest_station_name[京成高砂]:land_m2,301890.8214600112
+nearest_station_name[人形町]:land_m2,1251981.8937222112
+nearest_station_name[仙川]:land_m2,447023.42035934987
+nearest_station_name[代々木]:land_m2,1147966.0677900484
+nearest_station_name[代々木上原]:land_m2,928903.3834227538
+nearest_station_name[代々木八幡]:land_m2,1002132.5836524736
+nearest_station_name[代々木公園]:land_m2,1111473.4261889367
+nearest_station_name[代官山]:land_m2,1478125.7378474376
+nearest_station_name[代田橋]:land_m2,584073.363022403
+nearest_station_name[仲御徒町]:land_m2,719512.8419432275
+nearest_station_name[住吉(東京)]:land_m2,630249.0312133422
+nearest_station_name[保谷]:land_m2,307898.0995074203
+nearest_station_name[信濃町]:land_m2,926166.9511168217
+nearest_station_name[光が丘]:land_m2,415159.70161161467
+nearest_station_name[入谷(東京)]:land_m2,640717.6886919946
+nearest_station_name[八丁堀(東京)]:land_m2,1088141.1498543792
+nearest_station_name[八幡山]:land_m2,456803.26094653364
+nearest_station_name[八広]:land_m2,298753.5085024072
+nearest_station_name[八潮]:land_m2,221459.71843860898
+nearest_station_name[六本木]:land_m2,1470279.096146793
+nearest_station_name[六本木一丁目]:land_m2,1593745.5988375365
+nearest_station_name[六町]:land_m2,281940.4560149334
+nearest_station_name[六郷土手]:land_m2,401883.2774499748
+nearest_station_name[初台]:land_m2,786992.007068795
+nearest_station_name[勝どき]:land_m2,972549.7156053236
+nearest_station_name[北千住]:land_m2,384442.72570429434
+nearest_station_name[北千束]:land_m2,704691.7798431073
+nearest_station_name[北参道]:land_m2,1160831.4454027768
+nearest_station_name[北品川]:land_m2,1057042.6895225886
+nearest_station_name[北池袋]:land_m2,514606.41188250325
+nearest_station_name[北綾瀬]:land_m2,275451.61240471125
+nearest_station_name[北赤羽]:land_m2,409607.9212836908
+nearest_station_name[十条(東京)]:land_m2,474310.7326838918
+nearest_station_name[千住大橋]:land_m2,375410.9601529682
+nearest_station_name[千川]:land_m2,604425.8767420476
+nearest_station_name[千歳烏山]:land_m2,500650.23342225933
+nearest_station_name[千歳船橋]:land_m2,606908.6868986557
+nearest_station_name[千石]:land_m2,849108.2397634865
+nearest_station_name[千駄ケ谷]:land_m2,947996.9952049847
+nearest_station_name[千駄木]:land_m2,787591.3421861342
+nearest_station_name[千鳥町]:land_m2,564930.8442491108
+nearest_station_name[半蔵門]:land_m2,1273793.8299221992
+nearest_station_name[南千住]:land_m2,416575.7563288099
+nearest_station_name[南新宿]:land_m2,979366.0999221115
+nearest_station_name[南砂町]:land_m2,392491.6325324948
+nearest_station_name[南阿佐ケ谷]:land_m2,564794.4452264662
+nearest_station_name[原宿]:land_m2,1786349.517250566
+nearest_station_name[参宮橋]:land_m2,941388.0445129487
+nearest_station_name[吉祥寺]:land_m2,604082.4552246477
+nearest_station_name[和泉多摩川]:land_m2,371760.8795840755
+nearest_station_name[品川]:land_m2,1234810.8310746762
+nearest_station_name[喜多見]:land_m2,373582.0309750944
+nearest_station_name[四ツ木]:land_m2,296560.34526184143
+nearest_station_name[四ツ谷]:land_m2,997886.0537820783
+nearest_station_name[四谷三丁目]:land_m2,1025924.7260228478
+nearest_station_name[国立競技場]:land_m2,838071.3580958248
+nearest_station_name[地下鉄成増]:land_m2,414248.61671378615
+nearest_station_name[地下鉄赤塚]:land_m2,422159.7772112128
+nearest_station_name[堀切]:land_m2,314757.5683902817
+nearest_station_name[堀切菖蒲園]:land_m2,271226.3900953835
+nearest_station_name[外苑前]:land_m2,1565815.8209447386
+nearest_station_name[多摩川]:land_m2,675605.3369570748
+nearest_station_name[多磨]:land_m2,411245.8926131287
+nearest_station_name[大久保(東京)]:land_m2,728933.093529845
+nearest_station_name[大井町]:land_m2,713218.4234188191
+nearest_station_name[大井競馬場前]:land_m2,445323.8239768326
+nearest_station_name[大塚(東京)]:land_m2,631673.0985224344
+nearest_station_name[大山(東京)]:land_m2,497328.6038304365
+nearest_station_name[大岡山]:land_m2,756263.3091746601
+nearest_station_name[大島(東京)]:land_m2,446208.8925338365
+nearest_station_name[大崎]:land_m2,832832.2831340819
+nearest_station_name[大崎広小路]:land_m2,613435.0838568507
+nearest_station_name[大師前]:land_m2,247904.87943886378
+nearest_station_name[大手町(東京)]:land_m2,1654006.7098701417
+nearest_station_name[大森(東京)]:land_m2,620736.2300608396
+nearest_station_name[大森海岸]:land_m2,765585.1925158205
+nearest_station_name[大森町]:land_m2,471530.2343950422
+nearest_station_name[大泉学園]:land_m2,374960.32169061905
+nearest_station_name[大門(東京)]:land_m2,1874066.4134301872
+nearest_station_name[大鳥居]:land_m2,453653.10162012826
+nearest_station_name[天王洲アイル]:land_m2,743160.1791442432
+nearest_station_name[天空橋]:land_m2,396873.21827837167
+nearest_station_name[奥沢]:land_m2,824513.7340975429
+nearest_station_name[学芸大学]:land_m2,886131.4315929522
+nearest_station_name[宮の坂]:land_m2,636042.0872835084
+nearest_station_name[宮ノ前]:land_m2,233675.77852303418
+nearest_station_name[富士見ケ丘]:land_m2,538759.4256419926
+nearest_station_name[富士見台]:land_m2,428543.59615183255
+nearest_station_name[小伝馬町]:land_m2,1330909.1730614519
+nearest_station_name[小台]:land_m2,251039.42405273268
+nearest_station_name[小岩]:land_m2,354995.5468107789
+nearest_station_name[小川町(東京)]:land_m2,909559.1824185384
+nearest_station_name[小村井]:land_m2,381255.3348640467
+nearest_station_name[小竹向原]:land_m2,512225.26460294565
+nearest_station_name[小菅]:land_m2,201726.0514645723
+nearest_station_name[尾久]:land_m2,424278.2169573562
+nearest_station_name[尾山台]:land_m2,776049.3756772274
+nearest_station_name[山下(東京)]:land_m2,740104.924984026
+nearest_station_name[岩本町]:land_m2,1964016.8608464957
+nearest_station_name[巣鴨]:land_m2,691988.6314880009
+nearest_station_name[巣鴨新田]:land_m2,644017.5840464607
+nearest_station_name[市ケ谷]:land_m2,539761.3189551957
+nearest_station_name[幡ケ谷]:land_m2,786871.2760471089
+nearest_station_name[平井(東京)]:land_m2,372737.00561266055
+nearest_station_name[平和台(東京)]:land_m2,440748.44352398615
+nearest_station_name[平和島]:land_m2,509489.2626865932
+nearest_station_name[広尾]:land_m2,1234839.0340309208
+nearest_station_name[後楽園]:land_m2,1080279.5838975045
+nearest_station_name[御嶽山]:land_m2,544244.9570223656
+nearest_station_name[御徒町]:land_m2,1276886.500016061
+nearest_station_name[御成門]:land_m2,2517410.4766939133
+nearest_station_name[御茶ノ水]:land_m2,1209979.1158085775
+nearest_station_name[志村三丁目]:land_m2,362021.1515707489
+nearest_station_name[志村坂上]:land_m2,397762.2085360845
+nearest_station_name[志茂]:land_m2,409319.3683732473
+nearest_station_name[恵比寿]:land_m2,1179258.6773405855
+nearest_station_name[成城学園前]:land_m2,617209.3654004735
+nearest_station_name[成増]:land_m2,391240.9710582782
+nearest_station_name[戸越]:land_m2,650987.2567067615
+nearest_station_name[戸越公園]:land_m2,649417.3827631219
+nearest_station_name[戸越銀座]:land_m2,736536.7267660234
+nearest_station_name[扇大橋]:land_m2,179587.56710886853
+nearest_station_name[押上]:land_m2,626272.9882526277
+nearest_station_name[新三河島]:land_m2,374367.9562962978
+nearest_station_name[新中野]:land_m2,691183.0735820797
+nearest_station_name[新井薬師前]:land_m2,541349.7423164656
+nearest_station_name[新代田]:land_m2,706217.238744843
+nearest_station_name[新大久保]:land_m2,669484.4935682445
+nearest_station_name[新大塚]:land_m2,788857.7790736126
+nearest_station_name[新宿]:land_m2,570174.6447092211
+nearest_station_name[新宿三丁目]:land_m2,778300.6596967105
+nearest_station_name[新宿御苑前]:land_m2,1027875.4486633202
+nearest_station_name[新富町(東京)]:land_m2,982190.6406540337
+nearest_station_name[新小岩]:land_m2,360388.86535943113
+nearest_station_name[新小金井]:land_m2,386101.27540177666
+nearest_station_name[新御徒町]:land_m2,723821.3998533207
+nearest_station_name[新御茶ノ水]:land_m2,650640.0249697021
+nearest_station_name[新板橋]:land_m2,461134.3811857763
+nearest_station_name[新柴又]:land_m2,266437.1880267691
+nearest_station_name[新桜台]:land_m2,495618.1534740956
+nearest_station_name[新橋]:land_m2,1696907.8757715367
+nearest_station_name[新江古田]:land_m2,533717.365662372
+nearest_station_name[新馬場]:land_m2,666920.7738035528
+nearest_station_name[新高円寺]:land_m2,574931.8653651566
+nearest_station_name[新高島平]:land_m2,330569.9543731452
+nearest_station_name[方南町]:land_m2,552687.4646302358
+nearest_station_name[旗の台]:land_m2,755992.30018412
+nearest_station_name[日暮里]:land_m2,771814.5501766839
+nearest_station_name[早稲田(メトロ)]:land_m2,843938.4367875231
+nearest_station_name[早稲田(都電)]:land_m2,392088.08006357367
+nearest_station_name[明大前]:land_m2,666291.3044472912
+nearest_station_name[明治神宮前]:land_m2,2631502.004338085
+nearest_station_name[春日(東京)]:land_m2,951430.0627617866
+nearest_station_name[昭和島]:land_m2,415698.65464070544
+nearest_station_name[曙橋]:land_m2,803108.4104642431
+nearest_station_name[曳舟]:land_m2,405583.5441596236
+nearest_station_name[月島]:land_m2,837343.9071486767
+nearest_station_name[木場]:land_m2,725438.9376141895
+nearest_station_name[末広町(東京)]:land_m2,1677194.2152742003
+nearest_station_name[本所吾妻橋]:land_m2,639091.9077177367
+nearest_station_name[本蓮沼]:land_m2,371300.6296640615
+nearest_station_name[本郷三丁目]:land_m2,1087065.8811426763
+nearest_station_name[本駒込]:land_m2,884974.8000656659
+nearest_station_name[東あずま]:land_m2,341631.8450599963
+nearest_station_name[東中野]:land_m2,656591.161539183
+nearest_station_name[東伏見]:land_m2,342401.8480309511
+nearest_station_name[東北沢]:land_m2,818331.8606384785
+nearest_station_name[東十条]:land_m2,445471.1207905115
+nearest_station_name[東向島]:land_m2,352515.39441891835
+nearest_station_name[東大前]:land_m2,899958.1282283274
+nearest_station_name[東大島]:land_m2,404756.3262440998
+nearest_station_name[東小金井]:land_m2,456463.9812768176
+nearest_station_name[東尾久三丁目]:land_m2,254663.48358051316
+nearest_station_name[東新宿]:land_m2,683335.6164896855
+nearest_station_name[東日本橋]:land_m2,1020028.9126704136
+nearest_station_name[東松原]:land_m2,658139.4869998059
+nearest_station_name[東武練馬]:land_m2,358032.7391159758
+nearest_station_name[東池袋]:land_m2,631458.9823321523
+nearest_station_name[東長崎]:land_m2,559555.4335135918
+nearest_station_name[東陽町]:land_m2,604476.4839730104
+nearest_station_name[東雲(東京)]:land_m2,295199.2933078607
+nearest_station_name[東高円寺]:land_m2,644876.5771251818
+nearest_station_name[松原(東京)]:land_m2,682741.5133739411
+nearest_station_name[松陰神社前]:land_m2,678347.2730500483
+nearest_station_name[板橋]:land_m2,465845.0122749825
+nearest_station_name[板橋区役所前]:land_m2,461485.06295447686
+nearest_station_name[板橋本町]:land_m2,416236.25441413297
+nearest_station_name[柴又]:land_m2,276682.3826909903
+nearest_station_name[栄町(東京)]:land_m2,288115.24810152384
+nearest_station_name[根津]:land_m2,805458.7195345594
+nearest_station_name[桜上水]:land_m2,528264.831482893
+nearest_station_name[桜台(東京)]:land_m2,514820.37005455355
+nearest_station_name[桜新町]:land_m2,781423.7269028894
+nearest_station_name[梅ケ丘]:land_m2,732743.8699004
+nearest_station_name[梅屋敷(東京)]:land_m2,458309.5494836042
+nearest_station_name[梅島]:land_m2,263683.54737269855
+nearest_station_name[梶原]:land_m2,354047.3602433448
+nearest_station_name[森下(東京)]:land_m2,767883.1318132404
+nearest_station_name[椎名町]:land_m2,624720.5985531047
+nearest_station_name[武蔵境]:land_m2,492696.4267704943
+nearest_station_name[武蔵小山]:land_m2,852836.2883789815
+nearest_station_name[武蔵新田]:land_m2,526187.404944885
+nearest_station_name[武蔵関]:land_m2,369139.72865069285
+nearest_station_name[水天宮前]:land_m2,810499.5969591183
+nearest_station_name[水道橋]:land_m2,2238907.093570809
+nearest_station_name[氷川台]:land_m2,469772.3760115295
+nearest_station_name[永福町]:land_m2,614007.8875334617
+nearest_station_name[江北(東京)]:land_m2,216855.35176228557
+nearest_station_name[江古田]:land_m2,482003.36808297
+nearest_station_name[江戸川]:land_m2,267885.86260185746
+nearest_station_name[江戸川橋]:land_m2,893702.5222717845
+nearest_station_name[池ノ上]:land_m2,832132.1749671674
+nearest_station_name[池上]:land_m2,516268.2613859196
+nearest_station_name[池尻大橋]:land_m2,849441.9046010921
+nearest_station_name[池袋]:land_m2,709502.9233229255
+nearest_station_name[沼袋]:land_m2,498898.3054182299
+nearest_station_name[沼部]:land_m2,608317.5571507856
+nearest_station_name[泉岳寺]:land_m2,1370120.1404455537
+nearest_station_name[洗足]:land_m2,753984.6621828057
+nearest_station_name[洗足池]:land_m2,578890.4112743717
+nearest_station_name[浅草(つくばＥＸＰ)]:land_m2,531096.7403593601
+nearest_station_name[浅草(東武・都営・メトロ)]:land_m2,655829.692068325
+nearest_station_name[浅草橋]:land_m2,941757.6004691625
+nearest_station_name[浜松町]:land_m2,970322.5116682193
+nearest_station_name[浜田山]:land_m2,617332.0129900476
+nearest_station_name[浜町]:land_m2,924003.1144891811
+nearest_station_name[浮間舟渡]:land_m2,427669.53553701984
+nearest_station_name[清澄白河]:land_m2,834571.2508241496
+nearest_station_name[渋谷]:land_m2,1239078.4255156552
+nearest_station_name[湯島]:land_m2,1040888.2834982589
+nearest_station_name[溜池山王]:land_m2,1145719.9621805474
+nearest_station_name[滝野川一丁目]:land_m2,371858.4119169915
+nearest_station_name[潮見]:land_m2,469548.52559785533
+nearest_station_name[熊野前]:land_m2,282729.1098707921
+nearest_station_name[牛田(東京)]:land_m2,323624.6436089726
+nearest_station_name[牛込柳町]:land_m2,799718.7892600524
+nearest_station_name[牛込神楽坂]:land_m2,852013.844077657
+nearest_station_name[王子]:land_m2,428658.8716380117
+nearest_station_name[王子神谷]:land_m2,341927.15359859576
+nearest_station_name[瑞江]:land_m2,318749.0632467184
+nearest_station_name[用賀]:land_m2,722156.5114294192
+nearest_station_name[田原町(東京)]:land_m2,841199.5968679661
+nearest_station_name[田園調布]:land_m2,683154.4255257142
+nearest_station_name[田町(東京)]:land_m2,1326969.8468849787
+nearest_station_name[田端]:land_m2,583683.7137501534
+nearest_station_name[町屋]:land_m2,350052.5283940824
+nearest_station_name[町屋二丁目]:land_m2,259578.97092495958
+nearest_station_name[白山(東京)]:land_m2,760496.1139146144
+nearest_station_name[白金台]:land_m2,1061337.2210259566
+nearest_station_name[白金高輪]:land_m2,1141636.3505962277
+nearest_station_name[目白]:land_m2,865748.8559532212
+nearest_station_name[目黒]:land_m2,960021.4059914282
+nearest_station_name[矢口渡]:land_m2,487138.62579543865
+nearest_station_name[石川台]:land_m2,584262.3961769665
+nearest_station_name[石神井公園]:land_m2,452486.3922478449
+nearest_station_name[祐天寺]:land_m2,873851.2194217368
+nearest_station_name[祖師ケ谷大蔵]:land_m2,573956.7491250028
+nearest_station_name[神保町]:land_m2,1020411.2781699043
+nearest_station_name[神楽坂]:land_m2,949139.1298324913
+nearest_station_name[神泉]:land_m2,1062506.2787536876
+nearest_station_name[神田(東京)]:land_m2,1428512.3782232127
+nearest_station_name[秋葉原]:land_m2,783883.5482722655
+nearest_station_name[稲荷町(東京)]:land_m2,800574.1092093774
+nearest_station_name[穴守稲荷]:land_m2,427955.98160487774
+nearest_station_name[立会川]:land_m2,668149.7132354088
+nearest_station_name[竹ノ塚]:land_m2,267957.26856717496
+nearest_station_name[笹塚]:land_m2,682940.3395442803
+nearest_station_name[等々力]:land_m2,724296.5880539913
+nearest_station_name[築地]:land_m2,1302160.6432171534
+nearest_station_name[篠崎]:land_m2,348305.74308981135
+nearest_station_name[糀谷]:land_m2,454610.675424449
+nearest_station_name[経堂]:land_m2,670055.3659715456
+nearest_station_name[綾瀬]:land_m2,339369.955647381
+nearest_station_name[緑が丘(東京)]:land_m2,790992.4761908551
+nearest_station_name[練馬]:land_m2,557979.6567234593
+nearest_station_name[練馬春日町]:land_m2,398660.6412335404
+nearest_station_name[練馬高野台]:land_m2,369233.666632332
+nearest_station_name[自由が丘(東京)]:land_m2,1002654.9412873427
+nearest_station_name[舎人]:land_m2,210108.9330753344
+nearest_station_name[舎人公園]:land_m2,239380.59924273443
+nearest_station_name[船堀]:land_m2,344688.25915584527
+nearest_station_name[芝公園]:land_m2,17717.30734997865
+nearest_station_name[芝浦ふ頭]:land_m2,1919871.3528322869
+nearest_station_name[芦花公園]:land_m2,460525.11462386645
+nearest_station_name[若松河田]:land_m2,752587.6312381413
+nearest_station_name[若林(東京)]:land_m2,634370.8248281789
+nearest_station_name[茅場町]:land_m2,801293.2869489363
+nearest_station_name[茗荷谷]:land_m2,921101.6071694423
+nearest_station_name[荏原中延]:land_m2,669659.4382656958
+nearest_station_name[荏原町]:land_m2,548293.1839491846
+nearest_station_name[荒川一中前]:land_m2,236236.49397737268
+nearest_station_name[荒川七丁目]:land_m2,705554.8180533361
+nearest_station_name[荒川二丁目]:land_m2,338977.5875412839
+nearest_station_name[荒川区役所前]:land_m2,308483.0790974858
+nearest_station_name[荒川車庫前]:land_m2,385905.9030425867
+nearest_station_name[荒川遊園地前]:land_m2,308970.3729722701
+nearest_station_name[荻窪]:land_m2,633770.002619926
+nearest_station_name[菊川(東京)]:land_m2,740988.4761726657
+nearest_station_name[落合]:land_m2,611233.062905448
+nearest_station_name[落合南長崎]:land_m2,633560.0891610773
+nearest_station_name[葛西]:land_m2,417709.51403616066
+nearest_station_name[葛西臨海公園]:land_m2,424997.573993122
+nearest_station_name[蒲田]:land_m2,537785.9171568251
+nearest_station_name[蓮根]:land_m2,398034.7925688672
+nearest_station_name[蓮沼]:land_m2,544338.7063393735
+nearest_station_name[蔵前]:land_m2,871555.2983014974
+nearest_station_name[虎ノ門]:land_m2,1037527.025439848
+nearest_station_name[表参道]:land_m2,1647247.2080269011
+nearest_station_name[西ケ原]:land_m2,500318.5296924476
+nearest_station_name[西ケ原四丁目]:land_m2,413085.62160601205
+nearest_station_name[西台]:land_m2,414298.2908168754
+nearest_station_name[西大井]:land_m2,626135.8291941157
+nearest_station_name[西大島]:land_m2,459072.88147031213
+nearest_station_name[西太子堂]:land_m2,686850.4107621221
+nearest_station_name[西小山]:land_m2,765743.0659510068
+nearest_station_name[西巣鴨]:land_m2,527659.7913991326
+nearest_station_name[西新井]:land_m2,319391.7228035733
+nearest_station_name[西新井大師西]:land_m2,243797.0420362884
+nearest_station_name[西新宿]:land_m2,642630.8420942669
+nearest_station_name[西新宿五丁目]:land_m2,739201.1980417639
+nearest_station_name[西日暮里]:land_m2,665992.8383100859
+nearest_station_name[西早稲田]:land_m2,880759.758465826
+nearest_station_name[西永福]:land_m2,575645.7462794044
+nearest_station_name[西荻窪]:land_m2,638691.1574761885
+nearest_station_name[西葛西]:land_m2,459146.092493242
+nearest_station_name[西調布]:land_m2,375690.8542081186
+nearest_station_name[西馬込]:land_m2,523605.6370601248
+nearest_station_name[西高島平]:land_m2,289284.0686390802
+nearest_station_name[要町]:land_m2,621611.9553572584
+nearest_station_name[見沼代親水公園]:land_m2,196826.96810973328
+nearest_station_name[調布]:land_m2,354616.01959158684
+nearest_station_name[護国寺]:land_m2,826464.1979652622
+nearest_station_name[谷在家]:land_m2,204028.85248012733
+nearest_station_name[谷塚]:land_m2,255011.25034619396
+nearest_station_name[豊島園]:land_m2,463662.25435946824
+nearest_station_name[豊洲]:land_m2,738786.026054727
+nearest_station_name[豪徳寺]:land_m2,714752.0178407272
+nearest_station_name[赤土小学校前]:land_m2,324018.15154235036
+nearest_station_name[赤坂(東京)]:land_m2,1015432.9017548395
+nearest_station_name[赤坂見附]:land_m2,967869.3201165957
+nearest_station_name[赤羽]:land_m2,479578.1973069331
+nearest_station_name[赤羽岩淵]:land_m2,398007.6450834059
+nearest_station_name[赤羽橋]:land_m2,1152034.2407482122
+nearest_station_name[越中島]:land_m2,752100.2296145825
+nearest_station_name[足立小台]:land_m2,222463.05091002706
+nearest_station_name[都立大学]:land_m2,887141.2606348033
+nearest_station_name[都立家政]:land_m2,481683.21690504526
+nearest_station_name[野方]:land_m2,489125.8586247089
+nearest_station_name[金町]:land_m2,295793.36838931905
+nearest_station_name[錦糸町]:land_m2,756300.5323539146
+nearest_station_name[鐘ケ淵]:land_m2,289931.2108098156
+nearest_station_name[長原(東京)]:land_m2,581905.4396439375
+nearest_station_name[門前仲町]:land_m2,802247.7717300695
+nearest_station_name[阿佐ケ谷]:land_m2,618734.5652904207
+nearest_station_name[雑司が谷(東京メトロ)]:land_m2,720727.9347716094
+nearest_station_name[雑色]:land_m2,445821.91501852847
+nearest_station_name[雪が谷大塚]:land_m2,625175.0414063772
+nearest_station_name[青井]:land_m2,287866.6711491461
+nearest_station_name[青山一丁目]:land_m2,1300974.8919844837
+nearest_station_name[青物横丁]:land_m2,657532.2343172155
+nearest_station_name[青砥]:land_m2,346742.97471437306
+nearest_station_name[面影橋]:land_m2,188524.96953191323
+nearest_station_name[飛鳥山]:land_m2,554944.639730399
+nearest_station_name[飯田橋]:land_m2,1029690.3054902662
+nearest_station_name[馬喰横山]:land_m2,803105.6757648853
+nearest_station_name[馬喰町]:land_m2,1039558.1908293098
+nearest_station_name[馬込]:land_m2,494109.1231632184
+nearest_station_name[駒場東大前]:land_m2,978940.6620621647
+nearest_station_name[駒沢大学]:land_m2,797974.6968181924
+nearest_station_name[駒込]:land_m2,774379.9304271197
+nearest_station_name[高井戸]:land_m2,545050.0298965188
+nearest_station_name[高円寺]:land_m2,596490.9827717548
+nearest_station_name[高島平]:land_m2,349452.1838954157
+nearest_station_name[高田馬場]:land_m2,776016.523047341
+nearest_station_name[高輪台]:land_m2,1000835.6101206652
+nearest_station_name[高野(東京)]:land_m2,177453.09998947737
+nearest_station_name[鮫洲]:land_m2,558739.1997989939
+nearest_station_name[鵜の木]:land_m2,515578.98564162053
+nearest_station_name[鶯谷]:land_m2,655452.8893853895
+nearest_station_name[鷺ノ宮]:land_m2,491762.0207295275
+nearest_station_name[麻布十番]:land_m2,1438308.5192387993
+nearest_station_minutes:land_m2,-8698.551473756106
+road:land_m2,11108.851324321788
+"C(floor_ratio, contr.treatment('150.0'))[T.100.0]:land_m2",9039.41680521925
+"C(floor_ratio, contr.treatment('150.0'))[T.1000.0]:land_m2",-3846.708244487621
+"C(floor_ratio, contr.treatment('150.0'))[T.200.0]:land_m2",25727.17562011969
+"C(floor_ratio, contr.treatment('150.0'))[T.300.0]:land_m2",53255.59473478618
+"C(floor_ratio, contr.treatment('150.0'))[T.400.0]:land_m2",99131.00719949788
+"C(floor_ratio, contr.treatment('150.0'))[T.50.0]:land_m2",8813.377823448065
+"C(floor_ratio, contr.treatment('150.0'))[T.500.0]:land_m2",184587.40129010178
+"C(floor_ratio, contr.treatment('150.0'))[T.60.0]:land_m2",-39936.56451781734
+"C(floor_ratio, contr.treatment('150.0'))[T.600.0]:land_m2",299838.0024590033
+"C(floor_ratio, contr.treatment('150.0'))[T.700.0]:land_m2",472849.08817760594
+"C(floor_ratio, contr.treatment('150.0'))[T.80.0]:land_m2",-44609.60294700899
+"C(floor_ratio, contr.treatment('150.0'))[T.800.0]:land_m2",617788.7063380996
+"C(building_ratio, contr.treatment('60.0'))[T.30.0]:land_m2",-5986.738721009921
+"C(building_ratio, contr.treatment('60.0'))[T.40.0]:land_m2",-12101.925638356617
+"C(building_ratio, contr.treatment('60.0'))[T.50.0]:land_m2",-16643.13462667233
+"C(building_ratio, contr.treatment('60.0'))[T.80.0]:land_m2",38138.93725593629
+"C(orientation, contr.treatment('東'))[T.北]:land_m2",4469.284966629407
+"C(orientation, contr.treatment('東'))[T.北東]:land_m2",-772.0614627792871
+"C(orientation, contr.treatment('東'))[T.北西]:land_m2",-1240.3907555453598
+"C(orientation, contr.treatment('東'))[T.南]:land_m2",9395.942119454636
+"C(orientation, contr.treatment('東'))[T.南東]:land_m2",9557.036094984882
+"C(orientation, contr.treatment('東'))[T.南西]:land_m2",2465.01632638152
+"C(orientation, contr.treatment('東'))[T.接面道路無]:land_m2",-232917.7880883725
+"C(orientation, contr.treatment('東'))[T.西]:land_m2",-4269.599224257457
+"C(land_shape, contr.treatment('正方形'))[T.ほぼ台形]:land_m2",-15917.983082744628
+"C(land_shape, contr.treatment('正方形'))[T.ほぼ整形]:land_m2",-10264.073941189514
+"C(land_shape, contr.treatment('正方形'))[T.ほぼ正方形]:land_m2",-12625.173511251023
+"C(land_shape, contr.treatment('正方形'))[T.ほぼ長方形]:land_m2",1778.283527654745
+"C(land_shape, contr.treatment('正方形'))[T.不整形]:land_m2",-60744.77209424944
+"C(land_shape, contr.treatment('正方形'))[T.台形]:land_m2",-17416.696543671475
+"C(land_shape, contr.treatment('正方形'))[T.袋地等]:land_m2",-61925.554919508606
+"C(land_shape, contr.treatment('正方形'))[T.長方形]:land_m2",2422.189861876057
+"C(building_type, contr.treatment('NA'))[NA]:age:house_m2",0.0
+"C(building_type, contr.treatment('NA'))[ブロック造]:age:house_m2",-6234.775526156269
+"C(building_type, contr.treatment('NA'))[木造]:age:house_m2",-8169.6953777230765
+"C(building_type, contr.treatment('NA'))[木造、ブロック造]:age:house_m2",-10769.910138968044
+"C(building_type, contr.treatment('NA'))[木造、軽量鉄骨造]:age:house_m2",-3771.676960297366
+"C(building_type, contr.treatment('NA'))[軽量鉄骨造]:age:house_m2",-12220.49607465495
+"C(building_type, contr.treatment('NA'))[鉄骨造]:age:house_m2",-8592.35787556424
+"C(building_type, contr.treatment('NA'))[鉄骨造、木造]:age:house_m2",-5610.232502774643
+"C(building_type, contr.treatment('NA'))[鉄骨造、軽量鉄骨造]:age:house_m2",-7059.498375680527
+"C(building_type, contr.treatment('NA'))[ＲＣ]:age:house_m2",-11591.39828699123
+"C(building_type, contr.treatment('NA'))[ＲＣ、ブロック造]:age:house_m2",-14679.232515645106
+"C(building_type, contr.treatment('NA'))[ＲＣ、木造]:age:house_m2",-9868.649434738485
+"C(building_type, contr.treatment('NA'))[ＲＣ、木造、ブロック造]:age:house_m2",-11586.736426849191
+"C(building_type, contr.treatment('NA'))[ＲＣ、軽量鉄骨造]:age:house_m2",-10018.846212075074
+"C(building_type, contr.treatment('NA'))[ＲＣ、鉄骨造]:age:house_m2",-18505.425178770296
+"C(building_type, contr.treatment('NA'))[ＲＣ、鉄骨造、木造]:age:house_m2",-6006.074725587209
+"C(building_type, contr.treatment('NA'))[ＳＲＣ]:age:house_m2",-4315.249854889026

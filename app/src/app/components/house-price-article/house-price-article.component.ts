@@ -12,6 +12,7 @@ import { WalkingTimeChartComponent } from '../walking-time-chart/walking-time-ch
 import { LandValueEvolutionChartComponent } from '../land-value-evolution-chart/land-value-evolution-chart.component';
 import { ModelScoresHistogramComponent } from '../model-scores-histogram/model-scores-histogram.component';
 import { ImportanceChartComponent } from '../importance-chart/importance-chart.component';
+import { GiscusCommentsComponent } from '../giscus-comments/giscus-comments.component';
 
 // Add MathJax type declarations
 declare global {
@@ -47,7 +48,8 @@ declare const MathJax: any;
     WalkingTimeChartComponent,
     LandValueEvolutionChartComponent,
     ModelScoresHistogramComponent,
-    ImportanceChartComponent
+    ImportanceChartComponent,
+    GiscusCommentsComponent
   ],
   templateUrl: './house-price-article.component.html',
   styleUrls: ['./house-price-article.component.scss'],

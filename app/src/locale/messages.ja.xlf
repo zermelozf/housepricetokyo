@@ -1,0 +1,967 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en-US" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="language.english" datatype="html">
+        <source>EN</source>
+        <target>EN</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/language-selector/language-selector.component.ts</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="language.japanese" datatype="html">
+        <source>日本語</source>
+        <target>日本語</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/language-selector/language-selector.component.ts</context>
+          <context context-type="linenumber">25</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="app.title" datatype="html">
+        <source>Tokyo House Price</source>
+        <target>東京住宅価格</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/navbar/navbar.component.ts</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="nav.calculator" datatype="html">
+        <source> Calculator </source>
+        <target> 計算機 </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/navbar/navbar.component.ts</context>
+          <context context-type="linenumber">32,34</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="nav.article" datatype="html">
+        <source> Article </source>
+        <target> 記事 </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/navbar/navbar.component.ts</context>
+          <context context-type="linenumber">40,42</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="calculator.welcome" datatype="html">
+        <source>Hey there! I hope you&apos;re finding this calculator useful!</source>
+        <target>こんにちは！このツールがお役に立てば幸いです！</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/price-calculator/price-calculator.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="calculator.disclaimer" datatype="html">
+        <source>Disclaimer:</source>
+        <target>免責事項：</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/price-calculator/price-calculator.component.html</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="calculator.disclaimerText" datatype="html">
+        <source>This is not investment advice. These estimates are for educational purposes only and may not be accurate.</source>
+        <target>これは投資アドバイスではありません。これらの見積もりは教育目的のみであり、正確でない場合があります。</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/price-calculator/price-calculator.component.html</context>
+          <context context-type="linenumber">8,9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="calculator.learnMore" datatype="html">
+        <source>Learn more about the calculations here</source>
+        <target>計算方法についてはこちらをご覧ください</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/price-calculator/price-calculator.component.html</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="calculator.propertyType" datatype="html">
+        <source>Property Type</source>
+        <target>物件タイプ</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/price-calculator/price-calculator.component.html</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="calculator.ward" datatype="html">
+        <source>Ward</source>
+        <target>区</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/price-calculator/price-calculator.component.html</context>
+          <context context-type="linenumber">30</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="calculator.nearestStation" datatype="html">
+        <source>Nearest Station</source>
+        <target>最寄駅</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/price-calculator/price-calculator.component.html</context>
+          <context context-type="linenumber">37</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="calculator.landArea" datatype="html">
+        <source>Land Area (m²)</source>
+        <target>土地面積 (m²)</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/price-calculator/price-calculator.component.html</context>
+          <context context-type="linenumber">46</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="calculator.buildingArea" datatype="html">
+        <source>Building Area (m²)</source>
+        <target>建物面積 (m²)</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/price-calculator/price-calculator.component.html</context>
+          <context context-type="linenumber">51</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="calculator.yearBuilt" datatype="html">
+        <source>Year Built</source>
+        <target>築年数</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/price-calculator/price-calculator.component.html</context>
+          <context context-type="linenumber">58</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="calculator.buildingType" datatype="html">
+        <source>Building Type</source>
+        <target>建物タイプ</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/price-calculator/price-calculator.component.html</context>
+          <context context-type="linenumber">63</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="calculator.distanceToStation" datatype="html">
+        <source>Distance to Station (mn)</source>
+        <target>駅までの距離 (分)</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/price-calculator/price-calculator.component.html</context>
+          <context context-type="linenumber">72</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="calculator.buildingToLandRatio" datatype="html">
+        <source>Building to Land Ratio (%)</source>
+        <target>建ぺい率 (%)</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/price-calculator/price-calculator.component.html</context>
+          <context context-type="linenumber">77</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="calculator.floorToLandRatio" datatype="html">
+        <source>Floor to Land Ratio (%)</source>
+        <target>容積率 (%)</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/price-calculator/price-calculator.component.html</context>
+          <context context-type="linenumber">86</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="calculator.roadWidth" datatype="html">
+        <source>Road Width (m)</source>
+        <target>前面道路幅 (m)</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/price-calculator/price-calculator.component.html</context>
+          <context context-type="linenumber">93</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="calculator.orientation" datatype="html">
+        <source>Orientation</source>
+        <target>方角</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/price-calculator/price-calculator.component.html</context>
+          <context context-type="linenumber">100</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="calculator.landShape" datatype="html">
+        <source>Land Shape</source>
+        <target>土地形状</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/price-calculator/price-calculator.component.html</context>
+          <context context-type="linenumber">107</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="article.cityscape" datatype="html">
+        <source>Tokyo cityscape</source>
+        <target>東京の街並み</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/house-price-article/house-price-article.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="article.mainTitle" datatype="html">
+        <source>Decoding Tokyo Property Prices: What Really Matters?</source>
+        <target>東京の不動産価格を解読する：何が本当に重要なのか？</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/house-price-article/house-price-article.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="article.subtitle" datatype="html">
+        <source>Using Machine Learning to Uncover Key Value Drivers</source>
+        <target>機械学習を使って価値の決定要因を明らかにする</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/house-price-article/house-price-article.component.html</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="article.byline" datatype="html">
+        <source>By <x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;https://www.linkedin.com/in/arachez/&quot; target=&quot;_blank&quot;&gt;"/>Arnaud R.<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/> • March 2025</source>
+        <target>著者 <x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;https://www.linkedin.com/in/arachez/&quot; target=&quot;_blank&quot;&gt;"/>Arnaud R.<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/> • 2025年3月</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/house-price-article/house-price-article.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="article.shareLinkedIn" datatype="html">
+        <source>Share on LinkedIn</source>
+        <target>LinkedInでシェア</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/house-price-article/house-price-article.component.html</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="article.shareTwitter" datatype="html">
+        <source>Share on Twitter</source>
+        <target>Twitterでシェア</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/house-price-article/house-price-article.component.html</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="article.shareFacebook" datatype="html">
+        <source>Share on Facebook</source>
+        <target>Facebookでシェア</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/house-price-article/house-price-article.component.html</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="article.backgroundTitle" datatype="html">
+        <source>The Background Story</source>
+        <target>背景</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/house-price-article/house-price-article.component.html</context>
+          <context context-type="linenumber">30</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="article.introText" datatype="html">
+        <source> It all started with a simple question: </source>
+        <target> すべては単純な疑問から始まりました： </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/house-price-article/house-price-article.component.html</context>
+          <context context-type="linenumber">31,33</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="article.introQuestion" datatype="html">
+        <source> Say you are looking at a 5000万円 property listing (on <x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;https://suumo.jp/&quot;&gt;"/>suumo.jp<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/> for example), how much of that is the value of the house and how much is the land? </source>
+        <target> 例えば<x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;https://suumo.jp/&quot;&gt;"/>suumo.jp<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>で5000万円の物件を見る場合、その価格のうちどれくらいが家の価値で、どれくらいが土地の価値なのでしょうか？ </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/house-price-article/house-price-article.component.html</context>
+          <context context-type="linenumber">34,37</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="article.introP1" datatype="html">
+        <source> I had been looking at listings for a while already, and was getting serious about making an offer. But at the back of my mind, I was feeling frustrated that I didn&apos;t really understand what makes a property valuable in Tokyo. I mean, I&apos;m not a real estate investor, nor are my friends and most of the people who take the leap and buy a family house in one of the 23 wards. So in that specific instance, it&apos;s probably OK to not know, I suppose. But still, where there is data, there is a way! </source>
+        <target> 私はしばらく物件を見ていて、そろそろオファーを出そうかと考えていました。しかし、東京でどのような要因が不動産の価値を決めるのか、本当に理解していないことにフラストレーションを感じていました。私も友人も不動産投資家ではなく、23区内で家族の家を購入する大多数の人も同様です。この特定のケースでは、わからなくても問題ないのかもしれません。しかし、データがあれば道は開けるはずです！ </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/house-price-article/house-price-article.component.html</context>
+          <context context-type="linenumber">38,44</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="article.introP2" datatype="html">
+        <source> So with that in mind, I started looking for a dataset covering the Tokyo Real Estate Market and ended up uncovering the <x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;https://www.reinfolib.mlit.go.jp/&quot;&gt;"/>MLIT 不動産情報ライブラリ dataset<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>: a treasure trove! </source>
+        <target> そこで、東京の不動産市場に関するデータセットを探し始め、<x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;https://www.reinfolib.mlit.go.jp/&quot;&gt;"/>MLIT 不動産情報ライブラリデータセット<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>という宝の山を発見しました！ </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/house-price-article/house-price-article.component.html</context>
+          <context context-type="linenumber">45,48</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="article.introP3" datatype="html">
+        <source> In the following article, I&apos;ll use statistical analysis to try and understand what drives property value in Tokyo. I&apos;ll start by briefly describing the techniques and assumptions I made, and then spend the rest of the article presenting the results through various charts and graphs. </source>
+        <target> この記事では、統計分析を使用して東京の不動産価値を決める要因を理解しようとします。まず、使用した手法と仮定について簡単に説明し、次にさまざまなチャートやグラフを通じて結果を紹介していきます。 </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/house-price-article/house-price-article.component.html</context>
+          <context context-type="linenumber">49,53</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="article.letsStart" datatype="html">
+        <source> Let&apos;s dive in! </source>
+        <target> さあ、始めましょう！ </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/house-price-article/house-price-article.component.html</context>
+          <context context-type="linenumber">55,57</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="article.tocTitle" datatype="html">
+        <source>Table of Contents</source>
+        <target>目次</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/house-price-article/house-price-article.component.html</context>
+          <context context-type="linenumber">61</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="article.tocModeling" datatype="html">
+        <source>Modeling Tokyo Real Estate</source>
+        <target>東京の不動産モデリング</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/house-price-article/house-price-article.component.html</context>
+          <context context-type="linenumber">63</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="article.tocImportance" datatype="html">
+        <source>The Relative Importance of Different Factors</source>
+        <target>異なる要因の相対的重要性</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/house-price-article/house-price-article.component.html</context>
+          <context context-type="linenumber">64</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="article.tocRelative" datatype="html">
+        <source>Relative Impact of Factors</source>
+        <target>要因の相対的影響</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/house-price-article/house-price-article.component.html</context>
+          <context context-type="linenumber">66</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="article.tocWhen" datatype="html">
+        <source>When to Buy</source>
+        <target>購入のタイミング</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/house-price-article/house-price-article.component.html</context>
+          <context context-type="linenumber">67</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="article.tocLocation" datatype="html">
+        <source>Location, Location, Location</source>
+        <target>場所、場所、場所</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/house-price-article/house-price-article.component.html</context>
+          <context context-type="linenumber">70</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="article.tocOtherFactors" datatype="html">
+        <source>Other Factors</source>
+        <target>その他の要因</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/house-price-article/house-price-article.component.html</context>
+          <context context-type="linenumber">71</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="article.tocDepreciation" datatype="html">
+        <source>Building Type and Depreciation</source>
+        <target>建物タイプと減価償却</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/house-price-article/house-price-article.component.html</context>
+          <context context-type="linenumber">73</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="article.tocConvenience" datatype="html">
+        <source>The Price of Convenience</source>
+        <target>利便性の価値</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/house-price-article/house-price-article.component.html</context>
+          <context context-type="linenumber">74</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="article.tocRatios" datatype="html">
+        <source>The Construction Ratios</source>
+        <target>建築比率</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/house-price-article/house-price-article.component.html</context>
+          <context context-type="linenumber">75</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="article.tocShape" datatype="html">
+        <source>Land Shape and Orientation</source>
+        <target>土地の形状と向き</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/house-price-article/house-price-article.component.html</context>
+          <context context-type="linenumber">76</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="article.tocConclusion" datatype="html">
+        <source>In Conclusion</source>
+        <target>結論</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/house-price-article/house-price-article.component.html</context>
+          <context context-type="linenumber">79</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="article.modelingTitle" datatype="html">
+        <source>Modeling Tokyo Real Estate</source>
+        <target>東京の不動産モデリング</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/house-price-article/house-price-article.component.html</context>
+          <context context-type="linenumber">85</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="article.technicalDisclaimer" datatype="html">
+        <source>I realize that some of you might not be interested in the technical details, so by default the technical section is hidden. You can click on the button below to show it.</source>
+        <target>技術的な詳細に興味がない方もいらっしゃるかと思いますので、デフォルトでは技術セクションは非表示になっています。下のボタンをクリックすると表示されます。</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/house-price-article/house-price-article.component.html</context>
+          <context context-type="linenumber">88,89</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="article.hideDetails" datatype="html">
+        <source>Hide technical details</source>
+        <target>技術的な詳細を隠す</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/house-price-article/house-price-article.component.html</context>
+          <context context-type="linenumber">93</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="article.showDetails" datatype="html">
+        <source>Show technical details</source>
+        <target>技術的な詳細を表示</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/house-price-article/house-price-article.component.html</context>
+          <context context-type="linenumber">94</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="article.datasetIntro" datatype="html">
+        <source> The MLIT dataset is a treasure trove of information about the Tokyo real estate market. It contains over 100,000 property records, with features ranging from location to building specifications. </source>
+        <target> MLIT データセットは東京の不動産市場に関する豊富な情報を含んでいます。10万件以上の物件記録があり、場所から建物の仕様まで様々な特徴が含まれています。 </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/house-price-article/house-price-article.component.html</context>
+          <context context-type="linenumber">100,103</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="article.assumptionsTitle" datatype="html">
+        <source>Making some assumptions</source>
+        <target>いくつかの仮定</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/house-price-article/house-price-article.component.html</context>
+          <context context-type="linenumber">104</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="article.modelChoice" datatype="html">
+        <source> Given the variety of features available and my goal of understanding what drives value, I chose to stick with Linear Regression (for robustness and interpretability). Specifically, I chose Lasso Regression over Ridge Regression as I expect it to be a better fit for Mean Absolute Error (MAE). Plus expect the median estimate to be more robust to outliers that the mean estimate. I then spend some time on feature engineering to try to capture interesting patterns. </source>
+        <target> 利用可能な特徴の多様性と価値を決める要因を理解するという目標を考慮し、線形回帰（堅牢性と解釈可能性のため）を選択しました。特に、平均絶対誤差（MAE）により適合すると予想されるため、Ridge回帰よりもLasso回帰を選びました。また、中央値の推定は平均値の推定よりも外れ値に対して堅牢であると期待できます。そして興味深いパターンを捉えるために特徴量エンジニアリングに時間を費やしました。 </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/house-price-article/house-price-article.component.html</context>
+          <context context-type="linenumber">105,110</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="article.llmDisclaimer" datatype="html">
+        <source>So yes, this article is 100% LLM free!</source>
+        <target>はい、この記事は100％LLMフリーです！</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/house-price-article/house-price-article.component.html</context>
+          <context context-type="linenumber">111</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="article.assumptionsIntro" datatype="html">
+        <source> Then, I based my modeling on the following assumptions: </source>
+        <target> そして、以下の仮定に基づいてモデリングを行いました： </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/house-price-article/house-price-article.component.html</context>
+          <context context-type="linenumber">112,114</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="article.assumption1" datatype="html">
+        <source>The price of a listing in the MLIT dataset is split between land and house value.</source>
+        <target>MLITデータセットの物件価格は土地価値と家屋価値に分かれています。</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/house-price-article/house-price-article.component.html</context>
+          <context context-type="linenumber">116</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="article.assumption2" datatype="html">
+        <source>The price of the house is proportional to the floor area. Also, the building type and year of construction might increase or decrease the price per square meter.</source>
+        <target>家の価格は床面積に比例します。また、建物の種類や建築年によって1平方メートルあたりの価格が上下する可能性があります。</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/house-price-article/house-price-article.component.html</context>
+          <context context-type="linenumber">117,118</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="article.assumption3" datatype="html">
+        <source>Similarly, the land value is proportional to the plot size. And the price per square meter might increase or decrease depending on the land characteristics such as shape, orientation, distance to the station, etc. </source>
+        <target>同様に、土地の価値は区画の大きさに比例します。また、土地の形状、向き、駅までの距離などの特性によって1平方メートルあたりの価格が上下する可能性があります。 </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/house-price-article/house-price-article.component.html</context>
+          <context context-type="linenumber">119,121</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="article.formulaIntro" datatype="html">
+        <source> The exact formula used for our Lasso regression model is the following: </source>
+        <target> Lasso回帰モデルに使用した正確な式は次のとおりです： </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/house-price-article/house-price-article.component.html</context>
+          <context context-type="linenumber">123,125</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="article.formulaWith" datatype="html">
+        <source>with</source>
+        <target>ここで</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/house-price-article/house-price-article.component.html</context>
+          <context context-type="linenumber">132</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="article.formulaAnd" datatype="html">
+        <source>and</source>
+        <target>および</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/house-price-article/house-price-article.component.html</context>
+          <context context-type="linenumber">137</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="article.githubTitle" datatype="html">
+        <source>Find it on GitHub!</source>
+        <target>GitHubで確認できます！</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/house-price-article/house-price-article.component.html</context>
+          <context context-type="linenumber">148</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="article.githubInfo" datatype="html">
+        <source>BTW, You can find the code I wrote on <x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;https://github.com/zermelozf/tokyohouseprice&quot;&gt;"/>github<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/> with an MIT license. In particular, the <x id="START_LINK_1" ctype="x-a" equiv-text="&lt;a href=&quot;https://github.com/zermelozf/tokyohouseprice/blob/main/analysis.ipynb&quot;&gt;"/>modeling part<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/> is using <x id="START_LINK_2" ctype="x-a" equiv-text="&lt;a href=&quot;https://matthewwardrop.github.io/formulaic/latest/&quot;&gt;"/>formulaic<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>, a very nice package which provides an easy way to write Patsy like formulas that are fully serializable. This greatly simplified both the modeling and the deployment the model to a python backend for <x id="START_LINK_3" ctype="x-a" equiv-text="&lt;a href=&quot;https://tokyohouseprice.web.app/&quot;&gt;"/>tokyohouseprice.web.app<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>. </source>
+        <target>ちなみに、私が書いたコードは<x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;https://github.com/zermelozf/tokyohouseprice&quot;&gt;"/>GitHub<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>でMITライセンスで公開しています。特に<x id="START_LINK_1" ctype="x-a" equiv-text="&lt;a href=&quot;https://github.com/zermelozf/tokyohouseprice/blob/main/analysis.ipynb&quot;&gt;"/>モデリング部分<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>では、<x id="START_LINK_2" ctype="x-a" equiv-text="&lt;a href=&quot;https://matthewwardrop.github.io/formulaic/latest/&quot;&gt;"/>formulaic<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>という、Patsyのような完全にシリアル化可能な数式を書くための便利なパッケージを使用しています。これにより、モデリングと<x id="START_LINK_3" ctype="x-a" equiv-text="&lt;a href=&quot;https://tokyohouseprice.web.app/&quot;&gt;"/>tokyohouseprice.web.app<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>のPythonバックエンドへのモデルのデプロイが大幅に簡素化されました。 </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/house-price-article/house-price-article.component.html</context>
+          <context context-type="linenumber">149,157</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="article.parameterInterpretation" datatype="html">
+        <source> With the above parameterization, the interpretation of the model should be pretty straightforward. All coefficients have a price per square meter unit, except for the <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;math&quot;&gt;"/>$\alpha_m^2$<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/>, which are expressed in price per square meter per year to model the depreciation of the house over time. </source>
+        <target> 上記のパラメータ化により、モデルの解釈は非常に明快になります。<x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;math&quot;&gt;"/>$\alpha_m^2$<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/>を除くすべての係数は1平方メートルあたりの価格単位で表されています。<x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;math&quot;&gt;"/>$\alpha_m^2$<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/>は家の経年劣化をモデル化するために、1平方メートルあたり1年あたりの価格で表されています。 </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/house-price-article/house-price-article.component.html</context>
+          <context context-type="linenumber">160,163</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="article.predictivePowerTitle" datatype="html">
+        <source>Predictive Power</source>
+        <target>予測能力</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/house-price-article/house-price-article.component.html</context>
+          <context context-type="linenumber">165</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="article.predictivePowerExplanation" datatype="html">
+        <source> To assess the predictive power of the model, I compared its performance against a baseline Linear Regression (without any feature engineering) by cross-validating Mean Absolute Percentage Error (MAPE) for 500 iterations. The histogram of results is shown below. </source>
+        <target> モデルの予測能力を評価するために、ベースラインの線形回帰（特徴量エンジニアリングなし）と比較し、500回の反復でMAPE（平均絶対パーセント誤差）をクロスバリデーションしました。結果のヒストグラムは以下のとおりです。 </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/house-price-article/house-price-article.component.html</context>
+          <context context-type="linenumber">167,171</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="article.modelComparison" datatype="html">
+        <source> As you can see, the refined model is better than basline with a median MAPE error of about ~20% on a test set vs ~34% for the baseline. While 20% average error is not bad, there is certainly room for improvement. </source>
+        <target> ご覧のとおり、改良されたモデルはベースラインよりも優れており、テストセットでの中央値MAPEエラーは約20％で、ベースラインの約34％と比較して良い結果です。20％の平均誤差は悪くありませんが、改善の余地は確かにあります。 </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/house-price-article/house-price-article.component.html</context>
+          <context context-type="linenumber">176,179</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="article.modelConclusion" datatype="html">
+        <source>So?</source>
+        <target>それで？</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/house-price-article/house-price-article.component.html</context>
+          <context context-type="linenumber">181</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="article.moveOn" datatype="html">
+        <source>It looks like we have a decent model. It is far from perfect but, for the purpose of the rest of this analysis, I&apos;m going to consider the model good enough and move on to the interpretation of the coefficients of the Lasso Regression. </source>
+        <target>まずまずのモデルができたようです。完璧からは程遠いですが、この分析の残りの目的のために、モデルは十分と考え、Lasso回帰の係数の解釈に進みましょう。 </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/house-price-article/house-price-article.component.html</context>
+          <context context-type="linenumber">182,186</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="article.factorsTitle" datatype="html">
+        <source>The Relative Importance of Different Factors</source>
+        <target>異なる要因の相対的重要性</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/house-price-article/house-price-article.component.html</context>
+          <context context-type="linenumber">193</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="article.decentModel" datatype="html">
+        <source>As statte in the previous section, it looks like we have a decent model. Next let&apos;s look at the results.</source>
+        <target>前のセクションで述べたように、まずまずのモデルができたようです。次に結果を見てみましょう。</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/house-price-article/house-price-article.component.html</context>
+          <context context-type="linenumber">196</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="article.relativeFactorsIntro" datatype="html">
+        <source>Before diving into the details of each factor, let&apos;s first look at the relative importance of each factor in determining property values in Tokyo. The chart below shows the average impact of each factor on the property value.</source>
+        <target>各要因の詳細に入る前に、まず東京の不動産価値を決定する各要因の相対的重要性を見てみましょう。下のチャートは、各要因が不動産価値に与える平均的な影響を示しています。</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/house-price-article/house-price-article.component.html</context>
+          <context context-type="linenumber">198,200</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="article.chartExplanation" datatype="html">
+        <source>The chart above shows the relative importance of different factors in determining property values in Tokyo. As we can see:</source>
+        <target>上のチャートは、東京の不動産価値を決定するさまざまな要因の相対的重要性を示しています。以下のことがわかります：</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/house-price-article/house-price-article.component.html</context>
+          <context context-type="linenumber">204,206</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="article.factorSize" datatype="html">
+        <source>Unsurprisingly, <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>Plot Size<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/> and <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>House Size<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/> have the highest impact on the value of a property. The bigger, the pricier. And each square meter counts.</source>
+        <target>予想通り、<x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>敷地面積<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/>と<x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>家の大きさ<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/>が不動産価値に最も大きな影響を与えています。大きいほど高価です。そして1平方メートルごとに価値があります。</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/house-price-article/house-price-article.component.html</context>
+          <context context-type="linenumber">213,214</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="article.factorNeighborhood" datatype="html">
+        <source>Next is <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>Neighborhood<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/>. In fact, as we&apos;ll see in the <x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;#location&quot;&gt;"/>location section<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>, this is just an average effect and the location of the property can have an even stronger impact on price for properties located in good neighborhoods. </source>
+        <target>次は<x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>近隣地域<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/>です。実際、<x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;#location&quot;&gt;"/>場所のセクション<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>で見るように、これは平均的な効果であり、良い地域にある物件では、場所が価格にさらに強い影響を与える可能性があります。 </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/house-price-article/house-price-article.component.html</context>
+          <context context-type="linenumber">210,214</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="article.factorOthers" datatype="html">
+        <source><x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>Construction Type<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/>, <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>Property Orientation<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/>, and <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>Land Shape<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/> each contribute modestly to the value of a property.</source>
+        <target><x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>建物の構造<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/>、<x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>物件の向き<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/>、および<x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>土地の形状<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/>はそれぞれ物件の価値にわずかに貢献しています。</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/house-price-article/house-price-article.component.html</context>
+          <context context-type="linenumber">221,222</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="article.factorAge" datatype="html">
+        <source><x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>Building Age<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/> has the smallest influence among the factors analyzed. However, bear in mind that this factor is multiplied by age, so each year will add to the depreciation of the property and thus the total impact might be much higher. We will have a more detailed look in the section on <x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;#depreciation&quot;&gt;"/>depreciation<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>.</source>
+        <target><x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>建物の築年数<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/>は分析された要因の中で最も影響が小さいです。ただし、この要因は年数によって乗算されるため、1年ごとに物件の減価償却が加わり、総合的な影響はもっと大きくなる可能性があることに注意してください。<x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;#depreciation&quot;&gt;"/>減価償却<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>のセクションでより詳細に見ていきます。</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/house-price-article/house-price-article.component.html</context>
+          <context context-type="linenumber">217,220</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="article.whenToBuy" datatype="html">
+        <source>When to buy?</source>
+        <target>いつ買うべき？</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/house-price-article/house-price-article.component.html</context>
+          <context context-type="linenumber">224</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="article.yearInfluence" datatype="html">
+        <source>One factor not shown in the chart above is the influence of the <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>year<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/> the property was purchased.</source>
+        <target>上のチャートに示されていない要因の1つは、物件が購入された<x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>年<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/>の影響です。</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/house-price-article/house-price-article.component.html</context>
+          <context context-type="linenumber">225,226</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="article.appreciationRate" datatype="html">
+        <source> According to the model, the average appreciation of a property was about <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>3.5%<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/> per year for the past 10 years. After a small slump in 2019, the uptrend took off again during and after the pandemic. </source>
+        <target> モデルによると、過去10年間の物件の平均上昇率は年間約<x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>3.5%<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/>でした。2019年に小さな落ち込みがあった後、パンデミック中およびそれ以降に再び上昇傾向が始まりました。 </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/house-price-article/house-price-article.component.html</context>
+          <context context-type="linenumber">230,233</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="article.buyNowInsight" datatype="html">
+        <source> So, the overall message seems clear: buy now! However, I am planning another post to dive deeper into the opportunity cost of buying a property. Stay tuned for more on that topic! </source>
+        <target> つまり、全体的なメッセージは明確です：今買いましょう！しかし、不動産購入の機会費用についてさらに詳しく掘り下げた別の投稿を計画しています。そのトピックについての続報をお楽しみに！ </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/house-price-article/house-price-article.component.html</context>
+          <context context-type="linenumber">241,244</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="article.locationTitle" datatype="html">
+        <source>Location, Location, Location</source>
+        <target>場所、場所、場所</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/house-price-article/house-price-article.component.html</context>
+          <context context-type="linenumber">253</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="article.locationIntro" datatype="html">
+        <source> What neighborhood you buy in Tokyo can make a huge difference. Next, let&apos;s look at how the model quantified the impact of the neighborhood on the price of a property. </source>
+        <target> 東京のどの地域で購入するかによって大きな違いが生じます。次に、モデルが近隣地域が物件価格に与える影響をどのように定量化したかを見てみましょう。 </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/house-price-article/house-price-article.component.html</context>
+          <context context-type="linenumber">254,256</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="article.mapCaption" datatype="html">
+        <source> Interactive map showing land values across Tokyo. Green is &quot;cheap&quot; while red is &quot;expensive&quot;. </source>
+        <target> 東京全体の土地価値を示すインタラクティブマップ。緑は「安い」地域、赤は「高い」地域を表しています。 </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/house-price-article/house-price-article.component.html</context>
+          <context context-type="linenumber">260,262</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="article.locationConclusion" datatype="html">
+        <source> The model has clearly picked up on the fact that centrally located properties are more valuable. And great neighborhoods can set you back more than 1 million yen per square meter! </source>
+        <target> モデルは明らかに、中心部に位置する物件がより価値が高いという事実を捉えています。素晴らしい地域では1平方メートルあたり100万円以上も高くなることがあります！ </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/house-price-article/house-price-article.component.html</context>
+          <context context-type="linenumber">263,266</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="article.otherFactorsTransition" datatype="html">
+        <source> But what about the other factors? Let&apos;s dive into the details. </source>
+        <target> では、他の要因についてはどうでしょうか？詳細を見ていきましょう。 </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/house-price-article/house-price-article.component.html</context>
+          <context context-type="linenumber">267,269</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="article.otherFactorsTitle" datatype="html">
+        <source>Other Factors</source>
+        <target>その他の要因</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/house-price-article/house-price-article.component.html</context>
+          <context context-type="linenumber">275</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="article.depreciationTitle" datatype="html">
+        <source>Building Type and Depreciation</source>
+        <target>建物タイプと減価償却</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/house-price-article/house-price-article.component.html</context>
+          <context context-type="linenumber">278</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="article.depreciationIntro" datatype="html">
+        <source> The Lasso regression analysis also uncovered interesting patterns in how different building materials depreciate over time. The model helped us quantify these relationships: </source>
+        <target> Lasso回帰分析により、異なる建築材料が時間とともにどのように減価するかについての興味深いパターンも明らかになりました。モデルはこれらの関係を定量化するのに役立ちました： </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/house-price-article/house-price-article.component.html</context>
+          <context context-type="linenumber">279,281</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="article.materialComparison" datatype="html">
+        <source> <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>Wood (木造)<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/> is the cheapest structural material for a house and also the one that completely loses value first. <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>Steel (鉄骨)<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/>, <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>Light Steel (軽量鉄骨)<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/> and the <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>Concrete (RC)<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/> are more durable and thus also more expensive. When looking at the rate at which each material depreciates, <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>Wood<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/> fares surprisingly well however! </source>
+        <target> <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>木造<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/>は家の構造材料として最も安価であり、最も早く価値を完全に失います。<x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>鉄骨<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/>、<x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>軽量鉄骨<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/>、および<x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>コンクリート（RC）<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/>はより耐久性があり、したがってより高価です。しかし、各材料の減価率を見ると、<x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>木造<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/>は驚くほど良い結果を示しています！ </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/house-price-article/house-price-article.component.html</context>
+          <context context-type="linenumber">284,290</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="article.depreciationInsight" datatype="html">
+        <source>The depreciation profiles inferred by the Lasso Regression seem somewhat pessimistic. For example, a quick search gives an amortization period of 22 years for Wood which is not too far off, but between 33 and 46 years for Light Steel and Concrete. I wonder if this difference between the accounting value and the value inferred by the Lasso Regression is an artifact of the model or a real effect? Please let me know if you have any insights on this!</source>
+        <target>Lasso回帰によって推測された減価償却プロファイルはやや悲観的に見えます。例えば、簡単な検索では木造の償却期間は22年でそれほど大きく外れていませんが、軽量鉄骨とコンクリートでは33年から46年となっています。この会計上の価値とLasso回帰によって推測された価値の違いは、モデルの人工的な結果なのか、実際の効果なのか疑問です。この点について何か知見があればぜひ教えてください！</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/house-price-article/house-price-article.component.html</context>
+          <context context-type="linenumber">299,304</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="article.convenienceTitle" datatype="html">
+        <source>The Price of Convenience</source>
+        <target>利便性の価格</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/house-price-article/house-price-article.component.html</context>
+          <context context-type="linenumber">308</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="article.walkingTimeIntro" datatype="html">
+        <source> One interesting result from the Lasso model is the precise quantification of the impact of walking time to the nearest train station. </source>
+        <target> Lassoモデルからの興味深い結果の1つは、最寄りの駅までの徒歩時間の影響を正確に定量化したことです。 </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/house-price-article/house-price-article.component.html</context>
+          <context context-type="linenumber">309,311</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="article.walkingTimeExplanation" datatype="html">
+        <source> In a variant of the model shown above, I allowed the <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;math&quot;&gt;"/>$\beta$<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/> coefficients associated with walk time to be dummy coded minute by minute. This would theoretically allow for a non-linear relationship to be picked up. However, as you can see in the chart, the relationship seems pretty stable and linear with each minute closer to the station adding about ¥10,000 per square meter to the price of the property. This means a 100 square meter property will be worth about ¥10 million more if it&apos;s located right next to the station. </source>
+        <target> 上記のモデルのバリエーションでは、徒歩時間に関連する<x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;math&quot;&gt;"/>$\beta$<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/>係数を分単位でダミーコード化できるようにしました。これにより理論的には非線形関係も捉えることが可能になります。しかし、チャートに示されているように、関係は非常に安定しており、駅に1分近くなるごとに物件の価格が1平方メートルあたり約1万円上昇するという線形関係になっています。つまり、100平方メートルの物件であれば、駅のすぐ近くにある場合、約1000万円も価値が高くなる可能性があるということです。 </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/house-price-article/house-price-article.component.html</context>
+          <context context-type="linenumber">315,322</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="article.ratiosTitle" datatype="html">
+        <source>The Construction Ratios</source>
+        <target>建築比率</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/house-price-article/house-price-article.component.html</context>
+          <context context-type="linenumber">326</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="article.floorRatioTitle" datatype="html">
+        <source>Floor Ratio (容積率)</source>
+        <target>容積率</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/house-price-article/house-price-article.component.html</context>
+          <context context-type="linenumber">328</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="article.floorRatioExplanation" datatype="html">
+        <source> The floor ratio is the ratio of the total floor area of a building to the total land area of the property. It is a measure of how much of the land is used for building purposes and is a legal requirement when building. The higher the floor ratio, the bigger the house you can build on the property. Unsurprisingly, higher floor ratios are associated with higher property values. </source>
+        <target> 容積率は、建物の総床面積と物件の総土地面積の比率です。これは土地がどれだけ建築目的に使用されているかを示す指標であり、建築時の法的要件です。容積率が高いほど、その敷地にはより大きな家を建てることができます。当然ながら、容積率が高いほど不動産価値も高くなります。 </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/house-price-article/house-price-article.component.html</context>
+          <context context-type="linenumber">329,334</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="article.buildingRatioTitle" datatype="html">
+        <source>Building Ratio (建ぺい率)</source>
+        <target>建ぺい率</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/house-price-article/house-price-article.component.html</context>
+          <context context-type="linenumber">338</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="article.buildingRatioExplanation" datatype="html">
+        <source> This ratio is similar to the floor ratio but it is a measure of how much of the land is covered by the building and is also a legal requirement when building. The higher the building ratio, the more of the land is covered by the building and so the more expensive it is. </source>
+        <target> この比率は容積率に似ていますが、土地がどれだけ建物に覆われているかを示す指標であり、建築時の法的要件でもあります。建ぺい率が高いほど、土地の多くが建物に覆われているため、より高価になります。 </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/house-price-article/house-price-article.component.html</context>
+          <context context-type="linenumber">339,342</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="article.shapeOrientationTitle" datatype="html">
+        <source>Land Shape and Orientation</source>
+        <target>土地の形状と向き</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/house-price-article/house-price-article.component.html</context>
+          <context context-type="linenumber">346</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="article.landShapeTitle" datatype="html">
+        <source>Land Shape</source>
+        <target>土地の形状</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/house-price-article/house-price-article.component.html</context>
+          <context context-type="linenumber">347</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="article.landShapeExplanation" datatype="html">
+        <source> The learned coefficients seem consistent with the intuition that square-shaped land is more valuable than irregularly shaped land. Also, the model is flagging landlocked properties (袋地等) as much less valuable. This is an important factor to take into account and sometimes the reason that explains why a listing on <x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;https://suumo.jp/&quot;&gt;"/>suumo.jp<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/> is so cheap. </source>
+        <target> 学習された係数は、正方形の土地が不規則な形状の土地よりも価値が高いという直感と一致しているようです。また、モデルは袋地等の物件を価値が大幅に低いとフラグを立てています。これは考慮すべき重要な要素であり、<x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;https://suumo.jp/&quot;&gt;"/>suumo.jp<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>での物件がなぜそれほど安いのかを説明する理由になることもあります。 </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/house-price-article/house-price-article.component.html</context>
+          <context context-type="linenumber">348,352</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="article.landOrientationTitle" datatype="html">
+        <source>Land Orientation</source>
+        <target>土地の向き</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/house-price-article/house-price-article.component.html</context>
+          <context context-type="linenumber">356</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="article.landOrientationExplanation" datatype="html">
+        <source> Land orientation does not seem to have a big impact on the price of a property. However, you should definitely avoid properties with no access (接面道路無). These types of properties are often not buildable anymore due to a change in legislation and so the value of the land is dramatically decreased (for good reason). </source>
+        <target> 土地の向きは物件価格に大きな影響を与えないようです。ただし、接面道路のない物件（接面道路無）は絶対に避けるべきです。このような物件は法律の変更により建築ができなくなっていることが多く、土地の価値が大幅に下がっています（当然の理由です）。 </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/house-price-article/house-price-article.component.html</context>
+          <context context-type="linenumber">357,360</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="article.landlockedTitle" datatype="html">
+        <source>Landlocked Properties</source>
+        <target>袋地の物件</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/house-price-article/house-price-article.component.html</context>
+          <context context-type="linenumber">367</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="article.landlockedExplanation" datatype="html">
+        <source>Landlocked properties (袋地等 and 接面道路無) are properties that have no direct access to a public road. In some instances, the law might prohibit the construction of a new building on the property. In other instances, the property might be buildable but the cost of building a new road might be too high. Always check the property&apos;s access rights before making a purchase decision.</source>
+        <target>袋地（袋地等や接面道路無）は公道に直接アクセスできない物件です。場合によっては、法律によってその物件に新しい建物を建てることが禁止されていることがあります。他の場合では、建築可能かもしれませんが、新しい道路を建設するコストが高すぎることがあります。購入を決める前に、必ず物件のアクセス権を確認してください。</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/house-price-article/house-price-article.component.html</context>
+          <context context-type="linenumber">368,372</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="article.conclusionTitle" datatype="html">
+        <source>In Conclusion</source>
+        <target>結論</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/house-price-article/house-price-article.component.html</context>
+          <context context-type="linenumber">381</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="article.conclusionP1" datatype="html">
+        <source> Playing with the MLIT dataset has been a fun exercise and I learned a lot about the factors that drive the price of a property in Tokyo. </source>
+        <target> MLITデータセットを使った分析は楽しい取り組みであり、東京の不動産価格を決定する要因について多くのことを学びました。 </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/house-price-article/house-price-article.component.html</context>
+          <context context-type="linenumber">382,385</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="article.conclusionP2" datatype="html">
+        <source> I hope you enjoyed reading this article as much as I enjoyed writing it. If you have any questions or feedback, please let me know! </source>
+        <target> この記事を書くのが楽しかったように、読むのも楽しんでいただければ幸いです。ご質問やフィードバックがありましたら、ぜひお知らせください！ </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/house-price-article/house-price-article.component.html</context>
+          <context context-type="linenumber">386,389</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="article.tryAppPromo" datatype="html">
+        <source>Also, I spent some time creating a property evaluation app based on the model described in this article. Feel free to try it at <x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;https://tokyohouseprice.web.app/&quot;&gt;"/>tokyohouseprice.web.app<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>.</source>
+        <target>また、この記事で説明したモデルに基づいて物件評価アプリを作成しました。<x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;https://tokyohouseprice.web.app/&quot;&gt;"/>tokyohouseprice.web.app<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>でぜひお試しください。</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/house-price-article/house-price-article.component.html</context>
+          <context context-type="linenumber">390,391</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="article.logoAlt" datatype="html">
+        <source>Tokyo House Price</source>
+        <target>東京住宅価格</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/house-price-article/house-price-article.component.html</context>
+          <context context-type="linenumber">402</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="article.tryApp" datatype="html">
+        <source>Try the App!</source>
+        <target>アプリを試す！</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/house-price-article/house-price-article.component.html</context>
+          <context context-type="linenumber">406</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="article.github" datatype="html">
+        <source>GitHub</source>
+        <target>GitHub</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/house-price-article/house-price-article.component.html</context>
+          <context context-type="linenumber">407</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="article.contact" datatype="html">
+        <source>Contact</source>
+        <target>お問い合わせ</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/house-price-article/house-price-article.component.html</context>
+          <context context-type="linenumber">408</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="article.twitter" datatype="html">
+        <source>Twitter</source>
+        <target>Twitter</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/house-price-article/house-price-article.component.html</context>
+          <context context-type="linenumber">413</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="article.linkedin" datatype="html">
+        <source>LinkedIn</source>
+        <target>LinkedIn</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/house-price-article/house-price-article.component.html</context>
+          <context context-type="linenumber">416</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="article.disclaimer" datatype="html">
+        <source> I am just a random guy on the internet with no real estate experience. So please take all I write with a massive pinch of salt and don&apos;t rely exclusively on this article for real estate investment. This analysis is for educational purposes only and should not be used as financial advice. </source>
+        <target> 私は不動産経験のないインターネット上のただの一般人です。ですので、私が書いたことをすべて額面通りに受け取らず、この記事だけを不動産投資の判断材料にしないでください。この分析は教育目的のみであり、金融アドバイスとして使用すべきではありません。 </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/house-price-article/house-price-article.component.html</context>
+          <context context-type="linenumber">421,425</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="article.copyright" datatype="html">
+        <source>© 2024 Tokyo House Price | All Rights Reserved</source>
+        <target>© 2024 東京住宅価格 | 無断複製禁止</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/house-price-article/house-price-article.component.html</context>
+          <context context-type="linenumber">429</context>
+        </context-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff> 

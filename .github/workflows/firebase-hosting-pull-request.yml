@@ -13,10 +13,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - run: npm ci && npm run build
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: app/package-lock.json
+      - name: Install dependencies and build localized app
         working-directory: app
+        run: |
+          npm install --legacy-peer-deps
+          npm run build:deploy-ready
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
           firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_TOKYOHOUSEPRICE }}
           projectId: tokyohouseprice
+          entryPoint: ./app

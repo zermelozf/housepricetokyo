@@ -1,12 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { LanguageService } from '../../services/language.service';
 import { CommonModule } from '@angular/common';
+import { LanguageSelectorComponent } from '../language-selector/language-selector.component';
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [RouterLink, RouterLinkActive, CommonModule],
+  imports: [RouterLink, RouterLinkActive, CommonModule, LanguageSelectorComponent],
   template: `
     <nav class="navbar">
       <div class="navbar-container">
@@ -27,25 +28,22 @@ import { CommonModule } from '@angular/common';
                class="navbar-item" 
                routerLinkActive="active" 
                [routerLinkActiveOptions]="{exact: true}"
-               (click)="closeMenu()">
+               (click)="closeMenu()" 
+               i18n="@@nav.calculator">
               Calculator
             </a>
             <a routerLink="/article" 
                class="navbar-item" 
                routerLinkActive="active" 
                [routerLinkActiveOptions]="{exact: false}"
-               (click)="closeMenu()">
+               (click)="closeMenu()"
+               i18n="@@nav.article">
               Article
             </a>
           </div>
 
           <div class="language-switcher">
-            <button (click)="switchLanguage('en')" [class.active]="currentLang === 'en'" class="lang-btn">
-              EN
-            </button>
-            <button (click)="switchLanguage('ja')" [class.active]="currentLang === 'ja'" class="lang-btn">
-              日本語
-            </button>
+            <app-language-selector></app-language-selector>
           </div>
         </div>
       </div>
@@ -264,17 +262,19 @@ import { CommonModule } from '@angular/common';
     }
   `]
 })
-export class NavbarComponent {
+export class NavbarComponent implements OnInit {
   currentLang: string;
   isMenuOpen = false;
 
   constructor(private languageService: LanguageService) {
     this.currentLang = this.languageService.getCurrentLang();
   }
-
-  switchLanguage(lang: 'en' | 'ja') {
-    this.languageService.setLanguage(lang);
-    this.currentLang = lang;
+  
+  ngOnInit(): void {
+    // Subscribe to language changes
+    this.languageService.currentLang$.subscribe(lang => {
+      this.currentLang = lang;
+    });
   }
 
   toggleMenu() {

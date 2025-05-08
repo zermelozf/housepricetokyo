@@ -13,6 +13,18 @@
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
+      "i18n": {
+        "sourceLocale": {
+          "code": "en-US",
+          "baseHref": ""
+        },
+        "locales": {
+          "ja": {
+            "translation": "src/locale/messages.ja.xlf",
+            "baseHref": "/ja/"
+          }
+        }
+      },
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -65,6 +77,14 @@
               "optimization": false,
               "extractLicenses": false,
               "sourceMap": true
+            },
+            "ja": {
+              "localize": ["ja"],
+              "outputPath": "dist/app-ja/"
+            },
+            "en-US": {
+              "localize": ["en-US"],
+              "outputPath": "dist/app-en/"
             }
           },
           "defaultConfiguration": "production"
@@ -77,12 +97,21 @@
             },
             "development": {
               "buildTarget": "app:build:development"
+            },
+            "ja": {
+              "buildTarget": "app:build:ja"
+            },
+            "en-US": {
+              "buildTarget": "app:build:en-US"
             }
           },
           "defaultConfiguration": "development"
         },
         "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n"
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "buildTarget": "app:build"
+          }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",

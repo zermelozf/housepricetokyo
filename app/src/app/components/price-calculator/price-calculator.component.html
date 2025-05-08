@@ -1,15 +1,15 @@
 <div class="calculator-container">
   <div class="intro-text">
     <p class="welcome">
-      <span class="emoji">👋</span> Hey there! I hope you're finding this calculator useful!
+      <span class="emoji">👋</span> <span i18n="@@calculator.welcome">Hey there! I hope you're finding this calculator useful!</span>
     </p>
     <div class="disclaimer">
       <p>
-        <strong>Disclaimer:</strong> This is not investment advice. These estimates are for educational purposes only
-        and may not be accurate.
+        <strong i18n="@@calculator.disclaimer">Disclaimer:</strong> <span i18n="@@calculator.disclaimerText">This is not investment advice. These estimates are for educational purposes only
+        and may not be accurate.</span>
       </p>
       <p>
-        <a class="genesis-link" href="/article">Learn more about the calculations here</a>.
+        <a class="genesis-link" href="/article" i18n="@@calculator.learnMore">Learn more about the calculations here</a>.
       </p>
     </div>
   </div>
@@ -18,7 +18,7 @@
     <form [formGroup]="propertyForm">
       <div class="form-row">
         <div class="form-group">
-          <label for="propertyType">Property Type</label>
+          <label for="propertyType" i18n="@@calculator.propertyType">Property Type</label>
           <select id="propertyType" formControlName="propertyType">
             <option *ngFor="let type of propertyTypes" [value]="type">{{type}}</option>
           </select>
@@ -27,14 +27,14 @@
 
       <div class="form-row">
         <div class="form-group">
-          <label for="ward">Ward</label>
+          <label for="ward" i18n="@@calculator.ward">Ward</label>
           <select id="ward" formControlName="ward">
             <option *ngFor="let ward of wards" [value]="ward">{{ward}}</option>
           </select>
         </div>
 
         <div class="form-group">
-          <label for="city">Nearest Station</label>
+          <label for="city" i18n="@@calculator.nearestStation">Nearest Station</label>
           <select id="city" formControlName="city">
             <option *ngFor="let city of cities" [value]="city">{{city}}</option>
           </select>
@@ -43,24 +43,24 @@
 
       <div class="form-row">
         <div class="form-group">
-          <label for="landArea">Land Area (m²)</label>
+          <label for="landArea" i18n="@@calculator.landArea">Land Area (m²)</label>
           <input type="number" id="landArea" formControlName="landArea">
         </div>
 
         <div class="form-group" *ngIf="propertyForm.get('propertyType')?.value === 'House & Land'">
-          <label for="buildingArea">Building Area (m²)</label>
+          <label for="buildingArea" i18n="@@calculator.buildingArea">Building Area (m²)</label>
           <input type="number" id="buildingArea" formControlName="buildingArea">
         </div>
       </div>
 
       <div class="form-row" *ngIf="propertyForm.get('propertyType')?.value === 'House & Land'">
         <div class="form-group">
-          <label for="yearBuilt">Year Built</label>
+          <label for="yearBuilt" i18n="@@calculator.yearBuilt">Year Built</label>
           <input type="number" id="yearBuilt" formControlName="yearBuilt">
         </div>
 
         <div class="form-group">
-          <label for="buildingType">Building Type</label>
+          <label for="buildingType" i18n="@@calculator.buildingType">Building Type</label>
           <select id="buildingType" formControlName="buildingType">
             <option *ngFor="let type of buildingTypes" [value]="type">{{type}}</option>
           </select>
@@ -69,12 +69,12 @@
 
       <div class="form-row">
         <div class="form-group">
-          <label for="nearest">Distance to Station (mn)</label>
+          <label for="nearest" i18n="@@calculator.distanceToStation">Distance to Station (mn)</label>
           <input type="number" id="nearest" formControlName="nearest">
         </div>
 
         <div class="form-group">
-          <label for="houseRatio">Building to Land Ratio (%)</label>
+          <label for="houseRatio" i18n="@@calculator.buildingToLandRatio">Building to Land Ratio (%)</label>
           <select id="houseRatio" formControlName="houseRatio">
             <option *ngFor="let ratio of buildingRatios" [value]="ratio">{{ratio}}%</option>
           </select>
@@ -83,28 +83,28 @@
 
       <div class="form-row">
         <div class="form-group">
-          <label for="landRatio">Floor to Land Ratio (%)</label>
+          <label for="landRatio" i18n="@@calculator.floorToLandRatio">Floor to Land Ratio (%)</label>
           <select id="landRatio" formControlName="landRatio">
             <option *ngFor="let ratio of floorRatios" [value]="ratio">{{ratio}}%</option>
           </select>
         </div>
 
         <div class="form-group">
-          <label for="road">Road Width (m)</label>
+          <label for="road" i18n="@@calculator.roadWidth">Road Width (m)</label>
           <input type="number" id="road" formControlName="road">
         </div>
       </div>
 
       <div class="form-row">
         <div class="form-group">
-          <label for="orientation">Orientation</label>
+          <label for="orientation" i18n="@@calculator.orientation">Orientation</label>
           <select id="orientation" formControlName="orientation">
             <option *ngFor="let orientation of orientations" [value]="orientation">{{orientation}}</option>
           </select>
         </div>
 
         <div class="form-group">
-          <label for="shape">Land Shape</label>
+          <label for="shape" i18n="@@calculator.landShape">Land Shape</label>
           <select id="shape" formControlName="shape">
             <option *ngFor="let shape of shapes" [value]="shape">{{shape}}</option>
           </select>

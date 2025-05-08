@@ -77,6 +77,7 @@ declare const MathJax: any;
 })
 export class HousePriceArticleComponent implements OnInit, AfterViewInit {
   @ViewChild('formulaContainer') formulaContainer!: ElementRef;
+  @ViewChild('mainFormulaContainer') mainFormulaContainer!: ElementRef;
   @ViewChild('houseFormulaContainer') houseFormulaContainer!: ElementRef;
   @ViewChild('landFormulaContainer') landFormulaContainer!: ElementRef;
   @ViewChild('articleContainer') articleContainer!: ElementRef;
@@ -156,6 +157,11 @@ export class HousePriceArticleComponent implements OnInit, AfterViewInit {
       $$`;
     }
 
+    // Render main formula (simpler version)
+    if (this.mainFormulaContainer) {
+      this.mainFormulaContainer.nativeElement.textContent = `$$y = \\text{P}(\\text{house}) + \\text{P}(\\text{land})$$`;
+    }
+
     // Render house price formula
     if (this.houseFormulaContainer) {
       this.houseFormulaContainer.nativeElement.textContent = `$$
@@ -180,6 +186,7 @@ export class HousePriceArticleComponent implements OnInit, AfterViewInit {
         // Process all formula containers
         const formulaElements = [
           this.formulaContainer?.nativeElement,
+          this.mainFormulaContainer?.nativeElement,
           this.houseFormulaContainer?.nativeElement,
           this.landFormulaContainer?.nativeElement
         ].filter(el => el != null);

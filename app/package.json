@@ -4,7 +4,15 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "start:en": "ng serve --configuration=en-US",
+    "start:ja": "ng serve --configuration=ja",
+    "dev": "node dev-server.js",
     "build": "ng build",
+    "build:default": "ng build --configuration=en-US",
+    "build:ja": "ng build --configuration=ja",
+    "build:localized": "ng build --localize",
+    "deploy": "npm run build:localized && node deploy.js",
+    "extract-i18n": "./extract-i18n.sh",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:app": "node dist/app/server/server.mjs"
@@ -18,6 +26,7 @@
     "@angular/core": "^19.2.0",
     "@angular/fire": "^19.1.0",
     "@angular/forms": "^19.2.0",
+    "@angular/localize": "^19.2.10",
     "@angular/material": "^19.2.14",
     "@angular/platform-browser": "^19.2.0",
     "@angular/platform-browser-dynamic": "^19.2.0",

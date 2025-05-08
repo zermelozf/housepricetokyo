@@ -12,9 +12,11 @@
 
   .intro-text {
     grid-column: 1 / -1;
-    text-align: center;
     margin-bottom: 2rem;
-    padding: 0 1rem;
+    padding: 1rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+    text-align: center;
 
     h1 {
       color: #333;
@@ -22,34 +24,55 @@
       margin-bottom: 1rem;
     }
 
-    .description {
-      color: #666;
-      font-size: 1rem;
+    .welcome {
+      margin: 0 0 1rem;
+      color: #333;
+      font-size: 1.1rem;
       line-height: 1.6;
-      max-width: 800px;
+    }
+
+    .disclaimer {
+      background: #fff3f3;
+      border: 1px solid #ffcdd2;
+      border-radius: 8px;
+      padding: 1rem;
       margin: 0 auto;
+      max-width: 800px;
 
-      a {
-        color: #4a90e2;
-        text-decoration: none;
-        font-weight: 500;
-        transition: color 0.2s ease;
+      p {
+        margin: 0;
+        color: #d32f2f;
+        font-size: 0.95rem;
+        line-height: 1.6;
 
-        &:hover {
-          color: #357abd;
-          text-decoration: underline;
+        strong {
+          font-weight: 600;
         }
 
-        &.cursor-link {
-          color: #999;
-          font-size: 0.7rem;
-          font-style: italic;
-          font-weight: normal;
+        a {
+          color: #d32f2f;
+          text-decoration: none;
+          font-weight: 500;
 
           &:hover {
-            color: #777;
-            text-decoration: none;
+            text-decoration: underline;
           }
+        }
+      }
+    }
+
+    .description {
+      margin: 0;
+      color: #666;
+      font-size: 0.95rem;
+      line-height: 1.6;
+
+      a {
+        color: #FF69B4;
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
         }
       }
 
@@ -572,4 +595,26 @@
 .loading-text {
   color: #666;
   font-style: italic;
+}
+
+.footnote {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid #eee;
+  font-size: 0.85rem;
+  color: #666;
+  line-height: 1.5;
+
+  p {
+    margin: 0;
+  }
+
+  a {
+    color: #FF69B4;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 }

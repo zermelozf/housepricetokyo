@@ -20,7 +20,7 @@ jobs:
       - name: Install dependencies and build localized app
         working-directory: app
         run: |
-          npm ci
+          npm ci --legacy-peer-deps
           npm run build:deploy-ready
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:

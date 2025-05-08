@@ -76,11 +76,8 @@ export class PriceCalculatorComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.analyticsService.logPageView('price_calculator');
-    // Initialize wards
     this.wards = this.areaService.getWards();
 
-    // Set default ward if available
     if (this.wards.length > 0) {
       this.propertyForm.patchValue({ ward: this.wards[0] });
       this.updateCities();

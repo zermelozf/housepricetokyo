@@ -7,6 +7,12 @@ import { Analytics, logEvent } from '@angular/fire/analytics';
 export class AnalyticsService {
   constructor(private analytics: Analytics) {}
 
+  logTechnicalDetailsToggle(showTechnicalDetails: boolean) {
+    logEvent(this.analytics, 'technical_details_toggle', {
+      show_technical_details: showTechnicalDetails
+    });
+  }
+
   logPriceCalculation(propertyType: string, ward: string, totalPrice: number) {
     logEvent(this.analytics, 'price_calculation', {
       property_type: propertyType,

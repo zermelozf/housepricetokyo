@@ -13,6 +13,7 @@ import { LandValueEvolutionChartComponent } from '../land-value-evolution-chart/
 import { ModelScoresHistogramComponent } from '../model-scores-histogram/model-scores-histogram.component';
 import { ImportanceChartComponent } from '../importance-chart/importance-chart.component';
 import { GiscusCommentsComponent } from '../giscus-comments/giscus-comments.component';
+import { AnalyticsService } from '../../services/analytics.service';
 
 // Add MathJax type declarations
 declare global {
@@ -86,8 +87,11 @@ export class HousePriceArticleComponent implements OnInit, AfterViewInit {
 
   showTechnicalDetails = false;
 
+  constructor(private analyticsService: AnalyticsService) {}
+
   toggleTechnicalDetails() {
     this.showTechnicalDetails = !this.showTechnicalDetails;
+    this.analyticsService.logTechnicalDetailsToggle(this.showTechnicalDetails);
     if (this.showTechnicalDetails) {
       // Wait for the animation to complete before initializing MathJax
       setTimeout(() => {

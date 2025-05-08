@@ -6,6 +6,28 @@
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/jpeg" href="logo.jpg">
+  
+  <!-- Open Graph / Social Media Meta Tags -->
+  <meta property="og:title" content="Tokyo House Price Calculator">
+  <meta property="og:description" content="Calculate the price of houses in Tokyo based on location and other features">
+  <meta property="og:image" content="https://tokyohouseprice.web.app/photo.jpg">
+  <meta property="og:url" content="https://tokyohouseprice.web.app/">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://tokyohouseprice.web.app/photo.jpg">
+  
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GBV85V31MZ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    // Initial config, will be updated on route changes
+    gtag('config', 'G-GBV85V31MZ', {
+      'send_page_view': false // Set to false to avoid duplicate page views
+    });
+  </script>
+  
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <!-- MathJax Configuration -->
   <script>

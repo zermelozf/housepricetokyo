@@ -7,7 +7,8 @@
     <div class="article-meta">
       <p class="subtitle" i18n="@@article.subtitle">Using Machine Learning to Uncover Key Value Drivers</p>
       <div class="author-date">
-        <p i18n="@@article.byline">By <a href="https://www.linkedin.com/in/arachez/" target="_blank">Arnaud R.</a> • March 2025</p>
+        <p i18n="@@article.byline">By <a href="https://www.linkedin.com/in/arachez/" target="_blank">Arnaud R.</a> •
+          March 2025</p>
       </div>
       <div class="share-buttons">
         <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://tokyohouseprice.web.app/article"
@@ -85,7 +86,8 @@
       <h2 i18n="@@article.modelingTitle">Modeling Tokyo Real Estate</h2>
     </div>
 
-    <p i18n="@@article.technicalDisclaimer">I realize that some of you might not be interested in the technical details, so by default the technical section
+    <p i18n="@@article.technicalDisclaimer">I realize that some of you might not be interested in the technical details,
+      so by default the technical section
       is hidden. You can click on the button below to show it.</p>
 
     <div class="toggle-container">
@@ -115,10 +117,13 @@
           Then, I based my modeling on the following assumptions:
         </p>
         <ul class="assumptions-list">
-          <li i18n="@@article.assumption1">The price of a listing in the MLIT dataset is split between land and house value.</li>
-          <li i18n="@@article.assumption2">The price of the house is proportional to the floor area. Also, the building type and year of construction
+          <li i18n="@@article.assumption1">The price of a listing in the MLIT dataset is split between land and house
+            value.</li>
+          <li i18n="@@article.assumption2">The price of the house is proportional to the floor area. Also, the building
+            type and year of construction
             might increase or decrease the price per square meter.</li>
-          <li i18n="@@article.assumption3">Similarly, the land value is proportional to the plot size. And the price per square meter might increase
+          <li i18n="@@article.assumption3">Similarly, the land value is proportional to the plot size. And the price per
+            square meter might increase
             or decrease depending on the land characteristics such as shape, orientation, distance to the station, etc.
           </li>
         </ul>
@@ -149,7 +154,8 @@
           </div>
           <div class="insight-content">
             <h4 i18n="@@article.githubTitle">Find it on GitHub!</h4>
-            <p i18n="@@article.githubInfo">BTW, You can find the code I wrote on <a href="https://github.com/zermelozf/tokyohouseprice">github</a>
+            <p i18n="@@article.githubInfo">BTW, You can find the code I wrote on <a
+                href="https://github.com/zermelozf/tokyohouseprice">github</a>
               with an MIT license. In particular, the <a
                 href="https://github.com/zermelozf/tokyohouseprice/blob/main/analysis.ipynb">modeling part</a> is
               using <a href="https://matthewwardrop.github.io/formulaic/latest/">formulaic</a>, a very nice package
@@ -162,7 +168,8 @@
 
         <p i18n="@@article.parameterInterpretation">
           With the above parameterization, the interpretation of the model should be pretty straightforward. All
-          coefficients have a price per square meter unit, except for the <span class="math">$\alpha_m^2$</span>, which are expressed
+          coefficients have a price per square meter unit, except for the <span class="math">$\alpha_m^2$</span>, which
+          are expressed
           in price per square meter per year to model the depreciation of the house over time.
         </p>
 
@@ -184,7 +191,8 @@
 
         <h3 i18n="@@article.modelConclusion">So?</h3>
 
-        <p i18n="@@article.moveOn">It looks like we have a decent model. It is far from perfect but, for the purpose of the rest of this
+        <p i18n="@@article.moveOn">It looks like we have a decent model. It is far from perfect but, for the purpose of
+          the rest of this
           analysis,
           I'm going to consider the model good enough and move on to the interpretation of the coefficients of the
           Lasso
@@ -198,46 +206,47 @@
     <h2 i18n="@@article.factorsTitle">The Relative Importance of Different Factors</h2>
 
     <div class="factor relative" id="relative">
-      <p i18n="@@article.decentModel">As statte in the previous section, it looks like we have a decent model. Next let's look at the results.</p>
+      <p i18n="@@article.decentModel">As stated in the previous section, it looks like we have a decent model. Next
+        let's look at the results.</p>
 
-      <p i18n="@@article.relativeFactorsIntro">Before diving into the details of each factor, let's first look at the relative importance of each factor in
-        determining property values in Tokyo. The chart below shows the average impact of each factor on the property
-        value.</p>
+      <p i18n="@@article.relativeFactorsIntro">Before diving into the details, let's first look at the relative impact
+        of each factor on the value of a property in Tokyo.</p>
 
       <app-importance-chart></app-importance-chart>
 
-      <p i18n="@@article.chartExplanation">The chart above shows the relative importance of different factors in determining property values in Tokyo. As
-        we
-        can see:</p>
+      <p i18n="@@article.chartExplanation">The chart above shows the relative importance of different factors in
+        determining property values in Tokyo. As
+        we can see:</p>
       <ul>
-        <li i18n="@@article.factorSize">Unsurprisingly, <strong>Plot Size</strong> and <strong>House Size</strong> have the highest impact on the
-          value of a property. The bigger, the pricier. And each square meter counts.</li>
-        <li i18n="@@article.factorNeighborhood">Next is <strong>Neighborhood</strong>. In fact, as we'll see in the <a href="#location">location
-            section</a>,
-          this is just an average effect and the
-          location of the property can have an even stronger impact on price for properties located in good
-          neighborhoods.
+        <li i18n="@@article.factorSize">Unsurprisingly, <strong>Plot Size</strong> and <strong>House Size</strong> have
+          the highest impact on the value of a property. The bigger, the pricier. And each square meter counts.</li>
+        <li i18n="@@article.factorNeighborhood">Next is <strong>Neighborhood</strong>. In fact, as we'll see in the <a
+            href="#location">location section</a>, this is just an average effect and the location of the property can
+          have an even stronger impact on price for properties located in good neighborhoods.
         </li>
-        <li i18n="@@article.factorOthers"><strong>Construction Type</strong>, <strong>Property Orientation</strong>, and <strong>Land Shape</strong>
-          each contribute modestly to the value of a property.</li>
-        <li i18n="@@article.factorAge"><strong>Building Age</strong> has the smallest influence among the factors analyzed. However, bear in mind
-          that this factor is multiplied by age, so each year will add to the depreciation of the property and thus the
-          total impact might be much higher. We will have a more detailed look in the section on <a
-            href="#depreciation">depreciation</a>.</li>
+        <li i18n="@@article.factorOthers"><strong>Construction Type</strong>, <strong>Property Orientation</strong>, and
+          <strong>Land Shape</strong> each contribute modestly to the value of a property.
+        </li>
+        <li i18n="@@article.factorAge"><strong>Building Age</strong> has the smallest influence among the factors
+          analyzed. However, bear in mind that this factor is multiplied by age, so each year will add to the
+          depreciation of the property and thus the total impact might be much higher. We will have a more detailed look
+          in the section on <a href="#depreciation">depreciation</a>.</li>
       </ul>
     </div>
 
     <div class="factor when" id="when">
       <h3 i18n="@@article.whenToBuy">When to buy?</h3>
-      <p i18n="@@article.yearInfluence">One factor not shown in the chart above is the influence of the <strong>year</strong> the property was
-        purchased.</p>
+      <p i18n="@@article.yearInfluence">One factor not shown in the chart above is the influence of the
+        <strong>year</strong> the property was purchased.
+      </p>
 
       <app-land-value-evolution-chart></app-land-value-evolution-chart>
 
       <p i18n="@@article.appreciationRate">
         According to the model, the average appreciation of a property was about <strong>3.5%</strong> per year for the
         past 10 years.
-        After a small slump in 2019, the uptrend took off again during and after the pandemic.
+        Interestingly, after a small slump in 2019, the uptrend took off again during the COVID pandemic. But the rate
+        of growth may be slowing down recently.
       </p>
 
       <div class="insight-box" #insightBox>
@@ -273,7 +282,7 @@
       neighborhoods can set you back more than 1 million yen per square meter!
     </p>
     <p i18n="@@article.otherFactorsTransition">
-      But what about the other factors? Let's dive into the details.
+      Location is perhaps the most obvious factor driving the price of a property. Next, let's have a deeper look!
     </p>
 
   </section>
@@ -285,15 +294,14 @@
       <h3 id="depreciation" i18n="@@article.depreciationTitle">Building Type and Depreciation</h3>
       <p i18n="@@article.depreciationIntro">
         The Lasso regression analysis also uncovered interesting patterns in how different building materials depreciate
-        over time. The model helped us quantify these relationships:
+        over time. The model helped quantify these relationships:
       </p>
       <app-depreciation-graph></app-depreciation-graph>
       <p i18n="@@article.materialComparison">
         <strong>Wood (木造)</strong> is the cheapest structural material for a house and also the one that completely
         loses value first. <strong>Steel (鉄骨)</strong>, <strong>Light Steel (軽量鉄骨)</strong> and the <strong>Concrete
-          (RC)</strong> are more
-        durable and thus also more expensive. When looking at the rate at which each material depreciates,
-        <strong>Wood</strong> fares surprisingly well however!
+          (RC)</strong> are more durable and thus more expensive. When looking at the rate at which each material
+        depreciates though, <strong>Wood</strong> fares surprisingly well!
       </p>
     </div>
 
@@ -302,7 +310,8 @@
         <i class="fas fa-lightbulb"></i>
       </div>
       <div class="insight-content">
-        <p i18n="@@article.depreciationInsight">The depreciation profiles inferred by the Lasso Regression seem somewhat pessimistic.
+        <p i18n="@@article.depreciationInsight">The depreciation profiles inferred by the Lasso Regression seem somewhat
+          pessimistic.
           For example, a quick search gives an amortization period of 22 years for Wood which is not too far off, but
           between 33 and 46 years for Light Steel and Concrete.
           I wonder if this difference between the accounting value and the value inferred by the Lasso Regression is an
@@ -320,10 +329,8 @@
       <p i18n="@@article.walkingTimeExplanation">
         In a variant of the model shown above, I allowed the <span class="math">$\beta$</span> coefficients associated
         with walk time to be dummy coded minute by minute. This would theoretically allow for a non-linear relationship
-        to be
-        picked up. However, as you can see in the chart, the relationship seems pretty stable and linear with each
-        minute closer to the station adding about ¥10,000 per square meter to the price of the property. This means a
-        100 square meter property will be worth about ¥10 million more if it's located right next to the station.
+        to be picked up. However, as you can see in the chart, the relationship seems pretty stable and linear with each
+        minute closer to the station adding about ¥10,000 per square meter to the price of the property!
       </p>
     </div>
 
@@ -334,8 +341,8 @@
       <p i18n="@@article.floorRatioExplanation">
         The floor ratio is the ratio of the total floor area of a building to the total
         land area of the property. It is a measure of how much of the land is used for building purposes and is a legal
-        requirement when building. The higher the floor ratio, the bigger the house you can build on the property.
-        Unsurprisingly, higher floor ratios are associated with higher property values.
+        constraint when building. The higher the floor ratio, the bigger the house you can build on the property.
+        So, unsurprisingly, higher floor ratios are associated with higher property values.
       </p>
       <app-floor-ratio-chart></app-floor-ratio-chart>
 
@@ -351,18 +358,19 @@
         <h3 i18n="@@article.shapeOrientationTitle">Land Shape and Orientation</h3>
         <h4 i18n="@@article.landShapeTitle">Land Shape</h4>
         <p i18n="@@article.landShapeExplanation">
-          The learned coefficients seem consistent with the intuition that square-shaped land is more valuable than
-          irregularly shaped land. Also, the model is flagging landlocked properties (袋地等) as much less valuable.
-          This is an important factor to take into account and sometimes the reason that explains why a listing on
-          <a href="https://suumo.jp/">suumo.jp</a> is so cheap.
+          The coefficients learned by the Lasso regression are consistent with the intuition that square-shaped land is
+          more valuable than irregularly shaped land. Also, the model is flagging landlocked properties (袋地等) as much
+          less valuable. This is an important factor to take into account and sometimes the reason that explains why a
+          listing on <a href="https://suumo.jp/">suumo.jp</a> can sometimes be so cheap.
         </p>
         <app-land-shape-chart></app-land-shape-chart>
 
         <h4 i18n="@@article.landOrientationTitle">Land Orientation</h4>
         <p i18n="@@article.landOrientationExplanation">
           Land orientation does not seem to have a big impact on the price of a property. However, you should definitely
-          avoid properties with no access (接面道路無). These types of properties are often not buildable anymore due to a
-          change in legislation and so the value of the land is dramatically decreased (for good reason).
+          avoid properties with no access (接面道路無). Landlocked properties can pose safety issues in case of a fire or an
+          earthquake. For that reason, the lands may not be buildable anymore due to recent legislation changes and there
+          value dramatically decreases.
         </p>
         <app-land-orientation-chart></app-land-orientation-chart>
 
@@ -372,7 +380,8 @@
           </div>
           <div class="insight-content">
             <h4 i18n="@@article.landlockedTitle">Landlocked Properties</h4>
-            <p i18n="@@article.landlockedExplanation">Landlocked properties (袋地等 and 接面道路無) are properties that have no direct access to a public road.
+            <p i18n="@@article.landlockedExplanation">Landlocked properties (袋地等 and 接面道路無) are properties that have no
+              direct access to a public road.
               In some instances, the law might prohibit the construction of a new building on the property. In other
               instances, the property might be buildable but the cost of building a new road might be too high.
               Always check the property's access rights before making a purchase decision.</p>
@@ -393,12 +402,12 @@
       I hope you enjoyed reading this article as much as I enjoyed writing it. If you have any questions or feedback,
       please let me know!
     </p>
-    <p i18n="@@article.tryAppPromo">Also, I spent some time creating a property evaluation app based on the model described in this article. Feel
+    <p i18n="@@article.tryAppPromo">Also, I spent some time creating a property evaluation app based on the model
+      described in this article. Feel
       free to try it at <a href="https://tokyohouseprice.web.app/">tokyohouseprice.web.app</a>.</p>
 
   </section>
 
-  <!-- Add comments section at the end of the article -->
   <app-giscus-comments></app-giscus-comments>
 </article>
 
@@ -415,10 +424,12 @@
     </div>
 
     <div class="footer-social">
-      <a href="https://twitter.com/zermelozf" target="_blank" class="social-icon" i18n-title="@@article.twitter" title="Twitter">
+      <a href="https://twitter.com/zermelozf" target="_blank" class="social-icon" i18n-title="@@article.twitter"
+        title="Twitter">
         <i class="fab fa-twitter"></i>
       </a>
-      <a href="https://www.linkedin.com/in/arachez/" target="_blank" class="social-icon" i18n-title="@@article.linkedin" title="LinkedIn">
+      <a href="https://www.linkedin.com/in/arachez/" target="_blank" class="social-icon" i18n-title="@@article.linkedin"
+        title="LinkedIn">
         <i class="fab fa-linkedin"></i>
       </a>
     </div>
@@ -432,7 +443,7 @@
     </div>
 
     <div class="footer-copyright">
-      <p i18n="@@article.copyright">© 2024 Tokyo House Price | All Rights Reserved</p>
+      <p i18n="@@article.copyright">© 2025 Tokyo House Price | All Rights Reserved</p>
     </div>
   </div>
 </footer>

@@ -116,17 +116,17 @@
   <div class="results-container">
     <div class="price-summary">
       <div class="price-item total">
-        <span>Total Price</span>
+        <span i18n="@@calculator.totalPrice">Total Price</span>
         <span>{{ formatCurrency(priceBreakdown?.total || 0) }}</span>
       </div>
     </div>
 
     <div class="waterfall-chart">
       <div class="waterfall-section land">
-        <h3>Land Price Breakdown</h3>
+        <h3 i18n="@@calculator.landPriceBreakdown">Land Price Breakdown</h3>
         <div class="waterfall-bars">
           <div class="waterfall-bar base">
-            <div class="bar-label">Base Price</div>
+            <div class="bar-label" i18n="@@calculator.basePrice">Base Price</div>
             <div class="bar-container">
               <div class="bar positive"
                 [style.width.%]="getPercentage(priceBreakdown?.land?.base || 0, priceBreakdown?.total || 1)">
@@ -135,7 +135,7 @@
             </div>
           </div>
           <div class="waterfall-bar location">
-            <div class="bar-label">Location</div>
+            <div class="bar-label" i18n="@@calculator.location">Location</div>
             <div class="bar-container">
               <div class="bar" [class]="getBarClass(priceBreakdown?.land?.location || 0)"
                 [style.width.%]="getBarWidth(priceBreakdown?.land?.location || 0, priceBreakdown?.total || 1)">
@@ -144,7 +144,7 @@
             </div>
           </div>
           <div class="waterfall-bar total">
-            <div class="bar-label">Land Total</div>
+            <div class="bar-label" i18n="@@calculator.landTotal">Land Total</div>
             <div class="bar-container">
               <div class="bar total"
                 [style.width.%]="getPercentage(priceBreakdown?.land?.total || 0, priceBreakdown?.total || 1)">
@@ -156,10 +156,10 @@
       </div>
 
       <div class="waterfall-section building" *ngIf="propertyForm.get('propertyType')?.value === 'House & Land'">
-        <h3>Building Price Breakdown</h3>
+        <h3 i18n="@@calculator.buildingPriceBreakdown">Building Price Breakdown</h3>
         <div class="waterfall-bars">
           <div class="waterfall-bar base">
-            <div class="bar-label">Base Price</div>
+            <div class="bar-label" i18n="@@calculator.basePrice">Base Price</div>
             <div class="bar-container">
               <div class="bar positive"
                 [style.width.%]="getPercentage(priceBreakdown?.building?.base || 0, priceBreakdown?.total || 1)">
@@ -168,7 +168,7 @@
             </div>
           </div>
           <div class="waterfall-bar age">
-            <div class="bar-label">Depreciation</div>
+            <div class="bar-label" i18n="@@calculator.depreciation">Depreciation</div>
             <div class="bar-container">
               <div class="bar" [class]="getBarClass(priceBreakdown?.building?.age || 0)"
                 [style.width.%]="getBarWidth(priceBreakdown?.building?.age || 0, priceBreakdown?.total || 1)">
@@ -177,7 +177,7 @@
             </div>
           </div>
           <div class="waterfall-bar total">
-            <div class="bar-label">Building Total</div>
+            <div class="bar-label" i18n="@@calculator.buildingTotal">Building Total</div>
             <div class="bar-container">
               <div class="bar total"
                 [style.width.%]="getPercentage(priceBreakdown?.building?.total || 0, priceBreakdown?.total || 1)">
@@ -192,19 +192,19 @@
 
   <div class="footer">
     <div class="footer-content">
-      <p class="ml-note">
+      <p class="ml-note" i18n="@@calculator.feedbackMessage">
         <span class="emoji">💡</span> Got suggestions? Want to chat about Data Science, Japan, or anything else?
         I'm all ears! Feel free to reach using the link below. <span class="emoji">📬</span>
       </p>
       <div class="footer-links">
         <a href="https://www.linkedin.com/in/arachez" target="_blank" rel="noopener noreferrer" class="social-link">
-          <i class="fab fa-linkedin"></i> LinkedIn
+          <i class="fab fa-linkedin"></i> <span i18n="@@calculator.linkedin">LinkedIn</span>
         </a>
         <a href="https://twitter.com/zermelozf" target="_blank" rel="noopener noreferrer" class="social-link">
-          <i class="fab fa-twitter"></i> Twitter
+          <i class="fab fa-twitter"></i> <span i18n="@@calculator.twitter">Twitter</span>
         </a>
         <a href="mailto:arnaud@linalgo.com" class="social-link">
-          <i class="fas fa-envelope"></i> Contact
+          <i class="fas fa-envelope"></i> <span i18n="@@calculator.contact">Contact</span>
         </a>
       </div>
     </div>

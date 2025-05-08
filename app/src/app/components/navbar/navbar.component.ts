@@ -13,7 +13,7 @@ import { LanguageSelectorComponent } from '../language-selector/language-selecto
       <div class="navbar-container">
         <a routerLink="/" class="navbar-brand">
           <img src="logo.svg" alt="Tokyo House Price" class="navbar-logo">
-          <span class="navbar-title" i18n="@@app.title">Tokyo House Price</span>
+          <span class="navbar-title">Tokyo House Price</span>
         </a>
         
         <button class="hamburger" (click)="toggleMenu()" [class.active]="isMenuOpen">

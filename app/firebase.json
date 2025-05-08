@@ -1,0 +1,59 @@
+{
+  "hosting": {
+    "public": "dist/app",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**",
+      "en-US/**"
+    ],
+    "headers": [
+      {
+        "source": "**/*.js",
+        "headers": [
+          {
+            "key": "Content-Type",
+            "value": "application/javascript"
+          }
+        ]
+      },
+      {
+        "source": "**/*.css",
+        "headers": [
+          {
+            "key": "Content-Type",
+            "value": "text/css"
+          }
+        ]
+      }
+    ],
+    "rewrites": [
+      {
+        "source": "/detect-language",
+        "destination": "/language-router.html"
+      },
+      {
+        "source": "/ja/**",
+        "destination": "/ja/index.html"
+      },
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ],
+    "redirects": [
+      {
+        "source": "/en-US",
+        "destination": "/",
+        "type": 301
+      },
+      {
+        "source": "/en-US/**",
+        "destination": "/",
+        "type": 301
+      }
+    ],
+    "cleanUrls": true,
+    "trailingSlash": false
+  }
+} 

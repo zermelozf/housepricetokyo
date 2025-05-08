@@ -5,7 +5,7 @@
  * This script reorganizes the localized build output to:
  * - Move English (en-US) content to the root directory as the default
  * - Keep Japanese (ja) content at the /ja path
- * 
+ *
  * Usage: node deploy.js
  */
 
@@ -82,7 +82,7 @@ const packageJson = {
 };
 
 fs.writeFileSync(
-  path.join(DEPLOY_DIR, 'package.json'), 
+  path.join(DEPLOY_DIR, 'package.json'),
   JSON.stringify(packageJson, null, 2)
 );
 
@@ -101,4 +101,4 @@ To test the deployment locally:
 4. Visit http://localhost:3000/ for English
 5. Visit http://localhost:3000/ja/ for Japanese
 ============================================================
-`); 
+`);

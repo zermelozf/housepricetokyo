@@ -110,7 +110,7 @@
 .intro-text {
   grid-column: 1 / -1;
   text-align: center;
-
+  margin: 0 auto;
 }
 
 .logo {
@@ -427,4 +427,23 @@
   font-size: 1.2rem;
   color: #333;
   margin-bottom: 1.5rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.disclaimer {
+  font-style: italic;
+  color: #666;
+  margin-top: 1rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.learn-more {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
 } 

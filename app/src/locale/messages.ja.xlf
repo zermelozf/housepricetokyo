@@ -43,8 +43,8 @@
         </context-group>
       </trans-unit>
       <trans-unit id="calculator.welcome" datatype="html">
-        <source>Hey there! I hope you're finding this calculator useful!</source>
-        <target>こんにちは！このツールがお役に立てば幸いです！</target>
+        <source>Hey there!<br><br>You can use the calculator below to estimate the price of properties in Tokyo. I hope you find it useful!</source>
+        <target>こんにちは！<br><br>下の計算機を使って、東京の不動産価格を推定できます。お役に立てれば幸いです！</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/price-calculator/price-calculator.component.html</context>
           <context context-type="linenumber">4</context>
@@ -60,18 +60,18 @@
       </trans-unit>
       <trans-unit id="calculator.disclaimerText" datatype="html">
         <source>This is not investment advice. These estimates are for educational purposes only and may not be accurate.</source>
-        <target>これは投資アドバイスではありません。これらの見積もりは教育目的のみであり、正確でない場合があります。</target>
+        <target>これは投資アドバイスではありません。これらの推定値は教育目的のみであり、正確ではない可能性があります。</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/price-calculator/price-calculator.component.html</context>
-          <context context-type="linenumber">8,9</context>
+          <context context-type="linenumber">15</context>
         </context-group>
       </trans-unit>
       <trans-unit id="calculator.learnMore" datatype="html">
         <source>Learn more about the calculations here</source>
-        <target>計算方法についてはこちらをご覧ください</target>
+        <target>計算方法について詳しく見る</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/price-calculator/price-calculator.component.html</context>
-          <context context-type="linenumber">12</context>
+          <context context-type="linenumber">11</context>
         </context-group>
       </trans-unit>
       <trans-unit id="calculator.propertyType" datatype="html">

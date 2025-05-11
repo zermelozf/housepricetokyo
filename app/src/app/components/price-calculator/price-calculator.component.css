@@ -110,7 +110,7 @@
 .intro-text {
   grid-column: 1 / -1;
   text-align: center;
-  margin-bottom: 3rem;
+
 }
 
 .logo {
@@ -421,4 +421,10 @@
 
 .warning-message .emoji {
   font-size: 1.2em;
+}
+
+.welcome {
+  font-size: 1.2rem;
+  color: #333;
+  margin-bottom: 1.5rem;
 } 

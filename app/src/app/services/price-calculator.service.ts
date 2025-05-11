@@ -1,10 +1,9 @@
 import { Injectable } from '@angular/core';
-import { Property } from '../models/property';
 import { HttpClient } from '@angular/common/http';
-import { Observable, map, delay, tap, of, catchError } from 'rxjs';
+import { Observable, map, of, catchError } from 'rxjs';
 import { environment } from '../../environments/environment';
 
-interface PriceResponse {
+export interface PriceResponse {
   total: number;
   land: {
     total: number;
@@ -16,32 +15,9 @@ interface PriceResponse {
     base: number;
     age: number;
   };
+  found: boolean;
 }
 
-interface PriceBreakdown {
-  total: number;
-  land: {
-    total: number;
-    base: number;
-    orientation: number;
-    shape: number;
-    station: number;
-    road: number;
-  };
-  building: {
-    total: number;
-    base: number;
-    type: number;
-    age: number;
-  };
-}
-
-interface ApiResponse {
-  coef: string;
-  value_x: number;
-  value_y: number;
-  m: number;
-}
 
 @Injectable({
   providedIn: 'root'
@@ -72,7 +48,8 @@ export class PriceCalculatorService {
             total: 0,
             base: 0,
             age: 0
-          }
+          },
+          found: true
         });
       })
     );

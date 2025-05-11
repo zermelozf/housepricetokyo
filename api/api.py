@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+import numpy as np
 import pandas as pd
 from pydantic import BaseModel
 
@@ -58,6 +59,7 @@ class PredictionOutput(BaseModel):
     total: float = 0
     land: Land
     building: Building
+    found: bool = True
 
 
 @app.get("/")
@@ -67,12 +69,11 @@ async def root():
 
 @app.post("/predict")
 async def predict(input_data: PredictionInput):
-    x = pt.model_spec.get_model_matrix(input_data.dict()).T.reset_index()
+    x = pt.model_spec.get_model_matrix(input_data.model_dump()).T.reset_index()
     x.columns = ['coef', 'value']
     xx = x.merge(coef_, on='coef')
     xx['m'] = xx['value_x'] * xx['value_y']
     xx = xx[xx['m'] != 0]
-    print(xx)
     land = Land()
     building = Building()
     data = xx.to_dict(orient='records')
@@ -89,7 +90,6 @@ async def predict(input_data: PredictionInput):
             building.age += value
         elif ('building_type' in key):
             building.base += value
-
         elif ('date:land_m2' in key):
             land.base += value
         elif ('nearest_station_name' in key):
@@ -109,10 +109,12 @@ async def predict(input_data: PredictionInput):
         land.total = land.base + land.location
         building.total = building.base + building.age
 
+    station = f'nearest_station_name[{input_data.nearest_station_name}]:land_m2'
     res = PredictionOutput(
         total = land.total + building.total,
         land=land,
-        building=building
+        building=building,
+        found=station in x.coef.values
     )
     print(res)
     return res

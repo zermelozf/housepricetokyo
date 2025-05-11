@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
-import { PriceCalculatorService } from '../../services/price-calculator.service';
+import { PriceCalculatorService, PriceResponse } from '../../services/price-calculator.service';
 import { AreaService } from '../../services/area.service';
 import { CommonModule } from '@angular/common';
 import { MatDialog } from '@angular/material/dialog';
@@ -10,19 +10,6 @@ import { DialogComponent } from '../dialog/dialog.component';
 import { AnalyticsService } from '../../services/analytics.service';
 import { RouterModule } from '@angular/router';
 
-interface PriceResponse {
-  total: number;
-  land: {
-    total: number;
-    base: number;
-    location: number;
-  };
-  building: {
-    total: number;
-    base: number;
-    age: number;
-  };
-}
 
 @Component({
   selector: 'app-price-calculator',

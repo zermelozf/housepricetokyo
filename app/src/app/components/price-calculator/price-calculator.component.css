@@ -405,4 +405,20 @@
   background-repeat: no-repeat;
   background-position: right 1rem center;
   background-size: 1em;
+}
+
+.warning-message {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #fff3cd;
+  border: 1px solid #ffeeba;
+  border-radius: 4px;
+  color: #856404;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.warning-message .emoji {
+  font-size: 1.2em;
 } 

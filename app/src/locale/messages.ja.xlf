@@ -249,11 +249,19 @@
       </source>
         <target>
         <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;emoji&quot;&gt;"/>💡<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/> 提案がありますか？データサイエンス、日本、その他について話したいですか？
-        お気軽に下記のリンクからご連絡ください。<x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;emoji&quot;&gt;"/>📬<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/>
+        お気軽に下記のリンクからご連絡ください。<x id="START_TAG_SPAN_1" ctype="x-span" equiv-text="&lt;span class=&quot;emoji&quot;&gt;"/>📬<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/>
       </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/price-calculator/price-calculator.component.html</context>
           <context context-type="linenumber">195</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="calculator.insufficientDataWarning" datatype="html">
+        <source>It looks like there isn't any data in the training set for {{ propertyForm.get('city')?.value }} and predictions will be off. This usually happens in expensive neighborhoods with few transactions. I'll try to address the problem in a future release.</source>
+        <target>{{ propertyForm.get('city')?.value }}のトレーニングデータが不足しているため、予測が不正確になる可能性があります。これは通常、取引が少ない高級住宅地で発生します。今後のリリースでこの問題に対処する予定です。</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/price-calculator/price-calculator.component.html</context>
+          <context context-type="linenumber">156</context>
         </context-group>
       </trans-unit>
       <trans-unit id="calculator.linkedin" datatype="html">

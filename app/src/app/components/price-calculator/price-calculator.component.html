@@ -1,15 +1,18 @@
 <div class="calculator-container">
   <div class="intro-text">
     <p class="welcome">
-      <span class="emoji">👋</span> <span i18n="@@calculator.welcome">Hey there! I hope you're finding this calculator useful!</span>
+      <span class="emoji">👋</span> <span i18n="@@calculator.welcome">Hey there! I hope you're finding this calculator
+        useful!</span>
     </p>
     <div class="disclaimer">
       <p>
-        <strong i18n="@@calculator.disclaimer">Disclaimer:</strong> <span i18n="@@calculator.disclaimerText">This is not investment advice. These estimates are for educational purposes only
-        and may not be accurate.</span>
+        <strong i18n="@@calculator.disclaimer">Disclaimer:</strong> <span i18n="@@calculator.disclaimerText">This is not
+          investment advice. These estimates are for educational purposes only
+          and may not be accurate.</span>
       </p>
       <p>
-        <a class="genesis-link" href="/article" i18n="@@calculator.learnMore">Learn more about the calculations here</a>.
+        <a class="genesis-link" href="/article" i18n="@@calculator.learnMore">Learn more about the calculations
+          here</a>.
       </p>
     </div>
   </div>
@@ -188,6 +191,15 @@
         </div>
       </div>
     </div>
+
+    @if(priceBreakdown && !priceBreakdown.found) {
+    <div class="warning-message">
+      <span class="emoji">⚠️</span>
+      <span i18n="@@calculator.insufficientDataWarning">It looks like there isn't any data in the training set for {{
+        propertyForm.get('city')?.value }} and predictions will be off. This usually happens in expensive neighborhoods
+        with few transactions. I'll try to address the problem in a future release.</span>
+    </div>
+    }
   </div>
 
   <div class="footer">

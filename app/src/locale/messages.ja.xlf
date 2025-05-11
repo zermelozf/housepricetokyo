@@ -43,8 +43,8 @@
         </context-group>
       </trans-unit>
       <trans-unit id="calculator.welcome" datatype="html">
-        <source>Hey there!<br/><br/>You can use the calculator below to estimate the price of properties in Tokyo. I hope you find it useful!</source>
-        <target>こんにちは！<br/><br/>下の計算機を使って、東京の不動産価格を推定できます。お役に立てれば幸いです！</target>
+        <source>Hey there! You can use the calculator below to estimate the price of properties in Tokyo. I hope you find it useful!</source>
+        <target>こんにちは！この計算機で東京の不動産価格を推定できます。お役に立てれば嬉しいです！</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/price-calculator/price-calculator.component.html</context>
           <context context-type="linenumber">4</context>

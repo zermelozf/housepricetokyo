@@ -67,8 +67,8 @@
         </context-group>
       </trans-unit>
       <trans-unit id="calculator.learnMore" datatype="html">
-        <source>Learn more about the calculations here</source>
-        <target>計算方法について詳しく見る</target>
+        <source>Read more about how it works here.</source>
+        <target>計算の仕組みについて詳しく読む。</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/price-calculator/price-calculator.component.html</context>
           <context context-type="linenumber">11</context>
